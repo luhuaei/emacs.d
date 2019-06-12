@@ -24,6 +24,6 @@
     (require 'init-ess)
     (require 'init-lispy)
     ;; (require 'init-paredit)
-    (require 'init-awesome-pair)))
-
+    (require 'init-awesome-pair)
+    (require 'init-magit)))
 (provide 'init)
