@@ -5,7 +5,7 @@
       ;; 清空避免加载远程文件的时候分析文件。
       (file-name-handler-alist nil))
   ;; 定义一些启动目录，方便下次迁移修改
-  (defvar emacs-root-dir (file-truename "~/emacs"))
+  (defvar emacs-root-dir (file-truename "~/emacs.d"))
   (defvar emacs-config-dir (concat emacs-root-dir "/config"))
   (defvar emacs-extension-dir (concat emacs-root-dir "/extensions"))
   (defvar emacs-sdcv-data-dir (concat emacs-root-dir "/sdcv-dict"))
