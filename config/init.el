@@ -8,7 +8,6 @@
   (defvar emacs-root-dir (file-truename "~/emacs.d"))
   (defvar emacs-config-dir (concat emacs-root-dir "/config"))
   (defvar emacs-extension-dir (concat emacs-root-dir "/extensions"))
-  (defvar emacs-sdcv-data-dir (concat emacs-root-dir "/sdcv-dict"))
 
   (with-temp-message ""                 ;抹掉插件启动的输出
     ;; 先设置背景，避免闪烁。
@@ -25,5 +24,12 @@
     (require 'init-lispy)
     ;; (require 'init-paredit)
     (require 'init-awesome-pair)
-    (require 'init-magit)))
+    (require 'init-magit)
+    (require 'init-company)
+    (require 'init-yasnippet)
+    (require 'init-python)
+    (require 'init-sdcv)
+    (require 'init-utils)
+    (require 'init-w3m)
+    (require 'init-avy)))
 (provide 'init)

@@ -1,11 +1,11 @@
 (use-package lispy
   :ensure t
-  :hook (lispy-mode . lisp-mode)
+  :defer 5
+  :hook (lispy-mode . lisp-mode))
+(use-package slime
+  :ensure t
+  :defer 5
   :config
-
-  (use-package slime
-    :ensure t
-    :config
-    (setq inferior-lisp-program "/bin/sbcl")
-    (setq slime-contribs '(slime-fancy))))
+  (setq inferior-lisp-program "/bin/sbcl")
+  (setq slime-contribs '(slime-fancy)))
 (provide 'init-lispy)
