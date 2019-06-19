@@ -1,5 +1,5 @@
 (use-package lispy
-  :ensure t
+  :ensure nil
   :defer 5
   :hook (lispy-mode . lisp-mode))
 (use-package slime

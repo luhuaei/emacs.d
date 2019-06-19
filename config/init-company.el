@@ -1,6 +1,6 @@
 (use-package company
   :ensure t
-  :defer t
-  :config
-  (add-hook 'prog-mode-hook #'global-company-mode))
+  :hook ((python-mode . company-mode)
+	 (emacs-lisp-mode . company-mode)
+	 (ess-r-mode . company-mode)))
 (provide 'init-company)

@@ -31,5 +31,6 @@
     (require 'init-sdcv)
     (require 'init-utils)
     (require 'init-w3m)
-    (require 'init-avy)))
+    (require 'init-avy)
+    (require 'init-org)))
 (provide 'init)

@@ -1,6 +1,5 @@
 (use-package yasnippet
   :ensure t
-  :defer t
   :config
-  (add-hook 'prog-mode-hook #'yas-minor-mode))
+  (add-hook 'after-init-hook #'yas-global-mode))
 (provide 'init-yasnippet)
