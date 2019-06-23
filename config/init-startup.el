@@ -11,7 +11,7 @@
 
 (add-hook 'text-mode-hook 'auto-fill-mode)
 (setq-default fill-column 80)
-
+(global-unset-key (kbd "C-x C-c"))	;close kill emacs 
 
 (use-package exec-path-from-shell
   :ensure t

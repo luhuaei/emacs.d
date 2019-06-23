@@ -32,5 +32,6 @@
     (require 'init-utils)
     (require 'init-w3m)
     (require 'init-avy)
-    (require 'init-org)))
+    (require 'init-org)
+    (require 'init-emms)))
 (provide 'init)
