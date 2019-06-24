@@ -1,4 +1,3 @@
-
 (let (
       ;; 加载的时候临时增大`gc-cons-threshold'以加速启动速度。
       (gc-cons-threshold most-positive-fixnum)
@@ -11,13 +10,13 @@
 
   (with-temp-message ""                 ;抹掉插件启动的输出
     ;; 先设置背景，避免闪烁。
-    (custom-set-faces
-     '(default ((t (:background "black" :foreground "#137D11"))))
-     )
+    ;; (custom-set-faces
+    ;;  '(default ((t (:background "black" :foreground "#137D11"))))
+    ;;  )
     (require 'use-package)
     (require 'init-startup)
     (require 'init-theme)
-    (require 'init-awesome-tray)
+    ;; (require 'init-awesome-tray)
     (require 'init-auto-save)
     (require 'init-ivy)
     (require 'init-ess)
