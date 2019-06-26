@@ -1,6 +1,9 @@
 (use-package lispy
   :ensure nil
-  :defer 5)
+  :defer 5
+  :hook ((emacs-lisp-mode . lispy-mode)
+	 (lisp-mode . lispy-mode)
+	 (lisp-interaction-mode . lispy-mode)))
 (use-package slime
   :ensure t
   :defer 5
