@@ -1,4 +1,3 @@
-
 (tool-bar-mode -1)                      ;禁用工具栏
 (menu-bar-mode -1)                      ;禁用菜单栏
 (scroll-bar-mode -1)                    ;禁用滚动条
@@ -11,7 +10,8 @@
 
 (add-hook 'text-mode-hook 'auto-fill-mode)
 (setq-default fill-column 80)
-(global-unset-key (kbd "C-x C-c"))	;close kill emacs 
+(global-unset-key (kbd "C-x C-c"))	;close kill emacs
+(global-set-key (kbd "C-x C-j") 'eval-print-last-sexp)
 
 (use-package exec-path-from-shell
   :ensure t
