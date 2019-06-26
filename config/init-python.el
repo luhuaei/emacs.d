@@ -5,16 +5,16 @@
   (setq python-shell-interpreter "/home/luhuaei/.local/bin/ipython3"
 	python-shell-interpreter-args "-i --pylab --simple-prompt --no-color-info")
 
-  (use-package lpy
-    :ensure nil
-    :defer t
-    :hook (python-mode . lpy-mode))
   (use-package pipenv
     :ensure t
-    :defer t
     :hook (python-mode . pipenv-mode)
     :init
     (setq
      pipenv-projectile-after-switch-function
-     #'pipenv-projectile-after-switch-extended)))
+     #'pipenv-projectile-after-switch-extended))
+  (use-package lpy
+    :ensure nil
+    :hook (pipenv-mode . (lambda ()
+			   (lpy-mode)))))
+
 (provide 'init-python)
