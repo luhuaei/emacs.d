@@ -3,49 +3,49 @@
   :config
   (add-hook 'prog-mode-hook #'highlight-parentheses-mode))
 
-(use-package pyim
-  :disabled t
+(use-package which-key
   :ensure t
-  :demand t
-  :config
-  ;; 激活 basedict 拼音词库，五笔用户请继续阅读 README
-  (use-package pyim-basedict
+  :diminish which-key-mode
+  :bind (:map help-map ("C-h" . which-key-C-h-dispatch))
+  :hook (after-init . which-key-mode))
+
+(when (display-graphic-p)
+  (use-package pdf-tools
     :ensure t
-    :config (pyim-basedict-enable))
+    :diminish (pdf-view-midnight-minor-mode pdf-view-printer-minor-mode)
+    :defines pdf-annot-activate-created-annotations
+    :mode ("\\.[pP][dD][fF]\\'" . pdf-view-mode)
+    :magic ("%PDF" . pdf-view-mode)
+    :bind (:map pdf-view-mode-map
+                ("C-s" . isearch-forward))
+    :init
+    (setq pdf-view-midnight-colors '("#ededed" . "#21242b")
+          pdf-annot-activate-created-annotations t)
+    :config
+    (pdf-tools-install t nil t t)
 
-  (setq default-input-method "pyim")
+    ;; Recover last viewed position
+    (when emacs/>=26p
+      (use-package pdf-view-restore
+	:ensure t
+        :hook (pdf-view-mode . pdf-view-restore-mode)
+        :init (setq pdf-view-restore-filename
+                    (locate-user-emacs-file ".pdf-view-restore"))))))
 
-  ;; 我使用全拼
-  (setq pyim-default-scheme 'quanpin)
+(use-package nov
+  :ensure t
+  :mode ("\\.epub\\'" . nov-mode)
+  :preface
+  (defun my-nov-setup ()
+    (visual-line-mode 1)
+    (face-remap-add-relative 'variable-pitch :family "Times New Roman" :height 1.5)
+    (if (fboundp 'olivetti-mode) (olivetti-mode 1)))
+  :hook (nov-mode . my-nov-setup))
 
-  ;; 设置 pyim 探针设置，这是 pyim 高级功能设置，可以实现 *无痛* 中英文切换 :-)
-  ;; 我自己使用的中英文动态切换规则是：
-  ;; 1. 光标只有在注释里面时，才可以输入中文。
-  ;; 2. 光标前是汉字字符时，才能输入中文。
-  ;; 3. 使用 M-j 快捷键，强制将光标前的拼音字符串转换为中文。
-  (setq-default pyim-english-input-switch-functions
-                '(pyim-probe-dynamic-english
-                  pyim-probe-isearch-mode
-                  pyim-probe-program-mode
-                  pyim-probe-org-structure-template))
-
-  (setq-default pyim-punctuation-half-width-functions
-                '(pyim-probe-punctuation-line-beginning
-                  pyim-probe-punctuation-after-punctuation))
-
-  ;; 开启拼音搜索功能
-  (pyim-isearch-mode 1)
-
-  ;; 使用 pupup-el 来绘制选词框, 如果用 emacs26, 建议设置
-  ;; 为 'posframe, 速度很快并且菜单不会变形，不过需要用户
-  ;; 手动安装 posframe 包。
-  (setq pyim-page-tooltip 'popup)
-
-  ;; 选词框显示5个候选词
-  (setq pyim-page-length 5)
-
-  :bind
-  (("C-x j" . pyim-convert-string-at-point) ;与 pyim-probe-dynamic-english 配合
-   ("C-x M-j" . pyim-delete-word-from-personal-buffer)))
+(use-package olivetti
+  :ensure t
+  :diminish
+  :bind ("<f7>" . olivetti-mode)
+  :init (setq olivetti-body-width 0.618))
 
 (provide 'init-utils)
