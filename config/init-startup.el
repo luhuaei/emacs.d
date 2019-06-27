@@ -18,5 +18,8 @@
   :config
   (when (memq window-system '(mac ns x))
     (exec-path-from-shell-initialize)))
+(use-package disable-mouse
+  :ensure t
+  :hook (after-init . global-disable-mouse-mode))
 
 (provide 'init-startup)
