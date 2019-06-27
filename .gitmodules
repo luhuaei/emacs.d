@@ -1,0 +1,27 @@
+[submodule "extensions/awesome-tray"]
+	path = extensions/awesome-tray
+	url = https://github.com/manateelazycat/awesome-tray.git
+[submodule "extensions/use-package"]
+	path = extensions/use-package
+	url = https://github.com/jwiegley/use-package.git
+[submodule "extensions/sdcv"]
+	path = extensions/sdcv
+	url = https://github.com/manateelazycat/sdcv.git
+[submodule "extensions/auto-save"]
+	path = extensions/auto-save
+	url = https://github.com/manateelazycat/auto-save.git
+[submodule "extensions/awesome-pair"]
+	path = extensions/awesome-pair
+	url = https://github.com/manateelazycat/awesome-pair.git
+[submodule "extensions/org-static-blog"]
+	path = extensions/org-static-blog
+	url = https://github.com/bastibe/org-static-blog.git
+[submodule "extensions/lpy"]
+	path = extensions/lpy
+	url = https://github.com/abo-abo/lpy.git
+[submodule "extensions/lispy"]
+	path = extensions/lispy
+	url = https://github.com/abo-abo/lispy.git
+[submodule "extensions/emms"]
+	path = extensions/emms
+	url = https://github.com/emacsmirror/emms.git
