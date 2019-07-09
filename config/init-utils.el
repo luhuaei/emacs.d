@@ -25,12 +25,11 @@
     (pdf-tools-install t nil t t)
 
     ;; Recover last viewed position
-    (when emacs/>=26p
-      (use-package pdf-view-restore
-	:ensure t
-        :hook (pdf-view-mode . pdf-view-restore-mode)
-        :init (setq pdf-view-restore-filename
-                    (locate-user-emacs-file ".pdf-view-restore"))))))
+    (use-package pdf-view-restore
+      :ensure t
+      :hook (pdf-view-mode . pdf-view-restore-mode)
+      :init (setq pdf-view-restore-filename
+                  (locate-user-emacs-file ".pdf-view-restore")))))
 
 (use-package nov
   :ensure t
@@ -47,5 +46,11 @@
   :diminish
   :bind ("<f7>" . olivetti-mode)
   :init (setq olivetti-body-width 0.618))
+
+(use-package highlight-indent-guides
+  :ensure t
+  :hook (prog-mode . highlight-indent-guides-mode)
+  :config
+  (setq highlight-indent-guides-method 'character))
 
 (provide 'init-utils)

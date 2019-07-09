@@ -12,6 +12,11 @@
 (setq-default fill-column 80)
 (global-unset-key (kbd "C-x C-c"))	;close kill emacs
 (global-set-key (kbd "C-x C-j") 'eval-print-last-sexp)
+(global-set-key (kbd "C-x k") 'kill-current-buffer)
+(global-unset-key (kbd "<up>"))
+(global-unset-key (kbd "<down>"))
+(global-unset-key (kbd "<left>"))
+(global-unset-key (kbd "<right>"))
 
 (use-package exec-path-from-shell
   :ensure t
@@ -20,6 +25,6 @@
     (exec-path-from-shell-initialize)))
 (use-package disable-mouse
   :ensure t
-  :hook (after-init . global-disable-mouse-mode))
+  :hook (prog-mode . disable-mouse-mode))
 
 (provide 'init-startup)

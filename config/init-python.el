@@ -1,7 +1,8 @@
 (use-package python
   :ensure nil
+  :hook (python-mode . awesome-pair-mode)
   :config
-  (setq python-shell-completion-native-disabled-interpreters '("pypy" "ipython" "python" "ipython3"))
+  ;; (setq python-shell-completion-native-disabled-interpreters '("pypy" "ipython" "python" "ipython3"))
   (setq python-shell-interpreter "/home/luhuaei/.local/bin/ipython3"
 	python-shell-interpreter-args "-i --pylab --simple-prompt --no-color-info")
 
@@ -14,7 +15,6 @@
      #'pipenv-projectile-after-switch-extended))
   (use-package lpy
     :ensure nil
-    :hook (pipenv-mode . (lambda ()
-			   (lpy-mode)))))
+    :hook (python-mode . lpy-mode)))
 
 (provide 'init-python)

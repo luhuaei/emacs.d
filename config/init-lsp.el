@@ -1,12 +1,14 @@
 (use-package lsp-mode
+  :disabled t
   :ensure t
   :diminish lsp-mode
-  :hook (prog-mode . lsp-mode)
+  :hook ((ess-r-mode . lsp-mode))
   :commands (lsp lsp-mode)
   :bind (:map lsp-mode-map
               ("C-c C-d" . lsp-describe-thing-at-point))
   :init
   (setq lsp-auto-guess-root t)		; Detect project root
+  (setq lsp-ui-flycheck-enable t)
   (setq lsp-prefer-flymake nil)		; Use lsp-ui and flycheck
   (setq flymake-fringe-indicator-position 'right-fringe)
 
@@ -30,7 +32,9 @@
 		lsp-ui-doc-border (face-foreground 'default)
 
 		lsp-ui-sideline-enable t
-		lsp-ui-sideline-ignore-duplicate t)
+		lsp-ui-sideline-ignore-duplicate t
+		lsp-ui-doc-max-height 30
+		lsp-ui-doc-max-width 90)
     :config
     (add-to-list 'lsp-ui-doc-frame-parameters '(left-fringe . 0))
 
@@ -52,10 +56,7 @@
   (use-package lsp-python-ms
     :ensure t
     :defer t
-    :hook (pipenv-mode . (lambda ()
-			   (pipenv-activate)
-			   (require 'lsp-python-ms)
-			   (lsp)))
+    :init (require 'lsp-python-ms)
     :config
     (setq lsp-python-ms-dir
 	  (expand-file-name "~/emacs.d/lsp/python-language-server/output/bin/Release/"))
@@ -68,7 +69,7 @@
 		    (lsp-stdio-connection '("R" "--slave" "-e" "languageserver::run()"))
 		    :major-modes '(ess-r-mode inferior-ess-r-mode)
 		    :server-id 'lsp-R))
-  (add-hook 'ess-r-mode-hook #'(lambda () (lsp-mode) (lsp) (flymake-mode 0))))
+  (add-hook 'ess-r-mode-hook #'(lambda () (lsp-mode) (lsp))))
 
 
 (cl-defmacro lsp-org-babel-enbale (lang)
@@ -98,10 +99,10 @@
            (put ',edit-pre 'function-documentation
                 (format "Prepare local buffer environment for org source block (%s)."
                         (upcase ,lang))))))))
-(defvar org-babel-lang-list
-  '("python"))
-(dolist (lang org-babel-lang-list)
-  (eval `(lsp-org-babel-enbale ,lang)))
+;; (defvar org-babel-lang-list
+;;   '("R"))
+;; (dolist (lang org-babel-lang-list)
+;;   (eval `(lsp-org-babel-enbale ,lang)))
 
 
 (provide 'init-lsp)

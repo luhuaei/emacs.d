@@ -34,6 +34,6 @@
     (require 'init-org)
     (require 'init-emms)
     (require 'init-flycheck)
-    (require 'init-lsp)
+    ;; (require 'init-lsp)
     ))
 (provide 'init)

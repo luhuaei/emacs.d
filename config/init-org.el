@@ -14,11 +14,13 @@
   (setq org-confirm-babel-evaluate nil)
   ;; display/update images in the buffer after I evaluate
   ;; (add-hook 'org-babel-after-execute-hook 'org-display-inline-images 'append)
-  (setq org-src-window-setup 'current-window))
+  (setq org-src-window-setup 'current-window)
+  (setq org-log-done 'time))
 
 (use-package htmlize
   :ensure t)
 
+;; my blog template
 (use-package org-static-blog
   :ensure nil
   :config
