@@ -1,6 +1,9 @@
 
 (use-package org
   :ensure nil
+  :hook (org-mode . (lambda ()
+		      (org-indent-mode)))
+  :bind (("C-c c" . 'org-capture))
   :config
   (org-babel-do-load-languages
    'org-babel-load-languages
@@ -10,12 +13,25 @@
      (lisp . t)
      (R . t)))
 
+  ;; don't delete the fold content
+  (setq org-catch-invisible-edits 'error)
   ;; don't prompt me to confirm everytime I want to evaluate a block
   (setq org-confirm-babel-evaluate nil)
   ;; display/update images in the buffer after I evaluate
   ;; (add-hook 'org-babel-after-execute-hook 'org-display-inline-images 'append)
   (setq org-src-window-setup 'current-window)
-  (setq org-log-done 'time))
+  (setq org-log-done 'time)
+  ;; org todo template
+  (setq org-todo-keywords
+	'((sequence "TODO" "DOING" "DONE")
+	  (sequence "REPORT" "BUG" "KNOWNCAUSE" "|" "FIXED")
+	  (sequence "|" "CANCELED")))
+  (setq org-default-notes-file "~/org/gtd.org")
+  (setq org-capture-templates
+	'(("t" "TODO" entry (file+headline "~/org/gtd.org" "Tasks")
+	   "* TODO %?\n  %i\n  %a")
+	  ("j" "Journal" entry (file+datetree "~/org/journal.org" "Journal")
+	   "* %?\nEntered on %U\n  %i\n  %a"))))
 
 (use-package htmlize
   :ensure t)
