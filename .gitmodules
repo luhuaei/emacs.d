@@ -28,6 +28,3 @@
 [submodule "extensions/vi-navigate"]
 	path = extensions/vi-navigate
 	url = https://github.com/manateelazycat/vi-navigate.git
-[submodule "extensions/awesome-tab"]
-	path = extensions/awesome-tab
-	url = https://github.com/manateelazycat/awesome-tab.git
