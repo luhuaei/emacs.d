@@ -1,8 +1,8 @@
 (use-package lsp-mode
-  :disabled t
   :ensure t
   :diminish lsp-mode
-  :hook ((ess-r-mode . lsp-mode))
+  :hook ((ess-r-mode . lsp-mode)
+	 (python-mode . lsp-mode))
   :commands (lsp lsp-mode)
   :bind (:map lsp-mode-map
               ("C-c C-d" . lsp-describe-thing-at-point))
@@ -31,7 +31,7 @@
 		lsp-ui-doc-position 'top
 		lsp-ui-doc-border (face-foreground 'default)
 
-		lsp-ui-sideline-enable t
+		lsp-ui-sideline-enable nil
 		lsp-ui-sideline-ignore-duplicate t
 		lsp-ui-doc-max-height 30
 		lsp-ui-doc-max-width 90)
