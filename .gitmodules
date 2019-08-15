@@ -1,6 +1,3 @@
-[submodule "extensions/awesome-tray"]
-	path = extensions/awesome-tray
-	url = https://github.com/manateelazycat/awesome-tray.git
 [submodule "extensions/use-package"]
 	path = extensions/use-package
 	url = https://github.com/jwiegley/use-package.git
