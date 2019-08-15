@@ -25,6 +25,3 @@
 [submodule "extensions/emms"]
 	path = extensions/emms
 	url = https://github.com/emacsmirror/emms.git
-[submodule "extensions/vi-navigate"]
-	path = extensions/vi-navigate
-	url = https://github.com/manateelazycat/vi-navigate.git
