@@ -22,3 +22,6 @@
 [submodule "extensions/emms"]
 	path = extensions/emms
 	url = https://github.com/emacsmirror/emms.git
+[submodule "extensions/emacs-application-framework"]
+	path = extensions/emacs-application-framework
+	url = https://github.com/manateelazycat/emacs-application-framework.git
