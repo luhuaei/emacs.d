@@ -22,6 +22,7 @@
     (setq pdf-view-midnight-colors '("#ededed" . "#21242b")
           pdf-annot-activate-created-annotations t)
     :config
+    (add-hook 'pdf-view-mode-hook #'(lambda () (linum-mode 0)))
     (pdf-tools-install t nil t t)
 
     ;; Recover last viewed position
