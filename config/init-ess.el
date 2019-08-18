@@ -12,6 +12,8 @@
           ("*R"
            (display-buffer-reuse-window display-buffer-at-bottom)
            (window-width . 0.5)
-           (reusable-frames . nil)))))
+           (reusable-frames . nil))))
+  (setq ess-use-company t))
+
 
 (provide 'init-ess)
