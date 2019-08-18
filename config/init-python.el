@@ -14,7 +14,6 @@
      pipenv-projectile-after-switch-function
      #'pipenv-projectile-after-switch-extended))
   (use-package lpy
-    :ensure nil
-    :hook (python-mode . lpy-mode)))
+    :ensure nil))
 
 (provide 'init-python)
