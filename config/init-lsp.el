@@ -1,8 +1,6 @@
 (use-package lsp-mode
   :ensure t
   :diminish lsp-mode
-  :hook ((ess-r-mode . lsp-mode)
-	 (python-mode . lsp-mode))
   :commands (lsp lsp-mode)
   :bind (:map lsp-mode-map
               ("C-c C-d" . lsp-describe-thing-at-point))
@@ -26,7 +24,7 @@
 		("C-c u" . lsp-ui-imenu))
     :init (setq lsp-ui-doc-enable t
 		lsp-ui-doc-use-webkit nil
-		lsp-ui-doc-delay 1.0
+		lsp-ui-doc-delay 0.2
 		lsp-ui-doc-include-signature t
 		lsp-ui-doc-position 'top
 		lsp-ui-doc-border (face-foreground 'default)
@@ -46,17 +44,12 @@
     (defadvice lsp-ui-imenu (after hide-lsp-ui-imenu-mode-line activate)
       (setq mode-line-format nil)))
 
-  (use-package company-lsp
-    :ensure t
-    :init (setq company-lsp-cache-candidates 'auto)
-    :config
-    (push 'company-lsp company-backends))
-
   ;; ms-python
   (use-package lsp-python-ms
     :ensure t
     :defer t
     :init (require 'lsp-python-ms)
+    :hook (python-mode . lsp-mode)
     :config
     (setq lsp-python-ms-dir
 	  (expand-file-name "~/emacs.d/lsp/python-language-server/output/bin/Release/"))
@@ -69,7 +62,9 @@
 		    (lsp-stdio-connection '("R" "--slave" "-e" "languageserver::run()"))
 		    :major-modes '(ess-r-mode inferior-ess-r-mode)
 		    :server-id 'lsp-R))
-  (add-hook 'ess-r-mode-hook #'(lambda () (lsp-mode) (lsp))))
+  (add-hook 'ess-r-mode-hook #'(lambda () (lsp-mode) (lsp)))
+  (add-hook 'R-mode-hook #'(lambda () (lsp-mode) (lsp)))
+  (add-hook 'ess-mode-hook #'(lambda () (lsp-mode) (lsp))))
 
 
 (cl-defmacro lsp-org-babel-enbale (lang)
