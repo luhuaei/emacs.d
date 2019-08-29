@@ -28,10 +28,12 @@
 	  (sequence "|" "CANCELED")))
   (setq org-default-notes-file "~/org/gtd.org")
   (setq org-capture-templates
-	'(("t" "TODO" entry (file+headline "~/org/gtd.org" "Tasks")
-	   "* TODO %?\n  %i\n  %a")
-	  ("j" "Journal" entry (file+datetree "~/org/journal.org" "Journal")
-	   "* %?\nEntered on %U\n  %i\n  %a"))))
+	'(("t" "TODO" checkitem (file+headline "~/org/gtd.org" "Tasks")
+	   "* %?\n  %T\n %F\n %^G")
+	  ("j" "Journal" plain (file+headline "~/org/journal.org" "Journal")
+	   "%?\n keep on %U\n")
+	  ("n" "keep note" item (file+headline "~/org/Note.org" "Note")
+	   "%T\n  %?\n %i\n %^G"))))
 
 (use-package htmlize
   :ensure t)
