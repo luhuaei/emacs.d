@@ -29,6 +29,7 @@
     (require 'init-emms)
     (require 'init-flycheck)
     (require 'init-lsp)
+    (require 'init-treemacs)
     (require 'init-eaf)
     ))
 (provide 'init)
