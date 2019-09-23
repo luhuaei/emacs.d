@@ -22,15 +22,15 @@
 		([remap xref-find-definitions] . lsp-ui-peek-find-definitions)
 		([remap xref-find-references] . lsp-ui-peek-find-references)
 		("C-c u" . lsp-ui-imenu))
-    :init (setq lsp-ui-doc-enable t
+    :init (setq lsp-ui-doc-enable nil
 		lsp-ui-doc-use-webkit nil
-		lsp-ui-doc-delay 0.2
+		lsp-ui-doc-delay 1
 		lsp-ui-doc-include-signature t
 		lsp-ui-doc-position 'top
 		lsp-ui-doc-border (face-foreground 'default)
 
 		lsp-ui-sideline-enable nil
-		lsp-ui-sideline-ignore-duplicate t
+		lsp-ui-sideline-ignore-duplicate nil
 		lsp-ui-doc-max-height 30
 		lsp-ui-doc-max-width 90)
     :config
@@ -60,11 +60,28 @@
   (lsp-register-client
    (make-lsp-client :new-connection
 		    (lsp-stdio-connection '("R" "--slave" "-e" "languageserver::run()"))
-		    :major-modes '(ess-r-mode inferior-ess-r-mode)
+		    :major-modes '(ess-mode ess-r-mode)
 		    :server-id 'lsp-R))
-  (add-hook 'ess-r-mode-hook #'(lambda () (lsp-mode) (lsp)))
-  (add-hook 'R-mode-hook #'(lambda () (lsp-mode) (lsp)))
-  (add-hook 'ess-mode-hook #'(lambda () (lsp-mode) (lsp))))
+
+  (use-package lsp-treemacs
+    :ensure t
+    :bind (:map lsp-mode-map
+		("M-9" . lsp-treemacs-errors-list)))
+
+  (use-package dap-mode
+    :ensure t
+    :diminish
+    :functions dap-hydra/nil
+    :bind (:map lsp-mode-map
+		("<f5>" . dap-debug)
+		("M-<f5>" . dap-hydra))
+    :hook ((after-init . dap-mode)
+           (dap-mode . dap-ui-mode)
+           (dap-session-created . (lambda (&_rest) (dap-hydra)))
+           (dap-terminated . (lambda (&_rest) (dap-hydra/nil)))
+
+           (python-mode . (lambda () (require 'dap-python))))))
+
 
 
 (cl-defmacro lsp-org-babel-enbale (lang)
@@ -98,6 +115,8 @@
 ;;   '("R"))
 ;; (dolist (lang org-babel-lang-list)
 ;;   (eval `(lsp-org-babel-enbale ,lang)))
+
+
 
 
 (provide 'init-lsp)

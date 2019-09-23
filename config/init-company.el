@@ -11,16 +11,18 @@
          :map company-search-map
          ("C-p" . company-select-previous)
          ("C-n" . company-select-next))
-  :hook (after-init . global-company-mode)
+  :hook (prog-mode . company-mode)
   :config
   (setq company-tooltip-align-annotations t ; aligns annotation to the right
 	company-tooltip-limit 24            ; bigger popup window
-	company-idle-delay .3 ; decrease delay before autocompletion popup shows
+	company-idle-delay 0  ; decrease delay before autocompletion popup shows
 	company-echo-delay .2 ; remove annoying blinking
-	company-minimum-prefix-length 2
+	company-minimum-prefix-length 3
 	company-require-match nil
 	company-dabbrev-ignore-case nil
-	company-dabbrev-downcase nil)
+	company-dabbrev-downcase nil
+	company-show-number t)
+
   ;; Nicer looking faces
   (custom-set-faces
    '(company-tooltip-common
@@ -30,8 +32,9 @@
 
   (use-package company-lsp
     :ensure t
-    :init (setq company-lsp-cache-candidates 'auto))
-  (push 'company-lsp company-backends))
+    :init (setq company-lsp-cache-candidates 'auto)
+    :config
+    (add-to-list 'company-backends #'company-lsp)))
 
 (use-package company-quickhelp
   :ensure t
@@ -40,5 +43,6 @@
 	      ("C-c h" . company-quickhelp-manual-begin))
   :hook (global-company-mode . company-quickhelp-mode)
   :init (setq company-quickhelp-delay 0.5))
+
 
 (provide 'init-company)

@@ -1,7 +1,3 @@
-(use-package lazycat-theme
-  :disabled t
-  :ensure nil)
-
 (use-package doom-themes
   :ensure t
   :config

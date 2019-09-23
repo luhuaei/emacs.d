@@ -11,7 +11,10 @@
      (python . t)
      (emacs-lisp . t)
      (lisp . t)
-     (R . t)))
+     (shell . t)
+     (R . t)
+     (C . t)
+     (jupyter . t)))
 
   ;; don't delete the fold content
   (setq org-catch-invisible-edits 'error)

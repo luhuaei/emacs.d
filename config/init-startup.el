@@ -18,6 +18,15 @@
 (global-unset-key (kbd "<down>"))
 (global-unset-key (kbd "<left>"))
 (global-unset-key (kbd "<right>"))
+(global-hl-line-mode t)
+(column-number-mode t)
+;; 设置没有激活的窗口mode-line为underline
+(defun my-mode-line-modify ()
+  (set-face-attribute 'mode-line-inactive nil
+		      :underline '(:color "DarkRed")
+		      :height 0.1
+		      :background (face-background 'default)))
+(add-hook 'after-init-hook #'my-mode-line-modify)
 
 (use-package exec-path-from-shell
   :ensure t
@@ -27,7 +36,7 @@
 
 (use-package disable-mouse
   :ensure t
-  :hook (prog-mode . disable-mouse-mode))
+  :hook (after-init . global-disable-mouse-mode))
 
 (use-package all-the-icons
   :ensure t)
