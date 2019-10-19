@@ -14,14 +14,17 @@
      (shell . t)
      (R . t)
      (C . t)
-     (jupyter . t)))
+     (jupyter . t)
+     (sql . t)
+     (dot . t)))
 
   ;; don't delete the fold content
   (setq org-catch-invisible-edits 'error)
   ;; don't prompt me to confirm everytime I want to evaluate a block
   (setq org-confirm-babel-evaluate nil)
   ;; display/update images in the buffer after I evaluate
-  ;; (add-hook 'org-babel-after-execute-hook 'org-display-inline-images 'append)
+  (add-hook 'org-babel-after-execute-hook 'org-display-inline-images 'append)
+  (setq org-export-babel-evaluate nil)	;don't evaluate during exports
   (setq org-src-window-setup 'current-window)
   (setq org-log-done 'time)
   ;; org todo template
@@ -42,7 +45,8 @@
 	  ("e" "Event" entry (file+headline "~/org/Events.org" "Transient")
 	   "* EVENT %?\n%U" :empty-lines 1)
 	  ("E" "Event With Clipboard" entry (file+headline "~/org/Events.org" "Transient")
-	   "* EVENT %?\n%U\n%c" :empty-lines 1))))
+	   "* EVENT %?\n%U\n%c" :empty-lines 1)))
+  (setq org-agenda-files '("~/org/")))
 
 (use-package htmlize
   :ensure t)

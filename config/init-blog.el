@@ -15,19 +15,23 @@
       (kill-buffer buffer)))
 
   (defvar org-blog-head
-    "<link rel=\"stylesheet\" type=\"text/css\" href=\"/assets/css/style.css\"/>
+    "
+<meta name=\"google-site-verification\" content=\"dVWCUwH8eYXavYgAUJtgmzwlXVIcYZeyvlUolZQVb2E\" />
+<link rel=\"stylesheet\" type=\"text/css\" href=\"/assets/css/style.css\"/>
 <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-MML-AM_CHTML' async></script>
 <link rel=\"shortcut icon\" type=\"image/x-icon\" href=\"favicon.ico\">")
 
   (defun org-blog-preamble (_plist)
     "Pre-amble for whole blog."
-    "<div class=\"\">
-    <a href=\"/\"> Luhuaei </a>
-  </div>
-  <ul class=\"\">
-    <li><a href=\"/about.html\"> About Me </a> </li>
-    <li><a href=\"/archive.html\"> Posts </a> </li>
-  </ul>
+    "
+<div class=\"\">
+    <a href=\"/\"> Luhua.ei </a>
+</div>
+<ul class=\"\">
+  <li><a href=\"/about.html\"> About Me </a> </li>
+  <li><a href=\"https://github.com/luhuaei\"> Github </a> </li>
+  <li><a href=\"/archive.html\"> Posts </a> </li>
+</ul>
   <hr>")
 
   (defun org-blog-postamble (plist)
@@ -115,7 +119,7 @@
           ("data"
            :base-directory "~/blog/src/posts/"
 	   :base-extension "csv\\|pdf"
-           :publishing-directory "~/blog/posts/data"
+           :publishing-directory "~/blog/posts/"
            :publishing-function org-publish-attachment
            :recursive t)
 
