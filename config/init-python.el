@@ -26,6 +26,7 @@
 
   (use-package pipenv
     :ensure t
+    :diminish pipenv-mode-hook
     :hook (python-mode . pipenv-mode)
     :init
     (setq

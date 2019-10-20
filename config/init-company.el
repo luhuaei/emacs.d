@@ -1,5 +1,6 @@
 (use-package company
   :ensure t
+  :diminish company-mode
   :bind (("M-/" . company-complete)
          ("<backtab>" . company-yasnippet)
          :map company-active-map

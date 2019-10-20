@@ -1,5 +1,6 @@
 (use-package highlight-parentheses
   :ensure t
+  :diminish highlight-parentheses-mode
   :config
   (add-hook 'prog-mode-hook #'highlight-parentheses-mode))
 
@@ -44,18 +45,19 @@
 
 (use-package olivetti
   :ensure t
-  :diminish
   :bind ("<f7>" . olivetti-mode)
   :init (setq olivetti-body-width 0.618))
 
 (use-package highlight-indent-guides
   :ensure t
+  :diminish highlight-indent-guides-mode
   :hook (prog-mode . highlight-indent-guides-mode)
   :config
   (setq highlight-indent-guides-method 'character))
 
 (use-package multiple-cursors
   :ensure t
+  :diminish multiple-cursors-mode
   :config
   (global-set-key (kbd "C-S-c C-S-c") 'mc/edit-lines)
   (global-set-key (kbd "C->") 'mc/mark-next-like-this)
