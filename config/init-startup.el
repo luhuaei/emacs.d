@@ -22,6 +22,23 @@
 (column-number-mode t)
 (global-set-key (kbd "M-s r") 'replace-regexp)
 
+(setq-default mode-line-format
+      '("%e"
+	mode-line-front-space
+	mode-line-mule-info
+	mode-line-client
+	mode-line-modified
+	mode-line-remote
+	mode-line-frame-identification
+	mode-line-buffer-identification
+	"   "
+	mode-line-position
+	(vc-mode vc-mode)
+	"   "
+	mode-line-modes
+	mode-line-misc-info
+	(:eval (format "%s" last-command))))
+
 (defun my-mode-line-modify ()
   "设置没有激活的窗口mode-line为underline"
   (set-face-attribute 'mode-line-inactive nil
@@ -29,6 +46,8 @@
 		      :height 0.1
 		      :background (face-background 'default)))
 (add-hook 'after-init-hook #'my-mode-line-modify)
+
+
 
 (defun my-scratch ()
   (interactive)
@@ -38,6 +57,9 @@
   (switch-to-buffer "*scratch*"))
 (global-set-key (kbd "<f9>") 'my-scratch)
 
+(use-package diminish
+  :ensure t)
+
 (use-package exec-path-from-shell
   :ensure t
   :config
@@ -46,6 +68,7 @@
 
 (use-package disable-mouse
   :ensure t
+  :diminish disable-mouse-global-mode
   :hook (after-init . global-disable-mouse-mode))
 
 (use-package all-the-icons
