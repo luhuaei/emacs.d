@@ -8,6 +8,18 @@
   (setq python-shell-interpreter "/home/luhuaei/.local/bin/ipython3"
 	python-shell-interpreter-args "-i --pylab --simple-prompt --no-color-info")
 
+  (defun my-jupyter-next-line (insert)
+    (let ((status (use-region-p)))
+      (if status
+	  (goto-char (cdar (region-bounds)))
+	nil)
+      (beginning-of-line)
+      (next-line)
+      (end-of-line)
+      (if status (keyboard-quit) nil)))
+
+  (advice-add #'jupyter-eval-line-or-region :after #'my-jupyter-next-line)
+
   (defun my-hide-jupyter-windows ()
     (interactive)
     (let ((d (get-buffer-window "*jupyter-display*"))
@@ -22,7 +34,7 @@
        (tb (delete-window tb))
        (e (delete-window e))
        nil)))
-  (advice-add #'keyboard-quit :before #'my-hide-jupyter-windows)
+  ;; (advice-add #'keyboard-quit :before #'my-hide-jupyter-windows)
 
   (use-package pipenv
     :ensure t
