@@ -68,6 +68,7 @@
 
 (use-package disable-mouse
   :ensure t
+  :disabled
   :diminish disable-mouse-global-mode
   :hook (after-init . global-disable-mouse-mode))
 

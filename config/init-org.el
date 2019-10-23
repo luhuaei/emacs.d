@@ -25,7 +25,7 @@
   ;; display/update images in the buffer after I evaluate
   (add-hook 'org-babel-after-execute-hook 'org-display-inline-images 'append)
   (setq org-export-babel-evaluate nil)	;don't evaluate during exports
-  (setq org-src-window-setup 'current-window)
+  (setq org-src-window-setup 'reorganize-frame)
   (setq org-log-done 'time)
   ;; org todo template
   (setq org-todo-keywords

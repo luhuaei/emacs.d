@@ -18,9 +18,9 @@
     :mode ("\\.[pP][dD][fF]\\'" . pdf-view-mode)
     :magic ("%PDF" . pdf-view-mode)
     :bind (:map pdf-view-mode-map
-                ("C-s" . isearch-forward))
+		("C-c M-p m" . pdf-view-midnight-minor-mode))
     :init
-    (setq pdf-view-midnight-colors '("#ededed" . "#21242b")
+    (setq pdf-view-midnight-colors '("#000000" . "#DEDAD2")
           pdf-annot-activate-created-annotations t)
     :config
     (add-hook 'pdf-view-mode-hook #'(lambda () (linum-mode 0)))
@@ -47,6 +47,10 @@
   :ensure t
   :bind ("<f7>" . olivetti-mode)
   :init (setq olivetti-body-width 0.618))
+
+(use-package interleave
+  :ensure nil
+  :diminish interleave-pdf-mode)
 
 (use-package highlight-indent-guides
   :ensure t
