@@ -20,7 +20,7 @@
     :bind (:map pdf-view-mode-map
 		("C-c M-p m" . pdf-view-midnight-minor-mode))
     :init
-    (setq pdf-view-midnight-colors '("#000000" . "#DEDAD2")
+    (setq pdf-view-midnight-colors '("#000000" . "#FDF6E3")
           pdf-annot-activate-created-annotations t)
     :config
     (add-hook 'pdf-view-mode-hook #'(lambda () (linum-mode 0)))
@@ -50,11 +50,16 @@
 
 (use-package interleave
   :ensure nil
-  :diminish interleave-pdf-mode)
+  :diminish interleave-pdf-mode interleave-mode
+  :config
+  (setq interleave-org-notes-dir-list '("~/org/interleave/" "~/Books/"))
+  (setq interleave-split-direction 'horizontal)
+  (setq interleave-split-lines 10))
 
 (use-package highlight-indent-guides
   :ensure t
   :diminish highlight-indent-guides-mode
+  :disabled
   :hook (prog-mode . highlight-indent-guides-mode)
   :config
   (setq highlight-indent-guides-method 'character))
@@ -67,5 +72,19 @@
   (global-set-key (kbd "C->") 'mc/mark-next-like-this)
   (global-set-key (kbd "C-<") 'mc/mark-previous-like-this)
   (global-set-key (kbd "C-c C-<") 'mc/mark-all-like-this))
+
+(use-package flyspell
+  :ensure nil
+  :diminish
+  :if (executable-find "aspell")
+  :hook (((text-mode outline-mode) . flyspell-mode)
+         ;; (prog-mode . flyspell-prog-mode)
+         (flyspell-mode . (lambda ()
+                            (dolist (key '("C-;" "C-," "C-."))
+                              (unbind-key key flyspell-mode-map)))))
+  :init
+  (setq flyspell-issue-message-flag nil
+        ispell-program-name "aspell"
+        ispell-extra-args '("--sug-mode=ultra" "--lang=en_US" "--run-together")))
 
 (provide 'init-utils)

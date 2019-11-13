@@ -30,7 +30,7 @@
     (require 'init-flycheck)
     (require 'init-lsp)
     (require 'init-treemacs)
-    ;; (require 'init-eaf)
+    (require 'init-eaf)
     (require 'init-erc)
     (require 'init-c)
     (require 'init-color-rg)

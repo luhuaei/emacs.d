@@ -10,7 +10,7 @@
 (setq split-width-threshold nil)	;设置分屏宽度为0
 (add-hook 'text-mode-hook 'auto-fill-mode) ;段缩进
 (setq-default fill-column 80)		   ;缩进列数
-(global-linum-mode t)
+(global-linum-mode -1)
 (global-unset-key (kbd "C-x C-c"))	;close kill emacs
 (global-set-key (kbd "C-x C-j") 'eval-print-last-sexp)
 (global-set-key (kbd "C-x k") 'kill-current-buffer)
@@ -18,7 +18,7 @@
 (global-unset-key (kbd "<down>"))
 (global-unset-key (kbd "<left>"))
 (global-unset-key (kbd "<right>"))
-(global-hl-line-mode t)
+;; (global-hl-line-mode -1)
 (column-number-mode t)
 (global-set-key (kbd "M-s r") 'replace-regexp)
 
@@ -47,7 +47,13 @@
 		      :background (face-background 'default)))
 (add-hook 'after-init-hook #'my-mode-line-modify)
 
-
+;; mouse auto move the right bottom
+(mouse-avoidance-mode 'banish)
+(setq mouse-avoidance-banish-position '((frame-or-window . frame)
+					(side . right)
+					(side-pos . 3)
+					(top-or-bottom . bottom)
+					(top-or-bottom-pos . 0)))
 
 (defun my-scratch ()
   (interactive)
@@ -56,6 +62,10 @@
     (startup--get-buffer-create-scratch))
   (switch-to-buffer "*scratch*"))
 (global-set-key (kbd "<f9>") 'my-scratch)
+
+(defun my-insert-date ()
+  (interactive)
+  (insert (format-time-string "[%Y-%m-%d %H:%M:%S]")))
 
 (use-package diminish
   :ensure t)
