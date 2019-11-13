@@ -63,6 +63,24 @@
 		    :major-modes '(ess-mode ess-r-mode)
 		    :server-id 'lsp-R))
 
+  ;; C/C++
+  (use-package ccls
+    :ensure t
+    :hook ((c-mode . lsp-mode)
+	   (c++-mode . lsp-mode))
+    :config
+    (setq ccls-executable "/usr/bin/ccls")
+    (setq ccls-initialization-options '(:index (:comments 2) :completion (:detailedLabel t)))
+    (setq lsp-ui-doc-include-signature nil)  ; don't include type signature in the child frame
+    (setq lsp-ui-sideline-show-symbol nil)  ; don't show symbol on the right of info
+    (setq company-transformers nil company-lsp-async t company-lsp-cache-candidates nil)
+    (setq ccls-sem-highlight-method 'font-lock)
+    (ccls-use-default-rainbow-sem-highlight)
+
+    ;; Alternatively, use lsp-ui-peek interface
+    (lsp-ui-peek-find-custom "$ccls/call")
+    (lsp-ui-peek-find-custom "$ccls/call" '(:callee t)))
+
   (use-package lsp-treemacs
     :ensure t
     :bind (:map lsp-mode-map

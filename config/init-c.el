@@ -1,16 +1,22 @@
 (use-package cc-mode
   :ensure t
   :bind (:map c-mode-base-map
-         ("C-c c" . compile))
-  :hook (c-mode-common . (lambda ()
-                           (c-set-style "bsd")
-                           (setq tab-width 4)
-                           (setq c-basic-offset 4)))
+              ("C-c c" . compile))
   :config
+  (add-hook 'c-mode-hook #'(lambda () (lsp)))
+  (add-hook 'c++-mode-hook #'(lambda () (lsp)))
+  (add-hook 'c-mode-common-hook #'(lambda () (lsp)))
+  (use-package google-c-style
+    :ensure nil
+    :disabled
+    :config
+    (add-hook 'c-mode-common-hook 'google-set-c-style)
+    (add-hook 'c-mode-common-hook 'google-make-newline-indent))
   (use-package modern-cpp-font-lock
     :ensure t
+    :disabled
     :diminish
-    :init (modern-c++-font-lock-global-mode t))
+    :init (modern-c++-font-lock-mode t))
   (use-package c-eldoc
     :ensure t
     :config
