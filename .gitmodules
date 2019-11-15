@@ -22,3 +22,9 @@
 [submodule "extensions/interleave"]
 	path = extensions/interleave
 	url = https://github.com/rudolfochrist/interleave.git
+[submodule "extensions/awesome-tab"]
+	path = extensions/awesome-tab
+	url = https://github.com/manateelazycat/awesome-tab.git
+[submodule "extensions/org-wiki"]
+	path = extensions/org-wiki
+	url = https://github.com/caiorss/org-wiki.git
