@@ -49,7 +49,7 @@
     :ensure t
     :defer t
     :init (require 'lsp-python-ms)
-    :hook (python-mode . lsp-mode)
+    :hook (python-mode . (lambda () (lsp-mode) (lsp)))
     :config
     (setq lsp-python-ms-dir
 	  (expand-file-name "~/emacs.d/lsp/python-language-server/output/bin/Release/"))
