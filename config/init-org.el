@@ -52,6 +52,20 @@
 	   "* Idea %?\n%U\n%^G" :empty-lines 1)))
   (setq org-agenda-files '("~/org/")))
 
+(use-package org-ehtml
+  :ensure t
+  :config
+  (setq org-ehtml-docroot (expand-file-name "~/org"))
+  (setq org-ehtml-allow-agenda t)
+  (setq org-ehtml-everything-editable nil)
+  (setq org-ehtml-style (concat "<style>"
+				(with-temp-buffer
+				  (insert-file-contents "~/.scripts/style.css")
+				  (buffer-string))
+				"</style>"))
+  (setq org-ehtml-dir-match "^\\([^.].*[^~]\\|\\.\\.\\)$")
+  (ws-start org-ehtml-handler 1608))
+
 (use-package htmlize
   :ensure t)
 

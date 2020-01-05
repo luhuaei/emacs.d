@@ -10,29 +10,6 @@
   :bind (:map help-map ("C-h" . which-key-C-h-dispatch))
   :hook (after-init . which-key-mode))
 
-(when (display-graphic-p)
-  (use-package pdf-tools
-    :ensure t
-    :diminish (pdf-view-midnight-minor-mode pdf-view-printer-minor-mode)
-    :defines pdf-annot-activate-created-annotations
-    :mode ("\\.[pP][dD][fF]\\'" . pdf-view-mode)
-    :magic ("%PDF" . pdf-view-mode)
-    :bind (:map pdf-view-mode-map
-		("C-c M-p m" . pdf-view-midnight-minor-mode))
-    :init
-    (setq pdf-view-midnight-colors '("#000000" . "#FDF6E3")
-          pdf-annot-activate-created-annotations t)
-    :config
-    (add-hook 'pdf-view-mode-hook #'(lambda () (linum-mode 0)))
-    (pdf-tools-install t nil t t)
-
-    ;; Recover last viewed position
-    (use-package pdf-view-restore
-      :ensure t
-      :hook (pdf-view-mode . pdf-view-restore-mode)
-      :init (setq pdf-view-restore-filename
-                  (locate-user-emacs-file ".pdf-view-restore")))))
-
 (use-package nov
   :ensure t
   :mode ("\\.epub\\'" . nov-mode)
@@ -54,12 +31,12 @@
   :config
   (setq interleave-org-notes-dir-list '("~/org/interleave/" "~/Books/"))
   (setq interleave-split-direction 'horizontal)
+  (setq interleave-disable-narrowing t)
   (setq interleave-split-lines 10))
 
 (use-package highlight-indent-guides
   :ensure t
   :diminish highlight-indent-guides-mode
-  :disabled
   :hook (prog-mode . highlight-indent-guides-mode)
   :config
   (setq highlight-indent-guides-method 'character))

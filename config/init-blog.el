@@ -131,13 +131,13 @@
 	   :recursive t)
 
           ("blog" :components ("orgfiles" "data" "images"))))
-
-  (defun my-new-post ()
-  (interactive)
-  (let ((filename (read-string "Filename: ")))
-    (find-file (concat "~/blog/src/posts/" filename ".org"))
-    (insert "#+title:  "  "\n"
-	    "#+date: " (format-time-string "[%Y-%m-%d %H:%M]") "\n")))
   )
+
+(defun my-new-post ()
+    (interactive)
+    (let ((filename (read-string "Filename: ")))
+      (find-file (concat "~/blog/src/posts/" filename ".org"))
+      (insert "#+title:  "  "\n"
+	      "#+date: " (format-time-string "[%Y-%m-%d %H:%M]") "\n")))
 
 (provide 'init-blog)

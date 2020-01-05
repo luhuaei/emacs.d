@@ -1,5 +1,6 @@
 (use-package lsp-mode
   :ensure t
+  :disabled t
   :diminish lsp-mode
   :commands (lsp lsp-mode)
   :bind (:map lsp-mode-map

@@ -31,6 +31,7 @@
 		 'ess-r-mode-hook
 		 'r-mode-hook
 		 'pipenv-mode-hook
+                 'web-mode-hook
 		 ))
     (add-hook hook '(lambda () (awesome-pair-mode 1))))
   (define-key awesome-pair-mode-map (kbd "(") 'awesome-pair-open-round)
