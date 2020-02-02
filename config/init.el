@@ -37,5 +37,6 @@
     (require 'init-blog)
     (require 'init-sql)
     (require 'init-web)
+    (require 'init-snails)
     ))
 (provide 'init)

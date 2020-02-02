@@ -25,3 +25,9 @@
 [submodule "extensions/awesome-tab"]
 	path = extensions/awesome-tab
 	url = https://github.com/manateelazycat/awesome-tab.git
+[submodule "extensions/devremote-mode"]
+	path = extensions/devremote-mode
+	url = https://github.com/snyh/devremote-mode.git
+[submodule "extensions/snails"]
+	path = extensions/snails
+	url = https://github.com/manateelazycat/snails.git

@@ -25,18 +25,19 @@
   :bind ("<f7>" . olivetti-mode)
   :init (setq olivetti-body-width 0.618))
 
-(use-package interleave
-  :ensure nil
-  :diminish interleave-pdf-mode interleave-mode
-  :config
-  (setq interleave-org-notes-dir-list '("~/org/interleave/" "~/Books/"))
-  (setq interleave-split-direction 'horizontal)
-  (setq interleave-disable-narrowing t)
-  (setq interleave-split-lines 10))
+;; (use-package interleave
+;;   :ensure nil
+;;   :diminish interleave-pdf-mode interleave-mode
+;;   :config
+;;   (setq interleave-org-notes-dir-list '("~/org/interleave/" "~/Books/"))
+;;   (setq interleave-split-direction 'horizontal)
+;;   (setq interleave-disable-narrowing t)
+;;   (setq interleave-split-lines 10))
 
 (use-package highlight-indent-guides
   :ensure t
   :diminish highlight-indent-guides-mode
+  :disabled
   :hook (prog-mode . highlight-indent-guides-mode)
   :config
   (setq highlight-indent-guides-method 'character))
@@ -63,5 +64,8 @@
   (setq flyspell-issue-message-flag nil
         ispell-program-name "aspell"
         ispell-extra-args '("--sug-mode=ultra" "--lang=en_US" "--run-together")))
+
+(use-package devremote
+  :ensure nil)
 
 (provide 'init-utils)

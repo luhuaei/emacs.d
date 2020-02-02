@@ -7,7 +7,8 @@
 	      ("C-c C-r" . 'ivy-resume)
 	      ("M-x" . 'counsel-M-x)
 	      ("C-x C-f" . 'counsel-find-file)
-	      ("M-s s" . 'swiper-thing-at-point))
+	      ("M-s s" . 'swiper-thing-at-point)
+              ("C-c r" . 'counsel-rg))
   :config
   (use-package swiper
     :ensure t)
@@ -16,6 +17,7 @@
 
   (setq ivy-use-virtual-buffers t)
   (setq enable-recursive-minibuffers t)
+  (setq ivy-magic-slash-non-match-action nil)
   (define-key minibuffer-local-map (kbd "C-r") 'counsel-minibuffer-history))
 
 (provide 'init-ivy)
