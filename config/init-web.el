@@ -4,25 +4,22 @@
 
 ;; SCSS mode
 (use-package scss-mode
-  :ensure t
   :init
   ;; Disable complilation on save
   (setq scss-compile-at-save nil))
 
-(use-package less-css-mode :ensure t)
+(use-package less-css-mode)
 
 ;; CSS eldoc
 (use-package css-eldoc
-  :ensure t
   :commands turn-on-css-eldoc
   :hook ((css-mode scss-mode less-css-mode) . turn-on-css-eldoc))
 
 ;; JSON mode
-(use-package json-mode :ensure t)
+(use-package json-mode)
 
 ;; JavaScript
 (use-package js2-mode
-  :ensure t
   :defines flycheck-javascript-eslint-executable
   :mode (("\\.js\\'" . js2-mode)
          ("\\.jsx\\'" . js2-jsx-mode))
@@ -42,14 +39,12 @@
       (setq flycheck-javascript-eslint-executable "eslint_d")))
 
   (use-package js2-refactor
-    :ensure t
     :diminish
     :hook (js2-mode . js2-refactor-mode)
     :config (js2r-add-keybindings-with-prefix "C-c C-m")))
 
 ;; Live browser JavaScript, CSS, and HTML interaction
 (use-package skewer-mode
-  :ensure t
   :diminish
   :hook (((js-mode js2-mode). skewer-mode)
          (css-mode . skewer-css-mode)
@@ -63,21 +58,18 @@
     (diminish 'skewer-html-mode)))
 
 ;; Typescript
-(use-package typescript-mode :ensure t)
+(use-package typescript-mode)
 
 ;; Run Mocha or Jasmine tests
 (use-package mocha
-  :ensure t
-  :config (use-package mocha-snippets :ensure t))
+  :config (use-package mocha-snippets))
 
 ;; Major mode for CoffeeScript code
 (use-package coffee-mode
-  :ensure t
   :config (setq coffee-tab-width 2))
 
 ;; Major mode for editing web templates
 (use-package web-mode
-  :ensure t
   :mode "\\.\\(phtml\\|php|[gj]sp\\|as[cp]x\\|erb\\|djhtml\\|html?\\|hbs\\|ejs\\|jade\\|swig\\|tm?pl\\|vue\\)$"
   :config
   (setq web-mode-markup-indent-offset 4)
@@ -87,17 +79,15 @@
 ;; Format HTML, CSS and JavaScript/JSON
 ;; Install: npm -g install prettier
 (use-package prettier-js
-  :ensure t
   :hook ((js-mode js2-mode json-mode web-mode css-mode sgml-mode html-mode)
          .
          prettier-js-mode))
 
-(use-package haml-mode :ensure t)
-(use-package php-mode :ensure t)
+(use-package haml-mode)
+(use-package php-mode)
 
 ;; REST
 (use-package restclient
-  :ensure t
   :mode ("\\.http\\'" . restclient-mode)
   :config
   (use-package restclient-test
@@ -107,7 +97,6 @@
 
   (with-eval-after-load 'company
     (use-package company-restclient
-      :ensure t
       :defines company-backends
       :init (add-to-list 'company-backends 'company-restclient))))
 (provide 'init-web)

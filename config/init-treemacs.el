@@ -34,14 +34,12 @@
 
   ;; Projectile integration
   (use-package treemacs-projectile
-    :ensure t
     :after projectile
     :bind (([M-f8] . treemacs-projectile)
            :map projectile-command-map
            ("h" . treemacs-projectile)))
 
   (use-package treemacs-magit
-    :ensure t
     :after magit
     :commands treemacs-magit--schedule-update
     :hook ((magit-post-commit

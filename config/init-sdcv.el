@@ -1,5 +1,6 @@
 (use-package sdcv
   :ensure nil
+  :quelpa (sdcv :fetcher github :repo "manateelazycat/sdcv")
   :bind (("C-c p" . 'sdcv-search-pointer+)
 	 ("C-c s" . 'sdcv-search-input+))
   :config

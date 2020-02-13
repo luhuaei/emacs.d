@@ -37,7 +37,6 @@
   ;; (advice-add #'keyboard-quit :before #'my-hide-jupyter-windows)
 
   (use-package pipenv
-    :ensure t
     :diminish pipenv-mode-hook
     :init
     (setq
@@ -45,7 +44,6 @@
      #'pipenv-projectile-after-switch-extended))
 
   (use-package jupyter
-    :ensure t
     :hook ((jupyter-repl-mode . awesome-pair-mode)
 	   (jupyter-repl-mode . company-mode))))
 (provide 'init-python)

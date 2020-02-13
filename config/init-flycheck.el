@@ -1,5 +1,4 @@
 (use-package flycheck
-  :ensure t
   :diminish flycheck-mode
   :hook (prog-mode . global-flycheck-mode)
   :init (add-hook 'prog-mode-hook #'(lambda () (flymake-mode 0)))
@@ -13,7 +12,6 @@
   (setq flycheck-check-syntax-automatically '(idle-buffer-switch))
 
   (use-package flycheck-posframe
-    :ensure t
     :hook (flycheck-mode . flycheck-posframe-mode)
     :config (add-to-list 'flycheck-posframe-inhibit-functions
                          #'(lambda () (bound-and-true-p company-backend)))))

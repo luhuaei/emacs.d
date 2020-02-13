@@ -19,7 +19,7 @@
 (global-set-key (kbd "M-s r") 'replace-regexp)         ;替换
 (setq-default indent-tabs-mode nil)                    ;使用空格代替tab键
 
-
+;; mode line
 (setq-default mode-line-format
       '("%e"
 	mode-line-front-space
@@ -38,6 +38,7 @@
 	(:eval (format "%s" last-command))))
 
 
+;; custom function
 (defun my-mode-line-modify ()
   "设置没有激活的窗口mode-line为underline"
   (set-face-attribute 'mode-line-inactive nil
@@ -45,15 +46,6 @@
 		      :height 0.1
 		      :background (face-background 'default)))
 (add-hook 'after-init-hook #'my-mode-line-modify)
-
-;; 鼠标自动移动到右下角
-;; mouse auto move the right bottom
-;; (mouse-avoidance-mode 'banish)
-;; (setq mouse-avoidance-banish-position '((frame-or-window . frame)
-;; 					(side . right)
-;; 					(side-pos . 3)
-;; 					(top-or-bottom . bottom)
-;; 					(top-or-bottom-pos . 0)))
 
 ;; 跳转到scratch buffer
 (defun my-scratch ()
@@ -70,20 +62,17 @@
   (insert (format-time-string "[%Y-%m-%d %H:%M:%S]")))
 
 
-(use-package diminish
-  :ensure t)
+;; attach package
+(use-package diminish)
 
 (use-package exec-path-from-shell
-  :ensure t
   :config
   (when (memq window-system '(mac ns x))
     (exec-path-from-shell-initialize)))
 
-(use-package all-the-icons
-  :ensure t)
+(use-package all-the-icons)
 
 (use-package auto-package-update
-   :ensure t
    :config
    (setq auto-package-update-delete-old-versions t
          auto-package-update-interval 30)

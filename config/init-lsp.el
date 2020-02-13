@@ -1,5 +1,4 @@
 (use-package lsp-mode
-  :ensure t
   :disabled t
   :diminish lsp-mode
   :commands (lsp lsp-mode)
@@ -13,7 +12,6 @@
 
   :config
   (use-package lsp-ui
-    :ensure t
     :commands (lsp-ui-doc-hide)
     :custom-face (lsp-ui-doc-background ((t (:background ,(face-background 'tooltip)))))
     :hook (after-load-theme . (lambda ()
@@ -47,7 +45,6 @@
 
   ;; ms-python
   (use-package lsp-python-ms
-    :ensure t
     :defer t
     :init (require 'lsp-python-ms)
     :hook (python-mode . (lambda () (lsp-mode) (lsp)))
@@ -66,7 +63,6 @@
 
   ;; C/C++
   (use-package ccls
-    :ensure t
     :hook ((c-mode . lsp-mode)
 	   (c++-mode . lsp-mode))
     :config
@@ -83,12 +79,10 @@
     (lsp-ui-peek-find-custom "$ccls/call" '(:callee t)))
 
   (use-package lsp-treemacs
-    :ensure t
     :bind (:map lsp-mode-map
 		("M-9" . lsp-treemacs-errors-list)))
 
   (use-package dap-mode
-    :ensure t
     :diminish
     :functions dap-hydra/nil
     :bind (:map lsp-mode-map

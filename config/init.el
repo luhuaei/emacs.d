@@ -9,7 +9,7 @@
   (defvar emacs-extension-dir (concat emacs-root-dir "/extensions"))
 
   (with-temp-message ""                 ;抹掉插件启动的输出
-    (require 'use-package)
+    (require 'init-package)
     (require 'init-startup)
     (require 'init-theme)
     (require 'init-auto-save)
@@ -23,10 +23,8 @@
     (require 'init-python)
     (require 'init-sdcv)
     (require 'init-utils)
-    (require 'init-w3m)
     (require 'init-avy)
     (require 'init-org)
-    (require 'init-emms)
     (require 'init-flycheck)
     (require 'init-lsp)
     (require 'init-treemacs)
@@ -37,6 +35,5 @@
     (require 'init-blog)
     (require 'init-sql)
     (require 'init-web)
-    (require 'init-snails)
     ))
 (provide 'init)

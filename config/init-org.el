@@ -53,7 +53,6 @@
   (setq org-agenda-files '("~/org/")))
 
 (use-package org-ehtml
-  :ensure t
   :config
   (setq org-ehtml-docroot (expand-file-name "~/org"))
   (setq org-ehtml-allow-agenda t)
@@ -66,7 +65,6 @@
   (setq org-ehtml-dir-match "^\\([^.].*[^~]\\|\\.\\.\\)$")
   (ws-start org-ehtml-handler 1608))
 
-(use-package htmlize
-  :ensure t)
+(use-package htmlize)
 
 (provide 'init-org)

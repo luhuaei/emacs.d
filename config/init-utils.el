@@ -1,17 +1,14 @@
 (use-package highlight-parentheses
-  :ensure t
   :diminish highlight-parentheses-mode
   :config
   (add-hook 'prog-mode-hook #'highlight-parentheses-mode))
 
 (use-package which-key
-  :ensure t
   :diminish which-key-mode
   :bind (:map help-map ("C-h" . which-key-C-h-dispatch))
   :hook (after-init . which-key-mode))
 
 (use-package nov
-  :ensure t
   :mode ("\\.epub\\'" . nov-mode)
   :preface
   (defun my-nov-setup ()
@@ -21,7 +18,6 @@
   :hook (nov-mode . my-nov-setup))
 
 (use-package olivetti
-  :ensure t
   :bind ("<f7>" . olivetti-mode)
   :init (setq olivetti-body-width 0.618))
 
@@ -35,7 +31,6 @@
 ;;   (setq interleave-split-lines 10))
 
 (use-package highlight-indent-guides
-  :ensure t
   :diminish highlight-indent-guides-mode
   :disabled
   :hook (prog-mode . highlight-indent-guides-mode)
@@ -43,7 +38,6 @@
   (setq highlight-indent-guides-method 'character))
 
 (use-package multiple-cursors
-  :ensure t
   :diminish multiple-cursors-mode
   :config
   (global-set-key (kbd "C-S-c C-S-c") 'mc/edit-lines)
@@ -56,7 +50,6 @@
   :diminish
   :if (executable-find "aspell")
   :hook (((text-mode outline-mode) . flyspell-mode)
-         ;; (prog-mode . flyspell-prog-mode)
          (flyspell-mode . (lambda ()
                             (dolist (key '("C-;" "C-," "C-."))
                               (unbind-key key flyspell-mode-map)))))
@@ -66,6 +59,13 @@
         ispell-extra-args '("--sug-mode=ultra" "--lang=en_US" "--run-together")))
 
 (use-package devremote
-  :ensure nil)
+  :disabled
+  :ensure nil
+  :quelpa (devremote :fetcher github :repo "snyh/devremote")
+  :bind (:map devremote-mode-map
+               ("<f12>" . 'devremote-transfer-current)
+  	 ("<f11>" . 'devremote-transfer-project)
+  	 ("M-<f12>" . 'devremote-compilation-project))
+  )
 
 (provide 'init-utils)

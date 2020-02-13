@@ -1,5 +1,4 @@
 (use-package ess
-  :ensure t
   :config
   (setq ess-ask-for-ess-directory nil)
   (setq display-buffer-alist
@@ -14,6 +13,5 @@
            (window-width . 0.5)
            (reusable-frames . nil))))
   (setq ess-use-company t))
-
 
 (provide 'init-ess)

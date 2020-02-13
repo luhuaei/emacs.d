@@ -1,5 +1,4 @@
 (use-package ivy
-  :ensure t
   :diminish ivy-mode
   :hook (after-init . ivy-mode)
   :bind (:map ivy-mode-map
@@ -10,11 +9,8 @@
 	      ("M-s s" . 'swiper-thing-at-point)
               ("C-c r" . 'counsel-rg))
   :config
-  (use-package swiper
-    :ensure t)
-  (use-package counsel
-    :ensure t)
-
+  (use-package swiper)
+  (use-package counsel)
   (setq ivy-use-virtual-buffers t)
   (setq enable-recursive-minibuffers t)
   (setq ivy-magic-slash-non-match-action nil)

@@ -1,5 +1,4 @@
 (use-package company
-  :ensure t
   :diminish company-mode
   :bind (("M-/" . company-complete)
          ("<backtab>" . company-yasnippet)
@@ -31,18 +30,15 @@
      ((t (:inherit company-tooltip-selection :weight bold :underline nil)))))
 
   (use-package company-lsp
-    :ensure t
     :init (setq company-lsp-cache-candidates 'auto)
     :config
     (add-to-list 'company-backends #'company-lsp)))
 
 (use-package company-quickhelp
-  :ensure t
   :defines company-quickhelp-delay
   :bind (:map company-active-map
 	      ("C-c h" . company-quickhelp-manual-begin))
   :hook (global-company-mode . company-quickhelp-mode)
   :init (setq company-quickhelp-delay 0.5))
-
 
 (provide 'init-company)

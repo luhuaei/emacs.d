@@ -1,4 +1,5 @@
 (use-package eaf
+  :ensure nil
   :custom
   (eaf-find-alternate-file-in-dired t)
   :diminish eaf-mode
@@ -6,6 +7,7 @@
   (setq eaf-proxy-host "127.0.0.1")
   (setq eaf-proxy-port "1080")
   (setq eaf-proxy-type "socks5")
+  (setq eaf-browser-dark-mode "true")
 
   (defun eaf-open-google ()
     "Open Google using EAF."
