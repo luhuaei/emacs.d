@@ -1,38 +1,36 @@
 (use-package awesome-pair
   :ensure nil
   :quelpa (awesome-pair :fetcher github :repo "manateelazycat/awesome-pair")
-  :hook (awesome-pair-mode . '(
-		 'c-mode-common-hook
-		 'c-mode-hook
-		 'c++-mode-hook
-		 'java-mode-hook
-		 'haskell-mode-hook
-		 'emacs-lisp-mode-hook
-		 'lisp-interaction-mode-hook
-		 'lisp-mode-hook
-		 'maxima-mode-hook
-		 'ielm-mode-hook
-		 'sh-mode-hook
-		 'makefile-gmake-mode-hook
-		 'php-mode-hook
-		 'python-mode-hook
-		 'js-mode-hook
-		 'go-mode-hook
-		 'qml-mode-hook
-		 'jade-mode-hook
-		 'css-mode-hook
-		 'ruby-mode-hook
-		 'coffee-mode-hook
-		 'rust-mode-hook
-		 'qmake-mode-hook
-		 'lua-mode-hook
-		 'swift-mode-hook
-		 'minibuffer-inactive-mode-hook
-		 'ess-r-mode-hook
-		 'r-mode-hook
-		 'pipenv-mode-hook
-                 'web-mode-hook
-		 ))
+  :hook ((
+           c-mode
+	   c++-mode
+	   java-mode
+	   haskell-mode
+	   emacs-lisp-mode
+	   lisp-interaction-mode
+	   lisp-mode
+	   maxima-mode
+	   ielm-mode
+	   sh-mode
+	   makefile-gmake-mode
+	   php-mode
+	   python-mode
+	   js-mode
+	   go-mode
+	   qml-mode
+	   jade-mode
+	   css-mode
+	   ruby-mode
+	   coffee-mode
+	   rust-mode
+	   qmake-mode
+	   lua-mode
+	   swift-mode
+	   minibuffer-inactive-mode
+	   ess-r-mode
+	   r-mode
+	   pipenv-mode
+           web-mode) . awesome-pair-mode)
   :bind (:map awesome-pair-mode-map
               ("(" . 'awesome-pair-open-round)
               (")" . 'awesome-pair-close-round)
