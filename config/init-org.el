@@ -63,7 +63,8 @@
 				  (buffer-string))
 				"</style>"))
   (setq org-ehtml-dir-match "^\\([^.].*[^~]\\|\\.\\.\\)$")
-  (ws-start org-ehtml-handler 1608))
+  ;; (ws-start org-ehtml-handler 1608)
+  )
 
 (use-package htmlize)
 
