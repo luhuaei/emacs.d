@@ -1,4 +1,5 @@
 (use-package flycheck
+  :disabled
   :diminish flycheck-mode
   :hook (prog-mode . global-flycheck-mode)
   :init (add-hook 'prog-mode-hook #'(lambda () (flymake-mode 0)))
