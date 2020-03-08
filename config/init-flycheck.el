@@ -1,8 +1,11 @@
+(use-package flymake
+  :ensure nil
+  :disabled)
+
 (use-package flycheck
-  :disabled
   :diminish flycheck-mode
   :hook (prog-mode . global-flycheck-mode)
-  :init (add-hook 'prog-mode-hook #'(lambda () (flymake-mode 0)))
+  :init (add-hook 'prog-mode-hook #'(lambda () (flymake-mode -1)))
   :config
   (setq flycheck-indication-mode 'right-fringe)
   (setq flycheck-emacs-lisp-load-path 'inherit)
