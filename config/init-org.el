@@ -1,5 +1,4 @@
 (use-package org
-  :ensure nil
   :hook ((org-mode . org-indent-mode)
 	 (org-mode . flyspell-mode))
   :bind (("C-c c" . 'org-capture)
@@ -7,6 +6,8 @@
 	 :map org-mode-map
 	 ("C-c M-i" . 'interleave-mode))
   :config
+  (use-package ob-go)
+
   (org-babel-do-load-languages
    'org-babel-load-languages
    '(
@@ -18,7 +19,8 @@
      (C . t)
      (jupyter . t)
      (sql . t)
-     (dot . t)))
+     (dot . t)
+     (go . t)))
 
   ;; don't delete the fold content
   (setq org-catch-invisible-edits 'error)
