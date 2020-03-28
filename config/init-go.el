@@ -1,8 +1,10 @@
+;; -*- lexical-binding: t; -*-
 (use-package go-mode
-  :bind (:map go-mode-map
-              ("M-." . 'godef-jump)
-              )
   :config
   (setq gofmt-command "goimports"))
+
+(use-package go-eldoc
+  :config
+  (add-hook 'go-mode-hook 'go-eldoc-setup))
 
 (provide 'init-go)

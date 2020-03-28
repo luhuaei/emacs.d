@@ -1,3 +1,4 @@
+;; -*- lexical-binding: t; -*-
 (use-package slime
   :defer 5
   :config

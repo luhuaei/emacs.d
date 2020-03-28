@@ -1,3 +1,4 @@
+;; -*- lexical-binding: t; -*-
 (use-package org
   :hook ((org-mode . org-indent-mode)
 	 (org-mode . flyspell-mode))
@@ -69,5 +70,7 @@
   )
 
 (use-package htmlize)
+
+(use-package org-pomodoro)
 
 (provide 'init-org)

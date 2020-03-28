@@ -1,7 +1,8 @@
+;; -*- lexical-binding: t; -*-
+
 (use-package css-mode
   :init (setq css-indent-offset 2)
-  :mode "\\.\\(wxss\\)$"
-  )
+  :mode "\\.\\(wxss\\)$")
 
 ;; SCSS mode
 (use-package scss-mode
@@ -32,6 +33,10 @@
   (setq web-mode-enable-current-column-highlight t)
   (setq web-mode-enable-auto-pairing t)
   (setq web-mode-enable-css-colorization t)
-  (setq web-mode-enable-comment-interpolation t))
+  (setq web-mode-enable-comment-interpolation t)
+  (setq-default web-mode-comment-formats
+              '(("java"       . "/*")
+                ("javascript" . "//")
+                ("php"        . "/*"))))
 
 (provide 'init-web)

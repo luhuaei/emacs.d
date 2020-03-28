@@ -1,5 +1,7 @@
+;; -*- lexical-binding: t; -*-
+
 (use-package highlight-parentheses
-  :diminish highlight-parentheses-mode
+   :diminish highlight-parentheses-mode
   :config
   (add-hook 'prog-mode-hook #'highlight-parentheses-mode))
 
@@ -39,5 +41,21 @@
   	 ("<f11>" . 'devremote-transfer-project)
   	 ("M-<f12>" . 'devremote-compilation-project))
   )
+
+;; attach package
+(use-package diminish)
+
+(use-package exec-path-from-shell
+  :config
+  (when (memq window-system '(mac ns x))
+    (exec-path-from-shell-initialize)))
+
+(use-package all-the-icons)
+
+(use-package auto-package-update
+   :config
+   (setq auto-package-update-delete-old-versions t
+         auto-package-update-interval 30)
+   (auto-package-update-maybe))
 
 (provide 'init-utils)

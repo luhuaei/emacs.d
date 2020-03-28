@@ -1,3 +1,5 @@
+;; -*- lexical-binding: t; -*-
+
 (tool-bar-mode -1)                                     ;禁用工具栏
 (menu-bar-mode -1)                                     ;禁用菜单栏
 (scroll-bar-mode -1)                                   ;禁用滚动条
@@ -60,22 +62,5 @@
 (defun my-insert-date ()
   (interactive)
   (insert (format-time-string "[%Y-%m-%d %H:%M:%S]")))
-
-
-;; attach package
-(use-package diminish)
-
-(use-package exec-path-from-shell
-  :config
-  (when (memq window-system '(mac ns x))
-    (exec-path-from-shell-initialize)))
-
-(use-package all-the-icons)
-
-(use-package auto-package-update
-   :config
-   (setq auto-package-update-delete-old-versions t
-         auto-package-update-interval 30)
-   (auto-package-update-maybe))
 
 (provide 'init-startup)

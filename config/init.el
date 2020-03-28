@@ -1,3 +1,5 @@
+;; -*- lexical-binding: t; -*-
+
 (let (
       ;; 加载的时候临时增大`gc-cons-threshold'以加速启动速度。
       (gc-cons-threshold most-positive-fixnum)
@@ -26,10 +28,7 @@
     (require 'init-avy)
     (require 'init-org)
     (require 'init-flycheck)
-    (require 'init-lsp)
-    (require 'init-treemacs)
     (require 'init-eaf)
-    (require 'init-erc)
     (require 'init-c)
     (require 'init-color-rg)
     (require 'init-blog)
