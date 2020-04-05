@@ -10,15 +10,6 @@
   :bind (:map help-map ("C-h" . which-key-C-h-dispatch))
   :hook (after-init . which-key-mode))
 
-;; (use-package interleave
-;;   :ensure nil
-;;   :diminish interleave-pdf-mode interleave-mode
-;;   :config
-;;   (setq interleave-org-notes-dir-list '("~/org/interleave/" "~/Books/"))
-;;   (setq interleave-split-direction 'horizontal)
-;;   (setq interleave-disable-narrowing t)
-;;   (setq interleave-split-lines 10))
-
 (use-package flyspell
   :ensure nil
   :diminish

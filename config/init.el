@@ -35,5 +35,8 @@
     (require 'init-sql)
     (require 'init-web)
     (require 'init-go)
+    (require 'init-lsp)
+    (require 'init-awesome-tab)
+    (require 'init-awesome-tray)
     ))
 (provide 'init)
