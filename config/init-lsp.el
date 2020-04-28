@@ -2,7 +2,8 @@
 
 (use-package nox
   :ensure nil
-  :quelpa (nox :fetcher github :repo "manateelazycat/nox")
+  :load-path "~/nox"
+  ;; :quelpa (nox :fetcher github :repo "manateelazycat/nox")
   :bind (:map nox-mode-map
               ("C-c C-d" . 'nox-show-doc))
   :config

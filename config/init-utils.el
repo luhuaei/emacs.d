@@ -1,5 +1,9 @@
 ;; -*- lexical-binding: t; -*-
 
+;; long string
+(use-package s
+  :ensure t)
+
 (use-package highlight-parentheses
    :diminish highlight-parentheses-mode
   :config
@@ -48,5 +52,30 @@
    (setq auto-package-update-delete-old-versions t
          auto-package-update-interval 30)
    (auto-package-update-maybe))
+
+(use-package highlight-indent-guides
+  :disabled t
+  :ensure t
+  :diminish 'highlight-indent-guides-mode
+  :hook ('prog-mode . 'highlight-indent-guides-mode)
+  :config
+  (setq highlight-indent-guides-method 'character))
+
+(use-package olivetti
+  :diminish
+  :bind ("<f7>" . olivetti-mode)
+  :hook (olivetti-mode . (lambda () (text-scale-set (if olivetti-mode +2 0))))
+  :init (setq olivetti-body-width 0.618))
+
+(use-package undo-tree
+  :defer t
+  :diminish undo-tree-mode
+  :init (global-undo-tree-mode)
+  :custom
+  (undo-tree-visualizer-diff t)
+  (undo-tree-visualizer-timestamps t))
+
+(use-package ace-window
+  :bind ("C-x o" . ace-window))
 
 (provide 'init-utils)

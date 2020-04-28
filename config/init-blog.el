@@ -133,10 +133,10 @@
           ("blog" :components ("orgfiles" "data" "images"))))
   )
 
-(defun my-new-post ()
+(defun my/new-draft ()
     (interactive)
     (let ((filename (read-string "Filename: ")))
-      (find-file (concat "~/blog/src/posts/" filename ".org"))
+      (find-file (concat "~/blog/src/drafts/" filename ".org"))
       (insert "#+title:  "  "\n"
 	      "#+date: " (format-time-string "[%Y-%m-%d %H:%M]") "\n")))
 
