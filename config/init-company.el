@@ -38,5 +38,12 @@
   :hook (global-company-mode . company-quickhelp-mode)
   :init (setq company-quickhelp-delay 0.5))
 
+(use-package company-ctags
+  :ensure t
+  :config
+  (with-eval-after-load 'company
+    (company-ctags-auto-setup))
+  (setq company-ctags-extra-tags-files '("$HOME/TAGS" "/usr/include/TAGS")))
+
 
 (provide 'init-company)

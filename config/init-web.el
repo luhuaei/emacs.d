@@ -16,7 +16,9 @@
 (use-package json-mode)
 
 ;; Typescript
-(use-package typescript-mode)
+(use-package typescript-mode
+  :config
+  (setq typescript-indent-level 2))
 
 ;; javascript mode
 (add-hook 'js-mode-hook (lambda () (local-set-key (kbd "M-\.") 'xref-find-definitions)))
@@ -30,7 +32,7 @@
   (setq web-mode-css-indent-offset 2)
   (setq web-mode-code-indent-offset 2)
   (setq web-mode-block-padding 0)
-  (setq web-mode-style-padding 1)
+  (setq web-mode-style-padding 0)
   (setq web-mode-script-padding 0)
   (setq web-mode-enable-current-element-highlight t)
   (setq web-mode-enable-current-column-highlight t)

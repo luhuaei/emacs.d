@@ -31,6 +31,7 @@
 	   r-mode
 	   pipenv-mode
            protobuf-mode
+           typescript-mode
            web-mode) . awesome-pair-mode)
   :bind (:map awesome-pair-mode-map
               ("(" . 'awesome-pair-open-round)

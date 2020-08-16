@@ -1,6 +1,7 @@
 ;; -*- lexical-binding: t; -*-
-
-(use-package cc-mode)
+(use-package cc-mode
+  :config
+  (setq c-default-style '((other . "linux"))))
 
 (use-package c-eldoc
     :config

@@ -10,7 +10,7 @@
   :config
   (setq flycheck-indication-mode 'right-fringe)
   (setq flycheck-emacs-lisp-load-path 'inherit)
-  (setq-default flycheck-disabled-checkers '(emacs-lisp emacs-lisp-checkdoc))
+  (setq-default flycheck-disabled-checkers '(emacs-lisp emacs-lisp-checkdoc rust-cargo rust))
 
   ;; Only check while saving and opening files
   (setq flycheck-idle-change-delay 10)

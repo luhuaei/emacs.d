@@ -1,3 +1,5 @@
+;; -*- lexical-binding: t; -*-
+
 (use-package eaf
   :ensure nil
   :diminish eaf-mode
@@ -24,12 +26,15 @@
   (setq eaf-interleave-disable-narrowing t)
   (setq eaf-interleave-split-lines 30)
 
+  ;;
+  (setq eaf-enable-debug t)
+
   ;; chore setting
-  (setq eaf-find-alternate-file-in-dired t)
+  (setq eaf-find-alternate-file-in-dired nil)
   (setq eaf-proxy-host "127.0.0.1")
   (setq eaf-proxy-port "1080")
   (setq eaf-proxy-type "http")
-  (eaf-setq eaf-browser-dark-mode "true")
+  ;; (eaf-setq eaf-browser-dark-mode "true")
   (eaf-setq eaf-mindmap-save-path "~/org/mindmap")
 
   (defun eaf-open-google ()

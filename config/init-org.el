@@ -5,7 +5,8 @@
   :bind (("C-c c" . 'org-capture)
 	 ("C-c a" . 'org-agenda)
 	 :map org-mode-map
-	 ("C-c M-i" . 'interleave-mode))
+	 ("C-c M-i" . 'interleave-mode)
+         ("C-S-RET" . 'org-insert-subheading))
   :config
   (use-package ob-go)
 
@@ -42,17 +43,7 @@
 	'(("t" "Todo" entry (file "~/org/GTD.org")
 	   "* TODO %?\n%U\n%^G" :empty-lines 1)
 	  ("T" "Todo with File link" entry (file "~/org/GTD.org")
-	   "* TODO %?\n%U\n %a" :empty-lines 1)
-	  ("n" "Note" entry (file "~/org/Note.org")
-	   "* NOTE %?\n%U" :empty-lines 1)
-	  ("N" "Note with Clipboard" entry (file "~/org/Note.org")
-	   "* NOTE %?\n%U\n%c" :empty-lines 1)
-	  ("e" "Event" entry (file+headline "~/org/Events.org" "Transient")
-	   "* EVENT %?\n%U" :empty-lines 1)
-	  ("E" "Event With Clipboard" entry (file+headline "~/org/Events.org" "Transient")
-	   "* EVENT %?\n%U\n%c" :empty-lines 1)
-	  ("d" "Dream with idea" entry (file "~/org/Dream.org")
-	   "* Idea %?\n%U\n%^G" :empty-lines 1)))
+	   "* TODO %?\n%U\n %a" :empty-lines 1)))
   (setq org-agenda-files '("~/org/")))
 
 (use-package org-ehtml

@@ -33,8 +33,8 @@
   :quelpa (devremote :fetcher github :repo "snyh/devremote")
   :bind (:map devremote-mode-map
                ("<f12>" . 'devremote-transfer-current)
-  	 ("<f11>" . 'devremote-transfer-project)
-  	 ("M-<f12>" . 'devremote-compilation-project))
+  	       ("<f11>" . 'devremote-transfer-project)
+  	       ("M-<f12>" . 'devremote-compilation-project))
   )
 
 ;; attach package
@@ -64,8 +64,8 @@
 (use-package olivetti
   :diminish
   :bind ("<f7>" . olivetti-mode)
-  :hook (olivetti-mode . (lambda () (text-scale-set (if olivetti-mode +2 0))))
   :init (setq olivetti-body-width 0.618))
+
 
 (use-package undo-tree
   :defer t
@@ -74,8 +74,4 @@
   :custom
   (undo-tree-visualizer-diff t)
   (undo-tree-visualizer-timestamps t))
-
-(use-package ace-window
-  :bind ("C-x o" . ace-window))
-
 (provide 'init-utils)
