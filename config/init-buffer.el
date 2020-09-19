@@ -6,12 +6,20 @@
   :bind (:map ivy-mode-map
               ("C-s" . 'swiper)
               ("M-s s" . 'swiper-thing-at-point)
-	      ("M-x" . 'counsel-M-x)
-	      ("C-x C-f" . 'counsel-find-file))
+	      ("M-x" . 'counsel-M-x))
   :config
   (setq ivy-use-virtual-buffers t)
   (setq enable-recursive-minibuffers t)
-  (setq ivy-magic-slash-non-match-action nil))
+  (setq ivy-magic-slash-non-match-action nil)
+
+  (setq ivy-use-selectable-prompt t
+        ivy-height 10
+        ivy-fixed-height-minibuffer t
+        ivy-count-format "(%d/%d) "
+        ivy-on-del-error-function nil
+        ivy-initial-inputs-alist nil)
+
+  (setq swiper-action-recenter t))
 
 (use-package swiper)
 (use-package counsel)
