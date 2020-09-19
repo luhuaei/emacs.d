@@ -7,7 +7,8 @@
               ("C-s" . 'counsel-grep-or-swiper)
               ("M-s s" . 'swiper-thing-at-point)
 	      ("M-x" . 'counsel-M-x)
-              ("C-x b" . 'counsel-ibuffer))
+              ("C-x b" . 'counsel-ibuffer)
+              ("C-c C-s" . 'counsel-rg))
   :config
   (setq ivy-use-virtual-buffers t)
   (setq enable-recursive-minibuffers t)
