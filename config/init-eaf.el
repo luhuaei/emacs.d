@@ -12,8 +12,6 @@
          ("C-c M-i" . 'eaf-interleave-add-note)
          ("C-c M-o" . 'eaf-interleave-open-notes-file)
          ("C-c M-q" . 'eaf-interleave-quit)
-         :map eaf-mode-map
-         ("C-c C-f" . 'eaf-open)
          :map dired-mode-map
          ("RET" . 'eaf-open-this-from-dired))
   :config
