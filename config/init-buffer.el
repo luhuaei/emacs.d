@@ -4,7 +4,7 @@
   :diminish ivy-mode
   :hook (after-init . ivy-mode)
   :bind (:map ivy-mode-map
-              ("C-s" . 'swiper)
+              ("C-s" . 'counsel-grep-or-swiper)
               ("M-s s" . 'swiper-thing-at-point)
 	      ("M-x" . 'counsel-M-x))
   :config
