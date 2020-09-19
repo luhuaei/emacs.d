@@ -1,6 +1,7 @@
 ;; -*- lexical-binding: t; -*-
 
 (use-package awesome-tab
+  :disabled t
   :ensure nil
   :quelpa (awesome-tab :fetcher github :repo "manateelazycat/awesome-tab")
   :bind (:map awesome-tab-mode-map
