@@ -13,7 +13,6 @@
 (add-hook 'text-mode-hook 'auto-fill-mode)             ;段缩进
 (setq-default fill-column 80)                          ;缩进列数
 (global-display-line-numbers-mode t)
-(global-unset-key (kbd "C-x C-c"))                     ;close kill emacs
 (global-set-key (kbd "C-x C-j") 'eval-print-last-sexp) ;求值
 (global-set-key (kbd "C-x k") 'kill-current-buffer)    ;关闭buffer
 (global-hl-line-mode t)                                ;高亮行
