@@ -45,4 +45,6 @@
                 ("php"        . "/*"))))
 (setq js-indent-level 2)
 
+(use-package emojify)
+
 (provide 'init-web)
