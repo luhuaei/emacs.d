@@ -70,8 +70,30 @@
 (use-package undo-tree
   :defer t
   :diminish undo-tree-mode
-  :init (global-undo-tree-mode)
+  :init (global-undo-tree-mode 1)
   :custom
   (undo-tree-visualizer-diff t)
   (undo-tree-visualizer-timestamps t))
+
+(use-package expand-region
+  :bind ("C-=" . er/expand-region))
+
+(use-package rainbow-delimiters
+  :config
+  (add-hook 'prog-mode-hook 'rainbow-delimiters-mode))
+
+(use-package rainbow-mode
+  :config
+  (setq rainbow-x-colors nil)
+  (add-hook 'prog-mode-hook 'rainbow-mode))
+
+(use-package fzf)
+
+;; (use-package dumb-jump
+;;   :bind (("C-M-g" . dumb-jump-go)
+;;          ("C-M-p" . dumb-jump-back)
+;;          ("C-M-q" . dumb-jump-quick-look)))
+
+
+
 (provide 'init-utils)
