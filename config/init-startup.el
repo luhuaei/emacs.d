@@ -24,6 +24,14 @@
 (add-to-list 'default-frame-alist
              '(font . "Monaco-12"))
 
+;; C-a to the first char not whitespace
+(use-package crux
+  :bind (("C-a" . crux-move-beginning-of-line)))
+
+;; go to the last change
+(use-package goto-last-change
+  :bind (("C-:" . goto-last-change)))
+
 ;; mode line
 ;; (setq-default mode-line-format
 ;;       '("%e"
