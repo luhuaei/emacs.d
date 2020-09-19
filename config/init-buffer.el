@@ -6,7 +6,8 @@
   :bind (:map ivy-mode-map
               ("C-s" . 'counsel-grep-or-swiper)
               ("M-s s" . 'swiper-thing-at-point)
-	      ("M-x" . 'counsel-M-x))
+	      ("M-x" . 'counsel-M-x)
+              ("C-x b" . 'counsel-ibuffer))
   :config
   (setq ivy-use-virtual-buffers t)
   (setq enable-recursive-minibuffers t)
