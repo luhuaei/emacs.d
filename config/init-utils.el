@@ -89,10 +89,14 @@
 
 (use-package fzf)
 
-;; (use-package dumb-jump
-;;   :bind (("C-M-g" . dumb-jump-go)
-;;          ("C-M-p" . dumb-jump-back)
-;;          ("C-M-q" . dumb-jump-quick-look)))
+(use-package dumb-jump
+  :ensure nil
+  :quelpa (dumb-jump :fetcher github :repo "jacktasia/dumb-jump")
+  :bind (("C-M-g" . dumb-jump-go)
+         ("C-M-p" . dumb-jump-back)
+         ("C-M-q" . dumb-jump-quick-look))
+  :config
+  (add-hook 'xref-backend-functions #'dumb-jump-xref-activate))
 
 
 
