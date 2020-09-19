@@ -7,6 +7,7 @@
   :bind (("C-c M-f" . 'gofmt)))
 
 (use-package go-eldoc
+  :disabled t
   :config
   (add-hook 'go-mode-hook 'go-eldoc-setup))
 
