@@ -38,7 +38,10 @@
   )
 
 ;; attach package
-(use-package diminish)
+(use-package diminish
+  :config
+  (diminish abbrev-mode)
+  (diminish eldoc-mode))
 
 (use-package exec-path-from-shell
   :config
@@ -83,6 +86,7 @@
   (add-hook 'prog-mode-hook 'rainbow-delimiters-mode))
 
 (use-package rainbow-mode
+  :diminish rainbow-mode
   :config
   (setq rainbow-x-colors nil)
   (add-hook 'prog-mode-hook 'rainbow-mode))

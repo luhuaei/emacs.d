@@ -1,3 +1,4 @@
+;; -*- lexical-binding: t; -*-
 (use-package magit
   :config
   (global-set-key (kbd "C-x g") 'magit-status)
@@ -5,6 +6,7 @@
   (setq magit-display-buffer-function 'magit-display-buffer-same-window-except-diff-v1))
 
 (use-package git-gutter
+  :diminish git-gutter-mode
   :config
   (global-git-gutter-mode 't))
 
