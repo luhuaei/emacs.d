@@ -33,23 +33,24 @@
   :bind (("C-:" . goto-last-change)))
 
 ;; mode line
-;; (setq-default mode-line-format
-;;       '("%e"
-;; 	mode-line-front-space
-;; 	mode-line-mule-info
-;; 	mode-line-client
-;; 	mode-line-modified
-;; 	mode-line-remote
-;; 	mode-line-frame-identification
-;; 	mode-line-buffer-identification
-;; 	"   "
-;; 	mode-line-position
-;; 	(vc-mode vc-mode)
-;; 	"   "
-;; 	mode-line-modes
-;; 	mode-line-misc-info
-;; 	(:eval (format "%s" last-command))))
-(setq-default mode-line-format nil)
+(setq-default mode-line-format
+      '("%e"
+	mode-line-front-space
+	mode-line-mule-info
+	mode-line-client
+	mode-line-modified
+	mode-line-remote
+	mode-line-frame-identification
+	mode-line-buffer-identification
+	"   "
+	mode-line-position
+	(vc-mode vc-mode)
+	"   "
+	mode-line-modes
+	mode-line-misc-info
+
+	(:eval (format "%s" last-command))))
+;; (setq-default mode-line-format nil)
 
 ;; custom function
 (defun my/mode-line-modify ()
