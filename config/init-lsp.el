@@ -1,7 +1,7 @@
 ;; -*- lexical-binding: t; -*-
 
 (use-package nox
-  :ensure nil
+  :disabled
   :load-path "~/repo/nox"
   :quelpa (nox :fetcher github :repo "manateelazycat/nox")
   :bind (:map nox-mode-map
@@ -9,15 +9,23 @@
   :config
   (setq nox-autoshutdown t)
   (dolist (hook (list
-               'go-mode-hook
+                 'go-mode-hook
+                 'typescript-mode-hook
                ))
     (add-hook hook '(lambda () (nox-ensure)))))
 
 (use-package eglot
-  :disabled
   :config
   (setq eglot-stay-out-of '(flymake eldoc yasnippet hover))
   (setq eglot-autoshutdown t)
+
+  (let ((programs (list)))
+    (dolist (option eglot-server-programs)
+      (if (eq (car option) 'rust-mode)
+          (push '(rust-mode . (eglot-rls "rust-analyzer")) programs)
+        (push option programs)))
+    (setq eglot-server-programs programs))
+
   (dolist (hook (list
                  'rust-mode-hook
                  'java-mode-hook
