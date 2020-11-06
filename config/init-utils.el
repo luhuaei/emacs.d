@@ -100,8 +100,25 @@
          ("C-M-p" . dumb-jump-back)
          ("C-M-q" . dumb-jump-quick-look))
   :config
+  (setq dumb-jump-quiet t)
+  (setq dumb-jump-force-searcher 'rg)
+  (setq dumb-jump-prefer-searcher 'rg)
   (add-hook 'xref-backend-functions #'dumb-jump-xref-activate))
 
+(use-package treemacs
+  :bind (("<f8>" . treemacs)))
 
+(use-package rime
+  :custom
+  (default-input-method "rime")
+  (rime-show-candidate 'minibuffer)
+  :config
+  (setq rime-user-data-dir "~/.config/fcitx/rime/"))
+
+(use-package disable-mouse
+  :ensure t
+  :diminish 'disable-mouse-mode
+  :config
+  (global-disable-mouse-mode))
 
 (provide 'init-utils)

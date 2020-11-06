@@ -21,4 +21,8 @@
     :config (add-to-list 'flycheck-posframe-inhibit-functions
                          #'(lambda () (bound-and-true-p company-backend))))
 
+(use-package flymake
+  :diminish flymake-mode
+  :disabled t)
+
 (provide 'init-flycheck)

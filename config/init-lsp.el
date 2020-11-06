@@ -1,20 +1,6 @@
 ;; -*- lexical-binding: t; -*-
-
-(use-package nox
-  :disabled
-  :load-path "~/repo/nox"
-  :quelpa (nox :fetcher github :repo "manateelazycat/nox")
-  :bind (:map nox-mode-map
-              ("C-c C-d" . 'nox-show-doc))
-  :config
-  (setq nox-autoshutdown t)
-  (dolist (hook (list
-                 'go-mode-hook
-                 'typescript-mode-hook
-               ))
-    (add-hook hook '(lambda () (nox-ensure)))))
-
 (use-package eglot
+  :diminish eglot
   :config
   (setq eglot-stay-out-of '(flymake eldoc yasnippet hover))
   (setq eglot-autoshutdown t)
