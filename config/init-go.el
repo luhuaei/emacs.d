@@ -4,7 +4,8 @@
   (setq gofmt-command "goimports")
   (setq gofmt-args nil)
   (add-hook 'flycheck-handle-save 'gofmt-before-save)
-  :bind (("C-c M-f" . 'gofmt)))
+  :bind (:map go-mode-map
+              ("C-c M-f" . 'gofmt)))
 
 (use-package go-eldoc
   :disabled t

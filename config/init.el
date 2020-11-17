@@ -38,5 +38,6 @@
     (require 'init-buffer)
     (require 'init-awesome-tab)
     (require 'init-markdown)
+    (require 'init-rust)
     ))
 (provide 'init)

@@ -17,9 +17,10 @@
   (setq flycheck-check-syntax-automatically '(idle-buffer-switch)))
 
 (use-package flycheck-posframe
-    :hook (flycheck-mode . flycheck-posframe-mode)
-    :config (add-to-list 'flycheck-posframe-inhibit-functions
-                         #'(lambda () (bound-and-true-p company-backend))))
+  :disabled t
+  :hook (flycheck-mode . flycheck-posframe-mode)
+  :config (add-to-list 'flycheck-posframe-inhibit-functions
+                       #'(lambda () (bound-and-true-p company-backend))))
 
 (use-package flymake
   :diminish flymake-mode

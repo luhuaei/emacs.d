@@ -19,7 +19,6 @@
      (shell . t)
      (R . t)
      (C . t)
-     (jupyter . t)
      (sql . t)
      (dot . t)
      (go . t)))

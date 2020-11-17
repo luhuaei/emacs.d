@@ -1,17 +1,14 @@
 ;; -*- lexical-binding: t; -*-
-(use-package eglot
-  :diminish eglot
+
+(use-package lsp-mode
+  :ensure t
   :config
-  (setq eglot-stay-out-of '(flymake eldoc yasnippet hover))
-  (setq eglot-autoshutdown t)
-
-  (let ((programs (list)))
-    (dolist (option eglot-server-programs)
-      (if (eq (car option) 'rust-mode)
-          (push '(rust-mode . (eglot-rls "rust-analyzer")) programs)
-        (push option programs)))
-    (setq eglot-server-programs programs))
-
+  (setq lsp-enable-completion-at-point t)
+  (setq lsp-enable-xref t)
+  (setq lsp-diagnostics-provider :none)
+  (setq lsp-eldoc-enable-hover nil)
+  (setq lsp-eldoc-render-all nil)
+  (setq lsp-keep-workspace-alive t)
   (dolist (hook (list
                  'rust-mode-hook
                  'java-mode-hook
@@ -23,6 +20,7 @@
                  'go-mode-hook
                  'typescript-mode-hook
                  ))
-    (add-hook hook '(lambda () (eglot-ensure)))))
+    (add-hook hook '(lambda () (lsp)))))
+
 
 (provide 'init-lsp)
