@@ -2,21 +2,25 @@
 
 (use-package lsp-mode
   :ensure t
+  :bind (:map lsp-mode-map
+              ("C->" . 'lsp-find-implementation))
   :config
   (setq lsp-enable-completion-at-point t)
   (setq lsp-enable-xref t)
   (setq lsp-diagnostics-provider :none)
   (setq lsp-eldoc-enable-hover nil)
+  (setq lsp-enable-snippet nil)
   (setq lsp-eldoc-render-all nil)
   (setq lsp-keep-workspace-alive t)
+
+  ;; rust
+  (setq lsp-rust-server "rls")
+
   (dolist (hook (list
                  'rust-mode-hook
-                 'java-mode-hook
-                 'php-mode-hook
                  'c-mode-common-hook
                  'c-mode-hook
                  'c++-mode-hook
-                 'haskell-mode-hook
                  'go-mode-hook
                  'typescript-mode-hook
                  ))

@@ -23,6 +23,7 @@
   (setq eaf-interleave-split-direction 'vertical)
   (setq eaf-interleave-disable-narrowing t)
   (setq eaf-interleave-split-lines 30)
+  (eaf-setq eaf-pdf-dark-mode "ignore")
 
   ;;
   (setq eaf-enable-debug t)

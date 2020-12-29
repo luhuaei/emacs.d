@@ -4,9 +4,9 @@
   :bind (("C-c p" . 'sdcv-search-pointer+)
 	 ("C-c s" . 'sdcv-search-input+))
   :config
-  (setq sdcv-say-word-p t)               ;say word after translation
+  (setq sdcv-say-word-p nil)               ;say word after translation
 
-  (setq sdcv-dictionary-data-dir "/home/luhuaei/emacs.d/sdcv-dict/") ;setup directory of stardict dictionary
+  (setq sdcv-dictionary-data-dir (expand-file-name "~/emacs.d/sdcv-dict/")) ;setup directory of stardict dictionary
 
   (setq sdcv-dictionary-simple-list    ;setup dictionary list for simple search
 	'("朗道汉英字典5.0"
