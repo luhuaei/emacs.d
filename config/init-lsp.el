@@ -14,7 +14,7 @@
   (setq lsp-keep-workspace-alive t)
 
   ;; rust
-  (setq lsp-rust-server "rls")
+  (setq lsp-rust-server 'rust-analyzer)
 
   (dolist (hook (list
                  'rust-mode-hook

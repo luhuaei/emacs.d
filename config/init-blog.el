@@ -84,11 +84,11 @@
 
   (setq org-publish-project-alist
 	`(("orgfiles"
-           :base-directory "~/blog/src"
+           :base-directory "~/luhuaei.github.io/src"
            :exclude "drafts/.*"
            :base-extension "org"
 
-           :publishing-directory "~/blog"
+           :publishing-directory "~/luhuaei.github.io/"
 
            :recursive t
            :preparation-function org-blog-prepare
@@ -117,16 +117,16 @@
 
 
           ("data"
-           :base-directory "~/blog/src/posts/"
+           :base-directory "~/luhuaei.github.io/src/posts/"
 	   :base-extension "csv\\|pdf"
-           :publishing-directory "~/blog/posts/"
+           :publishing-directory "~/luhuaei.github.io/posts/"
            :publishing-function org-publish-attachment
            :recursive t)
 
 	  ("images"
-	   :base-directory "~/blog/src/posts/"
+	   :base-directory "~/luhuaei.github.io/src/posts/"
 	   :base-extension "jpg\\|gif\\|png"
-	   :publishing-directory "~/blog/posts/"
+	   :publishing-directory "~/luhuaei.github.io/posts/"
 	   :publishing-function org-publish-attachment
 	   :recursive t)
 
@@ -136,7 +136,7 @@
 (defun my/new-draft ()
     (interactive)
     (let ((filename (read-string "Filename: ")))
-      (find-file (concat "~/blog/src/drafts/" filename ".org"))
+      (find-file (concat "~/luhuaei.github.io/src/drafts/" filename ".org"))
       (insert "#+title:  "  "\n"
 	      "#+date: " (format-time-string "[%Y-%m-%d %H:%M]") "\n")))
 
