@@ -2,6 +2,7 @@
 
 (use-package eaf
   :ensure nil
+  :load-path emacs-extension-dir
   :diminish eaf-mode
   :bind (:map eaf-interleave-mode-map
          ("M-." . 'eaf-interleave-sync-current-note)
@@ -34,11 +35,6 @@
   (setq eaf-proxy-port "1080")
   (setq eaf-proxy-type "http")
   ;; (eaf-setq eaf-browser-dark-mode "true")
-  (eaf-setq eaf-mindmap-save-path "~/org/mindmap")
-
-  (defun eaf-open-google ()
-    "Open Google using EAF."
-    (interactive)
-    (eaf-open-browser "https://www.google.com")))
+  (eaf-setq eaf-mindmap-save-path "~/org/mindmap"))
 
 (provide 'init-eaf)

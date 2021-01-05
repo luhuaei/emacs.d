@@ -1,6 +1,6 @@
 (use-package protobuf-mode
   :ensure nil
-  :load-path "/home/luhuaei/emacs.d/extensions/protobuf-mode.el"
+  :load-path emacs-extension-dir
   :mode "\\.proto$"
   :config
   (defconst my-protobuf-style

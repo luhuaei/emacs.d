@@ -5,7 +5,7 @@
 	      ("C-<return>" . jupyter-eval-line-or-region))
   :config
   (setq python-shell-completion-native-disabled-interpreters '("pypy" "ipython" "python" "ipython3"))
-  (setq python-shell-interpreter "/home/luhuaei/.local/bin/ipython3"
+  (setq python-shell-interpreter "~/.local/bin/ipython3"
 	python-shell-interpreter-args "-i --pylab --simple-prompt --no-color-info")
 
   (defun my-jupyter-next-line (insert)
