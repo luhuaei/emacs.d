@@ -7,6 +7,7 @@
 (toggle-frame-fullscreen)                              ;全屏
 (show-paren-mode t)                                    ;展示匹配括号
 (setq make-backup-files nil)                           ;不要生成备份文件
+(setq create-lockfiles nil)                            ;不要生产.#filename
 (defalias 'yes-or-no-p 'y-or-n-p)                      ;y-or-n-p
 (setq split-height-threshold 0)                        ;设置分屏高度阀值为nil
 (setq split-width-threshold nil)                       ;设置分屏宽度为0
