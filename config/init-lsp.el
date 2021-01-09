@@ -12,6 +12,7 @@
   (setq lsp-enable-snippet nil)
   (setq lsp-eldoc-render-all nil)
   (setq lsp-keep-workspace-alive t)
+  (setq lsp-headerline-breadcrumb-enable nil)
 
   ;; rust
   (setq lsp-rust-server 'rust-analyzer)
