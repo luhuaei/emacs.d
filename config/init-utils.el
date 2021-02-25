@@ -96,9 +96,6 @@
 (use-package dumb-jump
   :ensure nil
   :quelpa (dumb-jump :fetcher github :repo "jacktasia/dumb-jump")
-  :bind (("C-M-g" . dumb-jump-go)
-         ("C-M-p" . dumb-jump-back)
-         ("C-M-q" . dumb-jump-quick-look))
   :config
   (setq dumb-jump-quiet t)
   (setq dumb-jump-force-searcher 'rg)
