@@ -1,4 +1,15 @@
 ;; -*- lexical-binding: t; -*-
+(use-package deferred
+  :ensure nil
+  :quelpa (deferred :fetcher github :repo "kiwanami/emacs-deferred"))
+
+(use-package ctable
+  :ensure nil
+  :quelpa (ctable :fetcher github :repo "kiwanami/emacs-ctable"))
+
+(use-package epc
+  :ensure t
+  :quelpa (epc :fetcher github :repo "kiwanami/emacs-epc"))
 
 (use-package eaf
   :ensure nil
@@ -27,7 +38,7 @@
   (eaf-setq eaf-pdf-dark-mode "ignore")
 
   ;;
-  (setq eaf-enable-debug t)
+  (setq eaf-enable-debug nil)
 
   ;; chore setting
   (setq eaf-find-alternate-file-in-dired nil)
