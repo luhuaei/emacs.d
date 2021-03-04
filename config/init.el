@@ -39,5 +39,6 @@
     (require 'init-awesome-tab)
     (require 'init-markdown)
     (require 'init-rust)
+    (require 'init-tags)
     ))
 (provide 'init)
