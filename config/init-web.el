@@ -37,15 +37,22 @@
   (setq web-mode-block-padding 0)
   (setq web-mode-style-padding 0)
   (setq web-mode-script-padding 0)
+
+  (setq web-mode-enable-auto-expanding t)
+  (setq web-mode-enable-curly-brace-indentation t)
   (setq web-mode-enable-current-element-highlight t)
   (setq web-mode-enable-current-column-highlight t)
   (setq web-mode-enable-auto-pairing t)
   (setq web-mode-enable-css-colorization t)
   (setq web-mode-enable-comment-interpolation t)
+
+  (setq web-mode-auto-close-style 2)
+  (setq web-mode-auto-quote-style 2)
+  (setq web-mode-auto-pairs t)
   (setq-default web-mode-comment-formats
-              '(("java"       . "/*")
+              '(("java"       . "//")
                 ("javascript" . "//")
-                ("php"        . "/*"))))
+                ("php"        . "//"))))
 (setq js-indent-level 2)
 
 (use-package emojify)
