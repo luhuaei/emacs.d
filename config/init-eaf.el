@@ -43,8 +43,8 @@
   ;; chore setting
   (setq eaf-find-alternate-file-in-dired nil)
   (setq eaf-proxy-host "127.0.0.1")
-  (setq eaf-proxy-port "1080")
-  (setq eaf-proxy-type "http")
+  (setq eaf-proxy-port "10809")
+  (setq eaf-proxy-type "socks5")
   ;; (eaf-setq eaf-browser-dark-mode "true")
   (eaf-setq eaf-mindmap-save-path "~/org/mindmap"))
 

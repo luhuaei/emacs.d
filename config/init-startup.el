@@ -74,15 +74,8 @@
   (interactive)
   (insert (format-time-string "[%Y-%m-%d %H:%M:%S]")))
 
-(defvar my/timer-id nil)
-(defun my/run-timer ()
-  "run the timer"
-  (interactive)
-  (setq my/timer-id (run-with-timer 1500 300 'message-box "该休息了!!!")))
-(defun my/cancel-timer ()
-  "cancel the timer"
-  (interactive)
-  (cancel-timer my/timer-id))
+(global-set-key (kbd "C-{") 'awesome-pair-open-round)
+(global-set-key (kbd "C-}") 'awesome-pair-wrap-round)
 
 ;; 鼠标自动移动到右下角
 ;; mouse auto move to right bottom
