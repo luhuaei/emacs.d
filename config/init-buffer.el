@@ -8,7 +8,6 @@
               ("M-s s" . 'swiper-thing-at-point)
 	      ("M-x" . 'counsel-M-x)
               ("C-x b" . 'counsel-ibuffer)
-              ("C-c C-s" . 'counsel-git-grep)
               ("C-c M-s" . 'counsel-rg))
   :config
   (setq ivy-use-virtual-buffers t)

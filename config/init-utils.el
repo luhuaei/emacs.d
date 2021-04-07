@@ -91,7 +91,11 @@
   (setq rainbow-x-colors nil)
   (add-hook 'prog-mode-hook 'rainbow-mode))
 
-(use-package fzf)
+(use-package fzf
+  :bind (:map ivy-mode-map
+              ("C-c C-f" . 'fzf-git)
+              ("C-c M-f" . 'fzf-directory)
+              ("C-c C-s" . 'fzf-git-grep)))
 
 (use-package dumb-jump
   :ensure nil
