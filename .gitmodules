@@ -31,3 +31,9 @@
 [submodule "extensions/snails"]
 	path = extensions/snails
 	url = https://github.com/manateelazycat/snails.git
+[submodule "extensions/lsp-mode"]
+	path = extensions/lsp-mode
+	url = https://github.com/emacs-lsp/lsp-mode.git
+[submodule "extensions/posframe"]
+	path = extensions/posframe
+	url = https://github.com/tumashu/posframe.git

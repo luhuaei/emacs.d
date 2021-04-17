@@ -91,11 +91,7 @@
   (setq rainbow-x-colors nil)
   (add-hook 'prog-mode-hook 'rainbow-mode))
 
-(use-package fzf
-  :bind (:map ivy-mode-map
-              ("C-c C-f" . 'fzf-git)
-              ("C-c M-f" . 'fzf-directory)
-              ("C-c C-s" . 'fzf-git-grep)))
+(use-package fzf)
 
 (use-package dumb-jump
   :ensure nil
@@ -104,7 +100,11 @@
   (setq dumb-jump-quiet t)
   (setq dumb-jump-force-searcher 'rg)
   (setq dumb-jump-prefer-searcher 'rg)
-  (add-hook 'xref-backend-functions #'dumb-jump-xref-activate))
+  (dolist (hook (list
+                 'js-mode-hook
+                 'web-mode-hook
+                 ))
+    (add-hook 'xref-backend-functions #'dumb-jump-xref-activate)))
 
 (use-package treemacs
   :bind (("<f8>" . treemacs)))
