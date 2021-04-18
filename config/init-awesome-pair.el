@@ -1,3 +1,5 @@
+;; -*- lexical-binding: t; -*-
+
 (use-package awesome-pair
   :ensure nil
   :quelpa (awesome-pair :fetcher github :repo "manateelazycat/awesome-pair")

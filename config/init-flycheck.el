@@ -1,9 +1,12 @@
 ;; -*- lexical-binding: t; -*-
 (use-package flymake
   :ensure nil
+  :diminish flymake-mode
   :disabled t)
 
 (use-package flycheck
+  :ensure nil
+  :quelpa (flycheck :fetcher github :repo "flycheck/flycheck")
   :diminish flycheck-mode
   :hook (prog-mode . global-flycheck-mode)
   :init (add-hook 'prog-mode-hook #'(lambda () (flymake-mode -1)))
@@ -15,15 +18,5 @@
   ;; Only check while saving and opening files
   (setq flycheck-idle-change-delay 10)
   (setq flycheck-check-syntax-automatically '(idle-buffer-switch)))
-
-(use-package flycheck-posframe
-  :disabled t
-  :hook (flycheck-mode . flycheck-posframe-mode)
-  :config (add-to-list 'flycheck-posframe-inhibit-functions
-                       #'(lambda () (bound-and-true-p company-backend))))
-
-(use-package flymake
-  :diminish flymake-mode
-  :disabled t)
 
 (provide 'init-flycheck)

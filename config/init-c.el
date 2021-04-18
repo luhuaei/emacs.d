@@ -4,7 +4,9 @@
   (setq c-default-style '((other . "linux"))))
 
 (use-package c-eldoc
-    :config
-    (c-turn-on-eldoc-mode))
+  :ensure nil
+  :quelpa (c-eldoc :fetcher github :repo "nflath/c-eldoc")
+  :config
+  (c-turn-on-eldoc-mode))
 
 (provide 'init-c)

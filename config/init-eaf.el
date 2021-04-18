@@ -8,7 +8,7 @@
   :quelpa (ctable :fetcher github :repo "kiwanami/emacs-ctable"))
 
 (use-package epc
-  :ensure t
+  :ensure nil
   :quelpa (epc :fetcher github :repo "kiwanami/emacs-epc"))
 
 (use-package eaf

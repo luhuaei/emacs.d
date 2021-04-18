@@ -6,17 +6,21 @@
 
 ;; SCSS mode
 (use-package scss-mode
+  :ensure nil
+  :quelpa (scss-mode :fetcher github :repo "antonj/scss-mode")
   :init
   ;; Disable complilation on save
   (setq scss-compile-at-save nil))
 
-(use-package less-css-mode)
+(use-package less-css-mode :ensure nil)
 
 ;; JSON mode
-(use-package json-mode)
+(use-package json-mode :ensure nil :quelpa (json-mode :fetcher github :repo "joshwnj/json-mode"))
 
 ;; Typescript
 (use-package typescript-mode
+  :ensure nil
+  :quelpa (typescript-mode :fetcher github :repo "ananthakumaran/typescript.el")
   :config
   (setq typescript-indent-level 2))
 
@@ -25,6 +29,8 @@
 
 ;; Major mode for editing web templates
 (use-package web-mode
+  :ensure nil
+  :quelpa (web-mode :fetcher github :repo "fxbois/web-mode")
   :mode "\\.\\(phtml\\|php|[gj]sp\\|as[cp]x\\|erb\\|djhtml\\|html?\\|hbs\\|ejs\\|jade\\|swig\\|tm?pl\\|vue\\|wxml\\)$"
   :bind (:map web-mode-map
               ("M-\." . #'dumb-jump-go)
@@ -54,7 +60,5 @@
                 ("javascript" . "//")
                 ("php"        . "//"))))
 (setq js-indent-level 2)
-
-(use-package emojify)
 
 (provide 'init-web)

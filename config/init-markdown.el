@@ -1,5 +1,6 @@
 (use-package markdown-mode
-  :ensure t
+  :ensure nil
+  :quelpa (markdown-mode :fetcher github :repo "projects/markdown-mode")
   :mode (("README\\.md\\'" . gfm-mode)
          ("\\.md\\'" . markdown-mode)
          ("\\.markdown\\'" . markdown-mode))

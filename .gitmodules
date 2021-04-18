@@ -37,3 +37,33 @@
 [submodule "extensions/posframe"]
 	path = extensions/posframe
 	url = https://github.com/tumashu/posframe.git
+[submodule "extensions/emacs-rime"]
+	path = extensions/emacs-rime
+	url = https://github.com/DogLooksGood/emacs-rime.git
+[submodule "extensions/quelpa-use-package"]
+	path = extensions/quelpa-use-package
+	url = https://github.com/quelpa/quelpa-use-package
+[submodule "extensions/quelpa"]
+	path = extensions/quelpa
+	url = https://github.com/quelpa/quelpa.git
+[submodule "extensions/magit"]
+	path = extensions/magit
+	url = https://github.com/magit/magit.git
+[submodule "extensions/transient"]
+	path = extensions/transient
+	url = https://github.com/magit/transient.git
+[submodule "extensions/highlight-parentheses.el"]
+	path = extensions/highlight-parentheses.el
+	url = https://git.sr.ht/~tsdh/highlight-parentheses.el
+[submodule "extensions/all-the-icons.el"]
+	path = extensions/all-the-icons.el
+	url = https://github.com/domtronn/all-the-icons.el.git
+[submodule "extensions/org-ehtml"]
+	path = extensions/org-ehtml
+	url = https://github.com/eschulte/org-ehtml.git
+[submodule "extensions/highlight-parentheses"]
+	path = extensions/highlight-parentheses.el
+	url = https://git.sr.ht/~tsdh/highlight-parentheses.el
+[submodule "extensions/all-the-icons"]
+	path = extensions/all-the-icons.el
+	url = https://github.com/domtronn/all-the-icons.el.git

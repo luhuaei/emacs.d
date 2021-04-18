@@ -1,6 +1,6 @@
 
 (use-package rust-mode
-  :ensure t
+  :ensure nil
   :quelpa (rust-mode :fetcher github :repo "rust-lang/rust-mode")
   :bind (:map rust-mode-map
               ("C-c M-f" . 'rust-format-buffer)

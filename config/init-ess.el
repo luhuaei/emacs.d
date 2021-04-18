@@ -1,4 +1,9 @@
+;; -*- lexical-binding: t; -*-
+
 (use-package ess
+  :ensure nil
+  :quelpa (ESS :fetcher github :repo "emacs-ess/ESS")
+  :load-path "~/.emacs.d/quelpa/build/ESS/lisp"
   :config
   (setq ess-ask-for-ess-directory nil)
   (setq display-buffer-alist

@@ -1,5 +1,7 @@
 ;; -*- lexical-binding: t; -*-
 (use-package company
+  :ensure nil
+  :quelpa (company-mode :fetcher github :repo "company-mode/company-mode")
   :diminish company-mode
   :bind (("M-/" . company-complete)
          ("<backtab>" . company-yasnippet)
@@ -32,6 +34,8 @@
   )
 
 (use-package company-quickhelp
+  :ensure nil
+  :quelpa (company-quickhelp :fetcher github :repo "company-mode/company-quickhelp")
   :defines company-quickhelp-delay
   :bind (:map company-active-map
 	      ("C-c h" . company-quickhelp-manual-begin))
@@ -39,7 +43,8 @@
   :init (setq company-quickhelp-delay 0.5))
 
 (use-package company-ctags
-  :ensure t
+  :ensure nil
+  :quelpa (company-ctags :fetcher github :repo "redguardtoo/company-ctags")
   :config
   (with-eval-after-load 'company
     (company-ctags-auto-setup))

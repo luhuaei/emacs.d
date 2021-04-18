@@ -39,13 +39,17 @@
   ;; (advice-add #'keyboard-quit :before #'my-hide-jupyter-windows)
 
   (use-package pipenv
+    :ensure nil
+    :quelpa (pipenv :fetcher github :repo "pwalsh/pipenv.el")
     :diminish pipenv-mode-hook
     :init
     (setq
      pipenv-projectile-after-switch-function
      #'pipenv-projectile-after-switch-extended))
 
-  (use-package jupyter
+  (use-package emacs-jupyter
+    :ensure nil
+    :quelpa (emacs-jupyter :fetcher github :repo "nnicandro/emacs-jupyter")
     :hook ((jupyter-repl-mode . awesome-pair-mode)
 	   (jupyter-repl-mode . company-mode))))
 (provide 'init-python)

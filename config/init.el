@@ -1,5 +1,23 @@
 ;; -*- lexical-binding: t; -*-
 
+;; fonts
+(when (display-graphic-p)
+  (set-face-attribute
+   'default nil
+   :font (font-spec :name "-APPL-Monaco-*-*-*-*-*-*-0-iso10646-1"
+                    :weight 'normal
+                    :slant 'normal
+                    :size 15.0))
+
+  (dolist (charset '(kana han symbol cjk-misc bopomofo))
+    (set-fontset-font
+     (frame-parameter nil 'font)
+     charset
+     (font-spec :name "-STON-幼圆-*-*-*-*-*-d-0-iso10646-1"
+                :weight 'normal
+                :slant 'normal
+                :size 15.0))))
+
 (let (
       ;; 加载的时候临时增大`gc-cons-threshold'以加速启动速度。
       (gc-cons-threshold most-positive-fixnum)
@@ -20,7 +38,6 @@
     (require 'init-awesome-pair)
     (require 'init-magit)
     (require 'init-company)
-    (require 'init-yasnippet)
     (require 'init-python)
     (require 'init-sdcv)
     (require 'init-utils)

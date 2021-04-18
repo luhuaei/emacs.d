@@ -26,7 +26,12 @@
 
   (setq swiper-action-recenter t))
 
-(use-package swiper)
-(use-package counsel)
+(use-package swiper
+  :ensure nil
+  :quelpa (swiper :fetcher swiper :repo "abo-abo/swiper"))
+
+(use-package counsel
+  :ensure nil
+  :quelpa (counsel :fetcher counsel :repo "abo-abo/counsel"))
 
 (provide 'init-buffer)

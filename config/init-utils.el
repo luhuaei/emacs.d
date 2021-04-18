@@ -2,14 +2,18 @@
 
 ;; long string
 (use-package s
-  :ensure t)
+  :ensure nil
+  :quelpa (s :fetcher github :repo "magnars/s.el"))
 
 (use-package highlight-parentheses
-   :diminish highlight-parentheses-mode
+  :ensure nil
+  :load-path emacs-extension-dir
+  :diminish highlight-parentheses-mode
   :config
   (add-hook 'prog-mode-hook #'highlight-parentheses-mode))
 
 (use-package which-key
+  :quelpa (which-key :fetcher github :repo "justbur/emacs-which-key")
   :diminish which-key-mode
   :bind (:map help-map ("C-h" . which-key-C-h-dispatch))
   :hook (after-init . which-key-mode))
@@ -39,59 +43,68 @@
 
 ;; attach package
 (use-package diminish
+  :ensure nil
+  :quelpa (diminish :fetcher github :repo "myrjola/diminish.el")
   :config
   (diminish abbrev-mode)
   (diminish eldoc-mode))
 
 (use-package exec-path-from-shell
+  :ensure nil
+  :quelpa (exec-path-from-shell :fetcher github :repo "purcell/exec-path-from-shell")
   :config
   (when (memq window-system '(mac ns x))
     (exec-path-from-shell-initialize)))
 
-(use-package all-the-icons)
+(use-package all-the-icons
+  :ensure nil
+  :quelpa (all-the-icons :fetcher github :repo "domtronn/all-the-icons.el"))
 
 (use-package auto-package-update
-   :config
-   (setq auto-package-update-delete-old-versions t
-         auto-package-update-interval 30)
-   (auto-package-update-maybe))
+  :ensure nil
+  :quelpa (auto-package-update :fetcher github :repo "rranelli/auto-package-update.el")
+  :config
+  (setq auto-package-update-delete-old-versions t
+        auto-package-update-interval 30)
+  (auto-package-update-maybe))
 
 (use-package highlight-indent-guides
-  :disabled t
-  :ensure t
+  :ensure nil
+  :quelpa (highlight-indent-guides :fetcher github :repo "DarthFennec/highlight-indent-guides")
   :diminish 'highlight-indent-guides-mode
   :hook ('prog-mode . 'highlight-indent-guides-mode)
   :config
   (setq highlight-indent-guides-method 'character))
 
 (use-package olivetti
+  :ensure nil
+  :quelpa (olivetti :fetcher github :repo "rnkn/olivetti")
   :diminish
   :bind ("<f7>" . olivetti-mode)
   :init (setq olivetti-body-width 0.618))
 
-
-(use-package undo-tree
-  :defer t
-  :diminish undo-tree-mode
-  :init (global-undo-tree-mode 1)
-  :custom
-  (undo-tree-visualizer-diff t)
-  (undo-tree-visualizer-timestamps t))
-
 (use-package expand-region
+  :ensure nil
+  :quelpa (expand-region :fetcher github :repo "magnars/expand-region.el")
   :bind ("C-=" . er/expand-region))
 
 (use-package rainbow-delimiters
+  :ensure nil
+  :quelpa (rainbow-delimiters :fetcher github :repo "Fanael/rainbow-delimiters")
   :config
   (add-hook 'prog-mode-hook 'rainbow-delimiters-mode))
 
 (use-package rainbow-mode
+  :ensure nil
+  :quelpa (rainbow-mode :fetcher github :repo "emacs-straight/rainbow-mode")
   :diminish rainbow-mode
   :config
   (setq rainbow-x-colors nil)
   (add-hook 'prog-mode-hook 'rainbow-mode))
 
-(use-package fzf)
+(use-package fzf
+  :ensure nil
+  :quelpa (fzf :fetcher github :repo "bling/fzf.el"))
 
 (use-package dumb-jump
   :ensure nil
@@ -106,10 +119,9 @@
                  ))
     (add-hook 'xref-backend-functions #'dumb-jump-xref-activate)))
 
-(use-package treemacs
-  :bind (("<f8>" . treemacs)))
-
 (use-package rime
+  :ensure nil
+  :load-path emacs-extension-dir
   :custom
   (default-input-method "rime")
   (rime-show-candidate 'minibuffer)
@@ -117,7 +129,8 @@
   (setq rime-user-data-dir "~/.config/fcitx/rime/"))
 
 (use-package disable-mouse
-  :ensure t
+  :ensure nil
+  :quelpa (disable-mouse :fetcher github :repo "purcell/disable-mouse")
   :diminish 'disable-mouse-mode
   :config
   (global-disable-mouse-mode))
