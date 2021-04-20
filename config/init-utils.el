@@ -122,9 +122,22 @@
 
 (use-package disable-mouse
   :ensure nil
+  :disabled t
   :quelpa (disable-mouse :fetcher github :repo "purcell/disable-mouse")
   :diminish 'disable-mouse-mode
   :config
   (global-disable-mouse-mode))
+
+(use-package sublimity
+  :ensure nil
+  :load-path emacs-extension-dir
+  :config
+  (require 'sublimity-attractive)
+
+  (sublimity-mode 1)
+  (setq sublimity-attractive-centering-width 110)
+  (sublimity-attractive-hide-bars)
+  (sublimity-attractive-hide-vertical-border)
+  (sublimity-attractive-hide-fringes))
 
 (provide 'init-utils)

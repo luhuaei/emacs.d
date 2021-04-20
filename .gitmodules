@@ -67,3 +67,6 @@
 [submodule "extensions/all-the-icons"]
 	path = extensions/all-the-icons.el
 	url = https://github.com/domtronn/all-the-icons.el.git
+[submodule "extensions/sublimity"]
+	path = extensions/sublimity
+	url = https://github.com/zk-phi/sublimity.git
