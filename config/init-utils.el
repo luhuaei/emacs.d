@@ -68,14 +68,6 @@
         auto-package-update-interval 30)
   (auto-package-update-maybe))
 
-(use-package highlight-indent-guides
-  :ensure nil
-  :quelpa (highlight-indent-guides :fetcher github :repo "DarthFennec/highlight-indent-guides")
-  :diminish 'highlight-indent-guides-mode
-  :hook ('prog-mode . 'highlight-indent-guides-mode)
-  :config
-  (setq highlight-indent-guides-method 'character))
-
 (use-package olivetti
   :ensure nil
   :quelpa (olivetti :fetcher github :repo "rnkn/olivetti")
@@ -126,7 +118,7 @@
   (default-input-method "rime")
   (rime-show-candidate 'minibuffer)
   :config
-  (setq rime-user-data-dir "~/.config/fcitx/rime/"))
+  (setq rime-user-data-dir "~/.config/fcitx5/rime/"))
 
 (use-package disable-mouse
   :ensure nil
