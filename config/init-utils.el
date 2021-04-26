@@ -146,4 +146,9 @@
   :ensure nil
   :bind (("<f8>" . treemacs)))
 
+(use-package indent-guide
+  :ensure nil
+  :config
+  (indent-guide-global-mode))
+
 (provide 'init-utils)

@@ -76,3 +76,6 @@
 [submodule "extensions/pfuture"]
 	path = extensions/pfuture
 	url = https://github.com/Alexander-Miller/pfuture.git
+[submodule "extensions/indent-guide"]
+	path = extensions/indent-guide
+	url = https://github.com/zk-phi/indent-guide.git
