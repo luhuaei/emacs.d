@@ -10,7 +10,7 @@
               ("C-x b" . 'counsel-ibuffer)
               ("C-c f" . 'fzf-git)
               ("C-c d" . 'fzf-directory)
-              ("C-c C-s" . 'fzf-git-grep)
+              ("C-c C-s" . 'counsel-git-grep)
               ("C-c M-s" . 'counsel-rg))
   :config
   (setq ivy-use-virtual-buffers t)

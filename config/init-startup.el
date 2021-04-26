@@ -21,6 +21,7 @@
 (global-set-key (kbd "M-s r") 'replace-regexp)         ;替换
 (setq-default indent-tabs-mode nil)                    ;使用空格代替tab键
 (global-display-fill-column-indicator-mode -1)
+(toggle-debug-on-error)
 
 ;; C-a to the first char not whitespacee
 (use-package crux
