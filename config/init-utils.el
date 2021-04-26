@@ -36,9 +36,9 @@
   :ensure nil
   :quelpa (devremote :fetcher github :repo "snyh/devremote")
   :bind (:map devremote-mode-map
-               ("<f12>" . 'devremote-transfer-current)
-  	       ("<f11>" . 'devremote-transfer-project)
-  	       ("M-<f12>" . 'devremote-compilation-project))
+              ("<f12>" . 'devremote-transfer-current)
+  	      ("<f11>" . 'devremote-transfer-project)
+  	      ("M-<f12>" . 'devremote-compilation-project))
   )
 
 ;; attach package
@@ -62,7 +62,8 @@
 
 (use-package auto-package-update
   :ensure nil
-  :quelpa (auto-package-update :fetcher github :repo "rranelli/auto-package-update.el")
+  :quelpa (auto-package-update :fetcher github
+                               :repo "rranelli/auto-package-update.el")
   :config
   (setq auto-package-update-delete-old-versions t
         auto-package-update-interval 30)
