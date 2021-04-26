@@ -70,3 +70,9 @@
 [submodule "extensions/sublimity"]
 	path = extensions/sublimity
 	url = https://github.com/zk-phi/sublimity.git
+[submodule "extensions/treemacs"]
+	path = extensions/treemacs
+	url = https://github.com/Alexander-Miller/treemacs.git
+[submodule "extensions/pfuture"]
+	path = extensions/pfuture
+	url = https://github.com/Alexander-Miller/pfuture.git
