@@ -11,9 +11,10 @@
               ("C-c f" . 'fzf-git)
               ("C-c d" . 'fzf-directory)
               ("C-c C-s" . 'counsel-git-grep)
-              ("C-c M-s" . 'counsel-rg))
+              ("C-c M-s" . 'counsel-rg)
+              ("C-c i r" . 'counsel-buffer-or-recentf))
   :config
-  (setq ivy-use-virtual-buffers t)
+  (setq ivy-use-virtual-buffers 'recentf)
   (setq enable-recursive-minibuffers t)
   (setq ivy-magic-slash-non-match-action nil)
 
