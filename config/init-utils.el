@@ -139,7 +139,6 @@
   (sublimity-mode 1)
   (setq sublimity-attractive-centering-width 90)
   (sublimity-attractive-hide-bars)
-  (sublimity-attractive-hide-modelines)
   (sublimity-attractive-hide-vertical-border)
   (sublimity-attractive-hide-fringes))
 
