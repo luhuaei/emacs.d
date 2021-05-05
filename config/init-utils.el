@@ -131,6 +131,7 @@
   (global-disable-mouse-mode))
 
 (use-package sublimity
+  :disabled t
   :ensure nil
   :load-path emacs-extension-dir
   :config
