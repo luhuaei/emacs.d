@@ -79,3 +79,6 @@
 [submodule "extensions/indent-guide"]
 	path = extensions/indent-guide
 	url = https://github.com/zk-phi/indent-guide.git
+[submodule "extensions/lua-mode"]
+	path = extensions/lua-mode
+	url = https://github.com/immerrr/lua-mode.git

@@ -32,7 +32,7 @@
   (add-hook 'eaf-browser-hook 'eaf-interleave-app-mode)
   (add-hook 'org-mode-hook 'eaf-interleave-mode)
   (setq eaf-interleave-org-notes-dir-list '("~/org/interleave/"))
-  (setq eaf-interleave-split-direction 'vertical)
+  (setq eaf-interleave-split-direction 'horizontal)
   (setq eaf-interleave-disable-narrowing t)
   (setq eaf-interleave-split-lines 30)
   (eaf-setq eaf-pdf-dark-mode "ignore")
