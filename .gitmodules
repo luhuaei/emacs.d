@@ -82,3 +82,39 @@
 [submodule "extensions/lua-mode"]
 	path = extensions/lua-mode
 	url = https://github.com/immerrr/lua-mode.git
+[submodule "extensions/emacs-epc"]
+	path = extensions/emacs-epc
+	url = https://github.com/kiwanami/emacs-epc.git
+[submodule "extensions/f.el"]
+	path = extensions/f.el
+	url = https://github.com/rejeep/f.el.git
+[submodule "extensions/ht.el"]
+	path = extensions/ht.el
+	url = https://github.com/Wilfred/ht.el.git
+[submodule "extensions/hydra"]
+	path = extensions/hydra
+	url = https://github.com/abo-abo/hydra.git
+[submodule "extensions/flycheck"]
+	path = extensions/flycheck
+	url = https://github.com/flycheck/flycheck.git
+[submodule "extensions/pipenv.el"]
+	path = extensions/pipenv.el
+	url = https://github.com/pwalsh/pipenv.el.git
+[submodule "extensions/org-pomodoro"]
+	path = extensions/org-pomodoro
+	url = https://github.com/marcinkoziej/org-pomodoro.git
+[submodule "extensions/json-mode"]
+	path = extensions/json-mode
+	url = https://github.com/joshwnj/json-mode.git
+[submodule "extensions/pyenv.el"]
+	path = extensions/pyenv.el
+	url = https://github.com/aiguofer/pyenv.el.git
+[submodule "extensions/alert"]
+	path = extensions/alert
+	url = https://github.com/jwiegley/alert.git
+[submodule "extensions/json-snatcher"]
+	path = extensions/json-snatcher
+	url = https://github.com/Sterlingg/json-snatcher.git
+[submodule "extensions/json-reformat"]
+	path = extensions/json-reformat
+	url = https://github.com/gongo/json-reformat.git

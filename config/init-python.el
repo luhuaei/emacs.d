@@ -40,7 +40,6 @@
 
   (use-package pipenv
     :ensure nil
-    :quelpa (pipenv :fetcher github :repo "pwalsh/pipenv.el")
     :diminish pipenv-mode-hook
     :init
     (setq
