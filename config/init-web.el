@@ -25,7 +25,10 @@
   (setq typescript-indent-level 2))
 
 ;; javascript mode
-(add-hook 'js-mode-hook (lambda () (local-set-key (kbd "M-\.") 'xref-find-definitions)))
+(setq js-indent-level 2)
+(add-hook 'js-mode-hook
+          (lambda ()
+            (local-set-key (kbd "M-\.") 'xref-find-definitions)))
 
 ;; Major mode for editing web templates
 (use-package web-mode
@@ -59,6 +62,6 @@
               '(("java"       . "//")
                 ("javascript" . "//")
                 ("php"        . "//"))))
-(setq js-indent-level 2)
+
 
 (provide 'init-web)
