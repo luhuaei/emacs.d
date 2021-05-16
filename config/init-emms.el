@@ -1,17 +1,20 @@
 ;; -*- lexical-binding: t; -*-
 
 (use-package emms
-  :defer t
   :bind (("C-x m r" . 'emms-random)
          ("C-x m s" . 'emms-start)
          ("C-x m c" . 'emms-stop)
          ("C-x m n" . 'emms-next)
          ("C-x m p" . 'emms-previous)
          ("C-x m d" . 'emms-show)
-         ("C-x m a" . 'emms-show-all))
+         ("C-x m a" . 'emms-show-all)
+         ("C-x m t l" . 'emms-toggle-repeat-playlist)
+         ("C-x m t s" . 'emms-toggle-repeat-track)
+         ("C-x m t r" . 'emms-toggle-random-playlist))
   :config
   (require 'emms-setup)
   (emms-minimalistic)
+  (emms-toggle-random-playlist)
 
   (setq emms-player-list '(emms-player-mpv)
         emms-playlist-buffer-name "*Music*"
