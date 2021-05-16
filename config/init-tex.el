@@ -1,7 +1,7 @@
+;; -*- lexical-binding: t; -*-
 
 (use-package tex
   :ensure auctex
-  :defer t
   :custom
   (TeX-auto-save t)
   (TeX-parse-self t)

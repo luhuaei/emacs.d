@@ -152,4 +152,6 @@
   :config
   (indent-guide-global-mode))
 
+(use-package json-reformat)
+
 (provide 'init-utils)

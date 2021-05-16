@@ -1,5 +1,7 @@
+;; -*- lexical-binding: t; -*-
 (require 'use-package)
 (setq use-package-always-ensure nil)
+(setq use-package-always-defer nil)
 
 (use-package quelpa
   :ensure nil

@@ -15,6 +15,7 @@
 (global-display-line-numbers-mode t)
 (global-set-key (kbd "C-x C-j") 'eval-print-last-sexp) ;求值
 (global-set-key (kbd "C-x k") 'kill-current-buffer)    ;关闭buffer
+(global-unset-key (kbd "C-x m"))
 (global-hl-line-mode t)                                ;高亮行
 (column-number-mode t)                                 ;在modeline显示行数
 (electric-indent-mode t)

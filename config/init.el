@@ -57,5 +57,6 @@
     (require 'init-markdown)
     (require 'init-rust)
     (require 'init-tags)
-    (require 'init-lua)))
+    (require 'init-lua)
+    (require 'init-emms)))
 (provide 'init)
