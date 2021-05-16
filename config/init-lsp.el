@@ -39,7 +39,10 @@
         )
 
   ;; rust
-  (setq lsp-rust-server 'rust-analyzer)
+  (setq lsp-rust-server 'rust-analyzer
+        lsp-rust-analyzer-proc-macro-enable t
+        lsp-rust-all-features t)
+
 
   (dolist (hook (list
                  'rust-mode-hook
