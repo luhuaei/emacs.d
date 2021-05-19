@@ -4,7 +4,8 @@
   :ensure nil
   :load-path emacs-extension-dir
   :bind (:map lsp-mode-map
-              ("C->" . 'lsp-find-implementation))
+              ("C->" . 'lsp-find-implementation)
+              ("C-c M-f" . 'lsp-format-buffer))
   :init
   (setq lsp-enable-completion-at-point t
         lsp-enable-xref t

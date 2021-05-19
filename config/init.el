@@ -46,7 +46,6 @@
     (require 'init-eaf)
     (require 'init-c)
     (require 'init-color-rg)
-    (require 'init-blog)
     (require 'init-sql)
     (require 'init-web)
     (require 'init-go)

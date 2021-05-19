@@ -25,7 +25,7 @@
          ("C-c M-o" . 'eaf-interleave-open-notes-file)
          ("C-c M-q" . 'eaf-interleave-quit)
          :map dired-mode-map
-         ("RET" . 'eaf-open-this-from-dired))
+         ("E" . 'eaf-open-this-from-dired))
   :config
   ;; eaf-interleave
   (add-hook 'eaf-pdf-viewer-hook 'eaf-interleave-app-mode)
