@@ -22,7 +22,6 @@
 (global-set-key (kbd "M-s r") 'replace-regexp)         ;替换
 (setq-default indent-tabs-mode nil)                    ;使用空格代替tab键
 (global-display-fill-column-indicator-mode -1)
-(toggle-debug-on-error)
 (add-hook 'emacs-lisp-mode-hook 'elisp-enable-lexical-binding)
 
 ;; C-a to the first char not whitespacee
