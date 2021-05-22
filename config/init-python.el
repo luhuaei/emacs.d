@@ -1,9 +1,10 @@
+;; -*- lexical-binding: t; -*-
 (use-package python
   :ensure nil
   :hook (python-mode . awesome-pair-mode)
   :bind (:map python-mode-map
 	      ("C-<return>" . jupyter-eval-line-or-region)
-              ("M-\." . #'dumb-jump-go)
+              ("M-\." . #'dump-jump-go)
               ("M-\," . #'dumb-jump-back))
   :config
   (setq python-shell-completion-native-disabled-interpreters '("pypy" "ipython" "python" "ipython3"))

@@ -99,19 +99,17 @@
   :ensure nil
   :quelpa (fzf :fetcher github :repo "bling/fzf.el"))
 
-;; (use-package dumb-jump
-;;   :ensure nil
-;;   :disabled t
-;;   :quelpa (dumb-jump :fetcher github :repo "jacktasia/dumb-jump")
-;;   :config
-;;   (setq dumb-jump-quiet t)
-;;   (setq dumb-jump-force-searcher 'rg)
-;;   (setq dumb-jump-prefer-searcher 'rg)
-;;   (dolist (hook (list
-;;                  'js-mode-hook
-;;                  'web-mode-hook
-;;                  ))
-;;     (add-hook 'xref-backend-functions #'dumb-jump-xref-activate)))
+(use-package dumb-jump
+  :ensure nil
+  :config
+  (setq dumb-jump-quiet t)
+  (setq dumb-jump-force-searcher 'rg)
+  (setq dumb-jump-prefer-searcher 'rg)
+  (dolist (hook (list
+                 'js-mode-hook
+                 'web-mode-hook
+                 ))
+    (add-hook 'xref-backend-functions #'dumb-jump-xref-activate)))
 
 (use-package rime
   :ensure nil

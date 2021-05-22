@@ -118,3 +118,9 @@
 [submodule "extensions/json-reformat"]
 	path = extensions/json-reformat
 	url = https://github.com/gongo/json-reformat.git
+[submodule "extensions/dumb-jump"]
+	path = extensions/dumb-jump
+	url = https://github.com/jacktasia/dumb-jump.git
+[submodule "extensions/popup-el"]
+	path = extensions/popup-el
+	url = https://github.com/auto-complete/popup-el.git
