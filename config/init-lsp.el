@@ -38,6 +38,10 @@
         lsp-enable-symbol-highlighting nil
         )
 
+  (setq lsp-enable-folding t)
+  (setq lsp-folding-range-limit 100)
+
+
   ;; rust
   (setq lsp-rust-server 'rust-analyzer
         lsp-rust-analyzer-proc-macro-enable t
@@ -51,6 +55,7 @@
                  'c++-mode-hook
                  'go-mode-hook
                  'typescript-mode-hook
+                 'julia-mode-hook
                  ))
     (add-hook hook '(lambda () (lsp)))))
 
