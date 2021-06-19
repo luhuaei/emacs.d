@@ -5,8 +5,11 @@
   :config
   (setq gofmt-command "goimports")
   (setq gofmt-args nil)
-  (add-hook 'flycheck-handle-save 'gofmt-before-save)
   :bind (:map go-mode-map
               ("C-c M-f" . 'gofmt)))
+
+(use-package flycheck-golangci-lint
+  :ensure nil
+  :hook (go-mode . flycheck-golangci-lint-setup))
 
 (provide 'init-go)
