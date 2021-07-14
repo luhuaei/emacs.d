@@ -1,3 +1,4 @@
+;; -*- lexical-binding: t; -*-
 (use-package protobuf-mode
   :ensure nil
   :load-path emacs-extension-dir

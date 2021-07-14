@@ -1,3 +1,4 @@
+;; -*- lexical-binding: t; -*-
 (use-package markdown-mode
   :ensure nil
   :quelpa (markdown-mode :fetcher github :repo "projects/markdown-mode")

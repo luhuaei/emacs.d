@@ -52,7 +52,6 @@
     (require 'init-lsp)
     (require 'init-rpc)
     (require 'init-buffer)
-    (require 'init-awesome-tab)
     (require 'init-markdown)
     (require 'init-rust)
     (require 'init-tags)

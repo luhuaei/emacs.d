@@ -1,3 +1,4 @@
+;; -*- lexical-binding: t; -*-
 (use-package sdcv
   :ensure nil
   :quelpa (sdcv :fetcher github :repo "manateelazycat/sdcv")

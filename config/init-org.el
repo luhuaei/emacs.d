@@ -45,28 +45,6 @@
 	   "* TODO %?\n%U\n %a" :empty-lines 1)))
   (setq org-agenda-files '("~/org/")))
 
-(use-package web-server
-  :ensure nil
-  :quelpa (web-server :fetcher github :repo "eschulte/emacs-web-server"))
-
-(use-package org-ehtml
-  :ensure nil
-  :load-path emacs-extension-dir
-  :config
-  (setq org-ehtml-docroot (expand-file-name "~/org"))
-  (setq org-ehtml-allow-agenda t)
-  (setq org-ehtml-everything-editable nil)
-  (setq org-ehtml-style (concat "<style>"
-				(with-temp-buffer
-				  ;; (insert-file-contents "~/.scripts/style.css")
-				  (buffer-string))
-				"</style>"))
-  (setq org-ehtml-dir-match "^\\([^.].*[^~]\\|\\.\\.\\)$"))
-
-(use-package htmlize
-  :ensure nil
-  :quelpa (htmlize :fetcher github :repo "hniksic/emacs-htmlize"))
-
 (use-package org-pomodoro
   :ensure nil
   :quelpa (org-pomodoro :fetcher github :repo "marcinkoziej/org-pomodoro"))
