@@ -10,6 +10,8 @@
 
 (use-package flycheck-golangci-lint
   :ensure nil
-  :hook (go-mode . flycheck-golangci-lint-setup))
+  :hook (go-mode . flycheck-golangci-lint-setup)
+  :config
+  (setq flycheck-golangci-lint-disable-linters '("errcheck" "govet")))
 
 (provide 'init-go)
