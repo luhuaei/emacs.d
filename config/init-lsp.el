@@ -5,7 +5,7 @@
 
 (use-package lsp-mode
   :ensure nil
-  :quelpa (lsp-mode :fetcher github :repo "emacs-lsp/lsp-mode")
+  :quelpa (lsp-mode :fetcher github :repo "emacs-lsp/lsp-mode" :files ("clients/*" "*.el"))
   :bind (:map lsp-mode-map
               ("C->" . 'lsp-find-implementation))
   :init
@@ -60,7 +60,7 @@
                  'typescript-mode-hook
                  'julia-mode-hook
                  ))
-    (add-hook hook '(lambda () (lsp)))))
+    (add-hook hook 'lsp)))
 
 
 (provide 'init-lsp)
