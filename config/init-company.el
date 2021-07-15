@@ -1,7 +1,8 @@
 ;; -*- lexical-binding: t; -*-
+
 (use-package company
   :ensure nil
-  :quelpa (company-mode :fetcher github :repo "company-mode/company-mode")
+  :quelpa (company-mode :fetcher github :repo "company-mode/company-mode" :files ("icons" "*.el"))
   :diminish company-mode
   :bind (("M-/" . company-complete)
          ("<backtab>" . company-yasnippet)
@@ -33,6 +34,10 @@
      ((t (:inherit company-tooltip-selection :weight bold :underline nil)))))
   )
 
+(use-package prescient
+  :quelpa (prescient :fetcher github :repo "raxod502/prescient.el" :files ("ivy-prescient.el" "company-prescient.el" "prescient.el"))
+  :init (company-prescient-mode 1))
+
 (use-package company-quickhelp
   :ensure nil
   :quelpa (company-quickhelp :fetcher github :repo "company-mode/company-quickhelp")
@@ -43,6 +48,7 @@
   :init (setq company-quickhelp-delay 0.5))
 
 (use-package company-ctags
+  :disabled t
   :ensure nil
   :quelpa (company-ctags :fetcher github :repo "redguardtoo/company-ctags")
   :config
