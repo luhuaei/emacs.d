@@ -1,4 +1,7 @@
 ;; -*- lexical-binding: t; -*-
+(use-package posframe
+  :quelpa (posframe :fetcher github :repo "tumashu/posframe"))
+
 (use-package sdcv
   :ensure nil
   :quelpa (sdcv :fetcher github :repo "manateelazycat/sdcv")

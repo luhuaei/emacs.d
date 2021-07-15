@@ -7,7 +7,7 @@
 
 (use-package highlight-parentheses
   :ensure nil
-  :load-path emacs-extension-dir
+  :quelpa (highlight-parentheses :fetcher git :url "https://git.sr.ht/~tsdh/highlight-parentheses.el")
   :diminish highlight-parentheses-mode
   :config
   (add-hook 'prog-mode-hook #'highlight-parentheses-mode))
@@ -58,7 +58,7 @@
 
 (use-package all-the-icons
   :ensure nil
-  :quelpa (all-the-icons :fetcher github :repo "domtronn/all-the-icons.el"))
+  :quelpa (all-the-icons :fetcher github :repo "domtronn/all-the-icons.el" :files ("data" "*.el")))
 
 (use-package auto-package-update
   :ensure nil
@@ -101,6 +101,7 @@
 
 (use-package dumb-jump
   :ensure nil
+  :quelpa (dumb-jump :fetcher github :repo "jacktasia/dumb-jump")
   :config
   (setq dumb-jump-quiet t)
   (setq dumb-jump-force-searcher 'rg)
@@ -113,11 +114,12 @@
 
 (use-package rime
   :ensure nil
-  :load-path emacs-extension-dir
+  :quelpa (emacs-rime :fetcher github :repo "DogLooksGood/emacs-rime" :files ("*.el" "Makefile" "lib.c"))
   :custom
   (default-input-method "rime")
   (rime-show-candidate 'minibuffer)
   :config
+  (add-hook 'rime-active-mode-hook #'(rime-active-mode-hook "朙月拼音·简化字"))
   (setq rime-user-data-dir "~/.config/fcitx5/rime/"))
 
 (use-package disable-mouse
@@ -131,7 +133,7 @@
 (use-package sublimity
   :disabled t
   :ensure nil
-  :load-path emacs-extension-dir
+  :quelpa (sublimity :fetcher github :repo "zk-phi/sublimity")
   :config
   (require 'sublimity-attractive)
 
@@ -147,9 +149,11 @@
 
 (use-package indent-guide
   :ensure nil
+  :quelpa (indent-guide :fetcher github :repo "zk-phi/indent-guide")
   :config
   (indent-guide-global-mode))
 
-(use-package json-reformat)
+(use-package json-reformat
+  :quelpa (json-reformat :fetcher github :repo "gongo/json-reformat"))
 
 (provide 'init-utils)

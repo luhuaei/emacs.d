@@ -10,6 +10,7 @@
 
 (use-package flycheck-golangci-lint
   :ensure nil
+  :quelpa (flycheck-golangci-lint :fetcher github :repo "weijiangan/flycheck-golangci-lint")
   :hook (go-mode . flycheck-golangci-lint-setup)
   :config
   (setq flycheck-golangci-lint-disable-linters '("errcheck" "govet")))

@@ -4,7 +4,7 @@
   :hook (python-mode . awesome-pair-mode)
   :bind (:map python-mode-map
 	      ("C-<return>" . jupyter-eval-line-or-region)
-              ("M-\." . #'dump-jump-go)
+              ("M-\." . #'dumb-jump-go)
               ("M-\," . #'dumb-jump-back))
   :config
   (setq python-shell-completion-native-disabled-interpreters '("pypy" "ipython" "python" "ipython3"))
@@ -41,6 +41,7 @@
 
   (use-package pipenv
     :ensure nil
+    :quelpa (pipenv :fetcher github :repo "pwalsh/pipenv.el")
     :diminish pipenv-mode-hook
     :init
     (setq

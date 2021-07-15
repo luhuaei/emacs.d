@@ -1,5 +1,9 @@
 ;; -*- lexical-binding: t; -*-
 
+(use-package swiper
+  :ensure nil
+  :quelpa (swiper :fetcher github :repo "abo-abo/swiper"))
+
 (use-package ivy
   :diminish ivy-mode
   :hook (after-init . ivy-mode)
@@ -9,7 +13,6 @@
 	      ("M-x" . 'counsel-M-x)
               ("C-x b" . 'counsel-ibuffer)
               ("C-c f" . 'fzf-git)
-              ("C-c d" . 'fzf-directory)
               ("C-c C-s" . 'counsel-git-grep)
               ("C-c M-s" . 'counsel-rg)
               ("C-c i r" . 'counsel-buffer-or-recentf))
@@ -26,13 +29,5 @@
         ivy-initial-inputs-alist nil)
 
   (setq swiper-action-recenter t))
-
-(use-package swiper
-  :ensure nil
-  :quelpa (swiper :fetcher swiper :repo "abo-abo/swiper"))
-
-(use-package counsel
-  :ensure nil
-  :quelpa (counsel :fetcher counsel :repo "abo-abo/counsel"))
 
 (provide 'init-buffer)
