@@ -156,4 +156,9 @@
 (use-package json-reformat
   :quelpa (json-reformat :fetcher github :repo "gongo/json-reformat"))
 
+(use-package apheleia
+  :quelpa (apheleia :fetcher github :repo "raxod502/apheleia")
+  :config
+  (setf (alist-get 'gofmt apheleia-formatters) '("goimports")))
+
 (provide 'init-utils)

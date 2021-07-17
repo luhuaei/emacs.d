@@ -36,7 +36,8 @@
 
 (use-package prescient
   :quelpa (prescient :fetcher github :repo "raxod502/prescient.el" :files ("ivy-prescient.el" "company-prescient.el" "prescient.el"))
-  :init (company-prescient-mode 1))
+  :init (progn
+          (company-prescient-mode 1)))
 
 (use-package company-quickhelp
   :ensure nil
@@ -48,7 +49,6 @@
   :init (setq company-quickhelp-delay 0.5))
 
 (use-package company-ctags
-  :disabled t
   :ensure nil
   :quelpa (company-ctags :fetcher github :repo "redguardtoo/company-ctags")
   :config

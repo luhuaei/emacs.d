@@ -37,7 +37,8 @@
   :mode "\\.\\(phtml\\|php|[gj]sp\\|as[cp]x\\|erb\\|djhtml\\|html?\\|hbs\\|ejs\\|jade\\|swig\\|tm?pl\\|vue\\|wxml\\)$"
   :bind (:map web-mode-map
               ("M-\." . #'dumb-jump-go)
-              ("M-\," . #'dumb-jump-back))
+              ("M-\," . #'dumb-jump-back)
+              ("C-c M-f" . #'apheleia-format-buffer))
   :config
   (setq web-mode-enable-auto-indentation nil)
   (setq web-mode-markup-indent-offset 2)
