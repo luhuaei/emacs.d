@@ -4,6 +4,9 @@
   :ensure nil
   :quelpa (swiper :fetcher github :repo "abo-abo/swiper"))
 
+(use-package find-file-in-project
+  :quelpa (find-file-in-project :fetcher github :repo "redguardtoo/find-file-in-project"))
+
 (use-package ivy
   :diminish ivy-mode
   :hook (after-init . ivy-mode)
@@ -12,7 +15,7 @@
               ("M-s s" . 'swiper-thing-at-point)
 	      ("M-x" . 'counsel-M-x)
               ("C-x b" . 'counsel-ibuffer)
-              ("C-c f" . 'fzf-git)
+              ("C-c f" . 'find-file-in-project)
               ("C-c C-s" . 'counsel-git-grep)
               ("C-c M-s" . 'counsel-rg)
               ("C-c i r" . 'counsel-buffer-or-recentf))

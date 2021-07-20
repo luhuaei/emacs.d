@@ -95,10 +95,6 @@
   (setq rainbow-x-colors nil)
   (add-hook 'prog-mode-hook 'rainbow-mode))
 
-(use-package fzf
-  :ensure nil
-  :quelpa (fzf :fetcher github :repo "bling/fzf.el"))
-
 (use-package dumb-jump
   :ensure nil
   :quelpa (dumb-jump :fetcher github :repo "jacktasia/dumb-jump")
