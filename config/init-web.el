@@ -2,6 +2,8 @@
 
 (use-package css-mode
   :init (setq css-indent-offset 2)
+  :bind (:map css-mode-map
+              ("C-c M-f" . 'apheleia-format-buffer))
   :mode "\\.\\(wxss\\)$")
 
 ;; SCSS mode
@@ -10,9 +12,14 @@
   :quelpa (scss-mode :fetcher github :repo "antonj/scss-mode")
   :init
   ;; Disable complilation on save
-  (setq scss-compile-at-save nil))
+  (setq scss-compile-at-save nil)
+  :bind (:map scss-mode-map
+              ("C-c M-f" . 'apheleia-format-buffer)))
 
-(use-package less-css-mode :ensure nil)
+(use-package less-css-mode
+  :ensure nil
+  :bind (:map less-css-mode-map
+              ("C-c M-f" . 'apheleia-format-buffer)))
 
 ;; JSON mode
 (use-package json-mode :ensure nil :quelpa (json-mode :fetcher github :repo "joshwnj/json-mode"))
@@ -21,14 +28,21 @@
 (use-package typescript-mode
   :ensure nil
   :quelpa (typescript-mode :fetcher github :repo "ananthakumaran/typescript.el")
+  :bind (:map typescript-mode-map
+              ("C-c M-f" . 'apheleia-format-buffer))
   :config
   (setq typescript-indent-level 2))
 
 ;; javascript mode
-(setq js-indent-level 2)
-(add-hook 'js-mode-hook
-          (lambda ()
-            (local-set-key (kbd "M-\.") 'xref-find-definitions)))
+(use-package js
+  :ensure nil
+  :bind (:map js-mode-map
+              ("C-c M-f" . 'apheleia-format-buffer))
+  :config
+  (setq js-indent-level 2)
+  (add-hook 'js-mode-hook
+            (lambda ()
+              (local-set-key (kbd "M-\.") 'xref-find-definitions))))
 
 ;; Major mode for editing web templates
 (use-package web-mode
@@ -36,8 +50,8 @@
   :quelpa (web-mode :fetcher github :repo "fxbois/web-mode")
   :mode "\\.\\(phtml\\|php|[gj]sp\\|as[cp]x\\|erb\\|djhtml\\|html?\\|hbs\\|ejs\\|jade\\|swig\\|tm?pl\\|vue\\|wxml\\)$"
   :bind (:map web-mode-map
-              ("M-\." . #'dumb-jump-go)
-              ("M-\," . #'dumb-jump-back))
+              ("M-\." . #'xref-find-definitions)
+              ("C-c M-f" . 'apheleia-format-buffer))
   :config
   (setq web-mode-enable-auto-indentation nil)
   (setq web-mode-markup-indent-offset 2)

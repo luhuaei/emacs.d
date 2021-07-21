@@ -154,13 +154,6 @@
 
 (use-package apheleia
   :quelpa (apheleia :fetcher github :repo "raxod502/apheleia")
-  :after (web-mode js-mode less-css-mode css-mode scss-mode)
-  :bind (:map web-mode-map
-              :map js-mode-map
-              :map css-mode-map
-              :map scss-mode-map
-              :map less-css-mode-map
-              ("C-c M-f" . 'apheleia-format-buffer))
   :config
   (setf (alist-get 'gofmt apheleia-formatters) '("goimports")))
 
