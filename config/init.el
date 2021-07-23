@@ -57,5 +57,6 @@
     (require 'init-tags)
     (require 'init-lua)
     (require 'init-emms)
-    (require 'init-julia)))
+    (require 'init-julia)
+    (require 'init-nix)))
 (provide 'init)
