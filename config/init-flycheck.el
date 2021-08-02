@@ -6,6 +6,7 @@
 
 (use-package flycheck
   :ensure nil
+  :disabled
   :quelpa (flycheck :fetcher github :repo "flycheck/flycheck")
   :diminish flycheck-mode
   :hook (prog-mode . global-flycheck-mode)

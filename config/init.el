@@ -4,19 +4,10 @@
 (when (display-graphic-p)
   (set-face-attribute
    'default nil
-   :font (font-spec :name "-APPL-Monaco-*-*-*-*-*-*-0-iso10646-1"
+   :font (font-spec :name "-APPL-WenQuanYi Micro Hei Mono-*-*-*-*-*-*-0-iso10646-1"
                     :weight 'normal
                     :slant 'normal
-                    :size 15.0))
-
-  (dolist (charset '(kana han symbol cjk-misc bopomofo))
-    (set-fontset-font
-     (frame-parameter nil 'font)
-     charset
-     (font-spec :name "-STON-幼圆-*-*-*-*-*-d-0-iso10646-1"
-                :weight 'normal
-                :slant 'normal
-                :size 15.0))))
+                    :size 15.0)))
 
 (let (
       ;; 加载的时候临时增大`gc-cons-threshold'以加速启动速度。
