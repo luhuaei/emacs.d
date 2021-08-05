@@ -9,6 +9,34 @@
   :bind (:map lsp-mode-map
               ("C->" . 'lsp-find-implementation))
   :init
+  (setq lsp-file-watch-ignored '(
+                                 "[/\\\\]\\.direnv$"
+                                 ;; SCM tools
+                                 "[/\\\\]\\.git$"
+                                 "[/\\\\]\\.hg$"
+                                 "[/\\\\]\\.bzr$"
+                                 "[/\\\\]_darcs$"
+                                 "[/\\\\]\\.svn$"
+                                 "[/\\\\]_FOSSIL_$"
+                                 ;; IDE tools
+                                 "[/\\\\]\\.idea$"
+                                 "[/\\\\]\\.ensime_cache$"
+                                 "[/\\\\]\\.eunit$"
+                                 "[/\\\\]node_modules$"
+                                 "[/\\\\]\\.fslckout$"
+                                 "[/\\\\]\\.tox$"
+                                 "[/\\\\]\\.stack-work$"
+                                 "[/\\\\]\\.bloop$"
+                                 "[/\\\\]\\.metals$"
+                                 "[/\\\\]target$"
+                                 ;; Autotools output
+                                 "[/\\\\]\\.deps$"
+                                 "[/\\\\]build-aux$"
+                                 "[/\\\\]autom4te.cache$"
+                                 "[/\\\\]\\.reference$"
+                                 "[/\\\\]\\.db$"
+                                 "[/\\\\]\\.sqlite3$"))
+
   (setq lsp-enable-completion-at-point t
         lsp-enable-xref t
         lsp-keep-workspace-alive t
@@ -49,6 +77,12 @@
   (setq lsp-rust-server 'rust-analyzer
         lsp-rust-analyzer-proc-macro-enable t
         lsp-rust-all-features t)
+
+  (add-to-list 'lsp-language-id-configuration '(nix-mode . "nix"))
+  (lsp-register-client
+   (make-lsp-client :new-connection (lsp-stdio-connection '("rnix-lsp"))
+                    :major-modes '(nix-mode)
+                    :server-id 'nix))
 
 
   (dolist (hook (list
