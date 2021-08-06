@@ -23,6 +23,7 @@
 (setq-default indent-tabs-mode nil)                    ;使用空格代替tab键
 (global-display-fill-column-indicator-mode -1)
 (add-hook 'emacs-lisp-mode-hook 'elisp-enable-lexical-binding)
+(setq native-comp-async-report-warnings-errors nil)
 
 ;; C-a to the first char not whitespacee
 (use-package crux
