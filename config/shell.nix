@@ -13,6 +13,13 @@ let
     retrying
     pytaglib
     sip
+
+    # lector
+    lxml
+    beautifulsoup4
+    xmltodict
+    djvulibre
+    markdown
   ]);
 in
 
@@ -23,6 +30,9 @@ mkShell {
   buildInputs = [
     qt5.full
     qtcreator
+
+    freetype
+    mupdf
 
     eaf-python-package
 
