@@ -1,4 +1,4 @@
-{ pkgs ? import <nixpkgs> { } }:
+{ pkgs ? import ~/repo/nixpkgs { } }:
 
 with pkgs;
 
@@ -26,6 +26,9 @@ in
 mkShell {
   nativeBuildInputs = [
     qt5.wrapQtAppsHook
+    rustc
+    cargo
+    go
   ];
   buildInputs = [
     qt5.full
@@ -46,5 +49,15 @@ mkShell {
 
     # keep this line if you use bash
     bashInteractive
+
+    # rust lsp
+    rust-analyzer
+    rustfmt
+    clippy
+
+    #go lsp
+    golangci-lint
+    gotools
+    gopls
   ];
 }

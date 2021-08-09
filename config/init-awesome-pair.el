@@ -25,6 +25,7 @@
 	   ruby-mode
 	   coffee-mode
 	   rust-mode
+           rustic-mode
 	   qmake-mode
 	   lua-mode
 	   swift-mode

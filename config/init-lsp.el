@@ -44,6 +44,7 @@
 
         lsp-enable-text-document-color t
         )
+
   (setq lsp-diagnostics-provider :none
 
         lsp-auto-guess-root nil
@@ -72,7 +73,6 @@
   (setq lsp-enable-folding t)
   (setq lsp-folding-range-limit 100)
 
-
   ;; rust
   (setq lsp-rust-server 'rust-analyzer
         lsp-rust-analyzer-proc-macro-enable t
@@ -80,6 +80,7 @@
 
   (dolist (hook (list
                  'rust-mode-hook
+                 'rustic-mode-hook
                  'c-mode-common-hook
                  'c-mode-hook
                  'c++-mode-hook
