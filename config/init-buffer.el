@@ -13,7 +13,6 @@
   :bind (:map ivy-mode-map
               ("C-s" . 'counsel-grep-or-swiper)
               ("M-s s" . 'swiper-thing-at-point)
-	      ("M-x" . 'counsel-M-x)
               ("C-x b" . 'counsel-ibuffer)
               ("C-c f" . 'find-file-in-project)
               ("C-c C-s" . 'counsel-git-grep)
