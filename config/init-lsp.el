@@ -78,12 +78,6 @@
         lsp-rust-analyzer-proc-macro-enable t
         lsp-rust-all-features t)
 
-  (lsp-register-client
-   (make-lsp-client :new-connection (lsp-stdio-connection '("rnix-lsp"))
-                    :major-modes '(nix-mode)
-                    :server-id 'nix))
-
-
   (dolist (hook (list
                  'rust-mode-hook
                  'c-mode-common-hook
