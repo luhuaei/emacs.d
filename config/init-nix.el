@@ -7,6 +7,7 @@
   :mode "\\.nix\\'")
 
 (use-package direnv
+  :disabled t
   :quelpa (direnv :fetcher github :repo "wbolster/emacs-direnv")
   :hook
   (before-hack-local-variables . direnv-update-environment)
@@ -16,8 +17,9 @@
 
 ;; some time when lsp jump to other repo, will don't find the right path
 (use-package envrc
-  :disabled t
   :quelpa (envrc :fetcher github :repo "purcell/envrc")
+  :hook
+  (before-hack-local-variables . envrc-reload)
   :config
   (envrc-global-mode))
 

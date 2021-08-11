@@ -85,8 +85,6 @@
                  'c-mode-hook
                  'c++-mode-hook
                  'go-mode-hook
-                 'typescript-mode-hook
-                 'julia-mode-hook
                  ))
     (add-hook hook 'lsp)))
 

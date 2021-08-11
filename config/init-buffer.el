@@ -12,10 +12,10 @@
   :hook (after-init . ivy-mode)
   :bind (:map ivy-mode-map
               ("C-s" . 'counsel-grep-or-swiper)
+              ("C-r" . 'counsel-git-grep)
               ("M-s s" . 'swiper-thing-at-point)
               ("C-x b" . 'counsel-ibuffer)
               ("C-c f" . 'find-file-in-project)
-              ("C-c C-s" . 'counsel-git-grep)
               ("C-c M-s" . 'counsel-rg)
               ("C-c i r" . 'counsel-buffer-or-recentf))
   :config

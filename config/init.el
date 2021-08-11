@@ -7,7 +7,7 @@
    :font (font-spec :name "-APPL-WenQuanYi Micro Hei Mono-*-*-*-*-*-*-0-iso10646-1"
                     :weight 'normal
                     :slant 'normal
-                    :size 15.0)))
+                    :size 18.0)))
 
 (defun my--merged-environment (process-env pairs)
   (append (mapcar (lambda (pair)

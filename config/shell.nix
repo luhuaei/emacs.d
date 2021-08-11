@@ -32,6 +32,7 @@ mkShell {
   ];
   buildInputs = [
     qt5.full
+    qt5.qtwebengine
     qtcreator
 
     freetype
@@ -59,5 +60,6 @@ mkShell {
     golangci-lint
     gotools
     gopls
+    goimports
   ];
 }
