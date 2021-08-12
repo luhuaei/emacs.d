@@ -1,6 +1,6 @@
 ;; -*- lexical-binding: t; -*-
 (use-package go-mode
-  :ensure nil
+  :defer t
   :quelpa (go-mode :fetcher github :repo "dominikh/go-mode.el")
   :config
   (setq gofmt-command "goimports")
@@ -9,7 +9,7 @@
               ("C-c M-f" . 'gofmt)))
 
 (use-package flycheck-golangci-lint
-  :ensure nil
+  :after (go flycheck)
   :quelpa (flycheck-golangci-lint :fetcher github :repo "weijiangan/flycheck-golangci-lint")
   :hook (go-mode . flycheck-golangci-lint-setup)
   :config

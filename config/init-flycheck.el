@@ -1,11 +1,10 @@
 ;; -*- lexical-binding: t; -*-
 (use-package flymake
-  :ensure nil
   :diminish flymake-mode
   :disabled t)
 
 (use-package flycheck
-  :ensure nil
+  :after (company)
   :quelpa (flycheck :fetcher github :repo "flycheck/flycheck")
   :diminish flycheck-mode
   :hook (prog-mode . global-flycheck-mode)

@@ -1,5 +1,6 @@
 ;; -*- lexical-binding: t; -*-
 (use-package org
+  :defer t
   :hook ((org-mode . org-indent-mode)
 	 (org-mode . flyspell-mode))
   :bind (("C-c c" . 'org-capture)
@@ -8,7 +9,9 @@
 	 ("C-c M-i" . 'interleave-mode)
          ("C-S-RET" . 'org-insert-subheading))
   :config
-  (use-package ob-go :ensure nil :quelpa (ob-go :fetcher github :repo "pope/ob-go"))
+  (use-package ob-go
+    :after (org)
+    :quelpa (ob-go :fetcher github :repo "pope/ob-go"))
 
   (org-babel-do-load-languages
    'org-babel-load-languages
@@ -46,7 +49,7 @@
   (setq org-agenda-files '("~/org/")))
 
 (use-package org-pomodoro
-  :ensure nil
+  :after (org)
   :quelpa (org-pomodoro :fetcher github :repo "marcinkoziej/org-pomodoro"))
 
 (provide 'init-org)

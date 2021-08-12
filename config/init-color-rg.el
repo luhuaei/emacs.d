@@ -1,7 +1,7 @@
 ;; -*- lexical-binding: t; -*-
 
 (use-package color-rg
-  :ensure nil
+  :after (ivy)
   :quelpa (color-rg :fetcher github :repo "manateelazycat/color-rg")
   :bind (("M-s M-s" . 'isearch-toggle-color-rg)
          ("M-s i" . 'color-rg-search-input)

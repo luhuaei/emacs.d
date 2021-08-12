@@ -1,10 +1,11 @@
 ;; -*- lexical-binding: t; -*-
 
 (use-package spinner
+  :after (lsp)
   :quelpa (spinner :fetcher github :repo "Malabarba/spinner.el"))
 
 (use-package lsp-mode
-  :ensure nil
+  :defer t
   :quelpa (lsp-mode :fetcher github :repo "emacs-lsp/lsp-mode" :files ("clients/*" "*.el"))
   :bind (:map lsp-mode-map
               ("C->" . 'lsp-find-implementation))

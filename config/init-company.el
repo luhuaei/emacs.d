@@ -1,7 +1,7 @@
 ;; -*- lexical-binding: t; -*-
 
 (use-package company
-  :ensure nil
+  :after (ivy)
   :quelpa (company-mode :fetcher github :repo "company-mode/company-mode" :files ("icons" "*.el"))
   :diminish company-mode
   :bind (("M-/" . company-complete)
@@ -35,12 +35,13 @@
   )
 
 (use-package prescient
+  :after (company)
   :quelpa (prescient :fetcher github :repo "raxod502/prescient.el" :files ("ivy-prescient.el" "company-prescient.el" "prescient.el"))
   :init (progn
           (company-prescient-mode 1)))
 
 (use-package company-quickhelp
-  :ensure nil
+  :after (company)
   :quelpa (company-quickhelp :fetcher github :repo "company-mode/company-quickhelp")
   :defines company-quickhelp-delay
   :bind (:map company-active-map
@@ -49,7 +50,7 @@
   :init (setq company-quickhelp-delay 0.5))
 
 (use-package company-ctags
-  :ensure nil
+  :after (company)
   :quelpa (company-ctags :fetcher github :repo "redguardtoo/company-ctags")
   :config
   (with-eval-after-load 'company

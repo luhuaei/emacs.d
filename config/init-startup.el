@@ -27,12 +27,13 @@
 
 ;; C-a to the first char not whitespacee
 (use-package crux
-  :ensure nil
+  :after (ivy)
   :quelpa (crux :fetcher github :repo "bbatsov/crux")
   :bind (("C-a" . crux-move-beginning-of-line)))
 
 ;; go to the last change
 (use-package goto-last-change
+  :after (ivy)
   :quelpa (goto-last-change :fetcher github :repo "camdez/goto-last-change.el")
   :bind (("C-:" . goto-last-change)))
 

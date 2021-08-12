@@ -1,9 +1,10 @@
 ;; -*- lexical-binding: t; -*-
 (use-package posframe
+  :defer t
   :quelpa (posframe :fetcher github :repo "tumashu/posframe"))
 
 (use-package sdcv
-  :ensure nil
+  :after t
   :quelpa (sdcv :fetcher github :repo "manateelazycat/sdcv")
   :config
   (setq sdcv-say-word-p nil)               ;say word after translation

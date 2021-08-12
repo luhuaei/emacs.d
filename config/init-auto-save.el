@@ -1,6 +1,6 @@
 ;; -*- lexical-binding: t; -*-
 (use-package auto-save
-  :ensure nil
+  :after (ivy)
   :quelpa (auto-save :fetcher github :repo "manateelazycat/auto-save")
   :config
   (auto-save-enable)

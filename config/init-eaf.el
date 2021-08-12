@@ -1,18 +1,18 @@
 ;; -*- lexical-binding: t; -*-
 (use-package deferred
-  :ensure nil
+  :after (eaf)
   :quelpa (deferred :fetcher github :repo "kiwanami/emacs-deferred"))
 
 (use-package ctable
-  :ensure nil
+  :after (eaf)
   :quelpa (ctable :fetcher github :repo "kiwanami/emacs-ctable"))
 
 (use-package epc
-  :ensure nil
+  :after (eaf)
   :quelpa (epc :fetcher github :repo "kiwanami/emacs-epc"))
 
 (use-package eaf
-  :ensure nil
+  :after (ivy)
   :load-path emacs-extension-dir
   :diminish eaf-mode
   :config
@@ -21,6 +21,7 @@
   (setq eaf-proxy-host "127.0.0.1")
   (setq eaf-proxy-port "10808")
   (setq eaf-proxy-type "socks5")
-  )
+
+  (require 'eaf-lector))
 
 (provide 'init-eaf)

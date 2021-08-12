@@ -1,6 +1,6 @@
 ;; -*- lexical-binding: t; -*-
 (use-package slime
-  :ensure nil
+  :defer t
   :quelpa (slime :fetcher github :repo "slime/slime")
   :load-path "~/.emacs.d/quelpa/build/slime"
   :config

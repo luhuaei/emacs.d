@@ -2,21 +2,25 @@
 
 ;; long string
 (use-package s
+  :defer t
   :quelpa (s :fetcher github :repo "magnars/s.el"))
 
 (use-package highlight-parentheses
+  :defer t
   :quelpa (highlight-parentheses :fetcher git :url "https://git.sr.ht/~tsdh/highlight-parentheses.el")
   :diminish highlight-parentheses-mode
   :config
   (add-hook 'prog-mode-hook #'highlight-parentheses-mode))
 
 (use-package which-key
+  :defer t
   :quelpa (which-key :fetcher github :repo "justbur/emacs-which-key")
   :diminish which-key-mode
   :bind (:map help-map ("C-h" . which-key-C-h-dispatch))
   :hook (after-init . which-key-mode))
 
 (use-package flyspell
+  :defer t
   :diminish
   :if (executable-find "aspell")
   :hook (((text-mode outline-mode) . flyspell-mode)
@@ -29,6 +33,7 @@
         ispell-extra-args '("--sug-mode=ultra" "--lang=en_US" "--run-together")))
 
 (use-package devremote
+  :defer t
   :disabled
   :quelpa (devremote :fetcher github :repo "snyh/devremote")
   :bind (:map devremote-mode-map
@@ -39,21 +44,25 @@
 
 ;; attach package
 (use-package diminish
+  :defer t
   :quelpa (diminish :fetcher github :repo "myrjola/diminish.el")
   :config
   (diminish abbrev-mode)
   (diminish eldoc-mode))
 
 (use-package exec-path-from-shell
+  :defer t
   :quelpa (exec-path-from-shell :fetcher github :repo "purcell/exec-path-from-shell")
   :config
   (when (memq window-system '(mac ns x))
     (exec-path-from-shell-initialize)))
 
 (use-package all-the-icons
+  :defer t
   :quelpa (all-the-icons :fetcher github :repo "domtronn/all-the-icons.el" :files ("data" "*.el")))
 
 (use-package auto-package-update
+  :defer t
   :quelpa (auto-package-update :fetcher github
                                :repo "rranelli/auto-package-update.el")
   :config
@@ -62,21 +71,25 @@
   (auto-package-update-maybe))
 
 (use-package olivetti
+  :after (ivy)
   :quelpa (olivetti :fetcher github :repo "rnkn/olivetti")
   :diminish
   :bind ("<f7>" . olivetti-mode)
   :init (setq olivetti-body-width 0.618))
 
 (use-package expand-region
+  :after (ivy)
   :quelpa (expand-region :fetcher github :repo "magnars/expand-region.el")
   :bind ("C-=" . er/expand-region))
 
 (use-package rainbow-delimiters
+  :after (ivy)
   :quelpa (rainbow-delimiters :fetcher github :repo "Fanael/rainbow-delimiters")
   :config
   (add-hook 'prog-mode-hook 'rainbow-delimiters-mode))
 
 (use-package rainbow-mode
+  :after (ivy)
   :quelpa (rainbow-mode :fetcher github :repo "emacs-straight/rainbow-mode")
   :diminish rainbow-mode
   :config
@@ -84,6 +97,7 @@
   (add-hook 'prog-mode-hook 'rainbow-mode))
 
 (use-package dumb-jump
+  :after (ivy)
   :quelpa (dumb-jump :fetcher github :repo "jacktasia/dumb-jump")
   :config
   (setq dumb-jump-quiet t)
@@ -96,6 +110,7 @@
     (add-hook 'xref-backend-functions #'dumb-jump-xref-activate)))
 
 (use-package rime
+  :after (ivy)
   :quelpa (emacs-rime :fetcher github :repo "DogLooksGood/emacs-rime" :files ("*.el" "Makefile" "lib.c"))
   :custom
   (default-input-method "rime")
@@ -123,18 +138,18 @@
   (sublimity-attractive-hide-vertical-border)
   (sublimity-attractive-hide-fringes))
 
-(use-package treemacs
-  :bind (("<f8>" . treemacs)))
-
 (use-package indent-guide
+  :after (ivy)
   :quelpa (indent-guide :fetcher github :repo "zk-phi/indent-guide")
   :config
   (indent-guide-global-mode))
 
 (use-package json-reformat
+  :after (ivy)
   :quelpa (json-reformat :fetcher github :repo "gongo/json-reformat"))
 
 (use-package apheleia
+  :after (ivy)
   :quelpa (apheleia :fetcher github :repo "raxod502/apheleia")
   :config
   (setf (alist-get 'gofmt apheleia-formatters) '("goimports")))

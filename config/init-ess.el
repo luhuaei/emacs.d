@@ -1,7 +1,7 @@
 ;; -*- lexical-binding: t; -*-
 
 (use-package ess
-  :ensure nil
+  :defer t
   :quelpa (ESS :fetcher github :repo "emacs-ess/ESS")
   :load-path "~/.emacs.d/quelpa/build/ESS/lisp"
   :config

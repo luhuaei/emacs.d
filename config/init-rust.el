@@ -1,7 +1,7 @@
 ;; -*- lexical-binding: t; -*-
 
 (use-package rustic
-  :ensure nil
+  :defer t
   :quelpa (rustic :fetcher github :repo "brotzeit/rustic")
   :bind (:map rustic-mode-map
               ("C-c M-f" . 'rustic-format-buffer)

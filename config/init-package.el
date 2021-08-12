@@ -4,7 +4,6 @@
 (setq use-package-always-defer nil)
 
 (use-package quelpa
-  :ensure nil
   :load-path emacs-extension-dir)
 
 (use-package quelpa-use-package

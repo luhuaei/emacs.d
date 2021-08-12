@@ -1,7 +1,7 @@
 ;; -*- lexical-binding: t; -*-
 
 (use-package julia-mode
-  :ensure nil
+  :defer t
   :quelpa (julia-emacs :fetcher github :repo "JuliaEditorSupport/julia-emacs")
   :config
   (setq lsp-julia-package-dir nil)
@@ -9,6 +9,7 @@
 
 
   (use-package lsp-julia
+    :after (julia)
     :quelpa (lsp-julia :fetcher github :repo "non-Jedi/lsp-julia")
     :ensure nil)
 

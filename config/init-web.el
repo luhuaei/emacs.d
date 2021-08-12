@@ -1,6 +1,7 @@
 ;; -*- lexical-binding: t; -*-
 
 (use-package css-mode
+  :defer t
   :init (setq css-indent-offset 2)
   :bind (:map css-mode-map
               ("C-c M-f" . 'apheleia-format-buffer))
@@ -8,7 +9,7 @@
 
 ;; SCSS mode
 (use-package scss-mode
-  :ensure nil
+  :defer t
   :quelpa (scss-mode :fetcher github :repo "antonj/scss-mode")
   :init
   ;; Disable complilation on save
@@ -17,16 +18,16 @@
               ("C-c M-f" . 'apheleia-format-buffer)))
 
 (use-package less-css-mode
-  :ensure nil
+  :defer t
   :bind (:map less-css-mode-map
               ("C-c M-f" . 'apheleia-format-buffer)))
 
 ;; JSON mode
-(use-package json-mode :ensure nil :quelpa (json-mode :fetcher github :repo "joshwnj/json-mode"))
+(use-package json-mode :defer t :quelpa (json-mode :fetcher github :repo "joshwnj/json-mode"))
 
 ;; Typescript
 (use-package typescript-mode
-  :ensure nil
+  :defer t
   :quelpa (typescript-mode :fetcher github :repo "ananthakumaran/typescript.el")
   :bind (:map typescript-mode-map
               ("C-c M-f" . 'apheleia-format-buffer))
@@ -35,7 +36,7 @@
 
 ;; javascript mode
 (use-package js
-  :ensure nil
+  :defer t
   :bind (:map js-mode-map
               ("C-c M-f" . 'apheleia-format-buffer))
   :config
@@ -46,7 +47,7 @@
 
 ;; Major mode for editing web templates
 (use-package web-mode
-  :ensure nil
+  :defer t
   :quelpa (web-mode :fetcher github :repo "fxbois/web-mode")
   :mode "\\.\\(phtml\\|php|[gj]sp\\|as[cp]x\\|erb\\|djhtml\\|html?\\|hbs\\|ejs\\|jade\\|swig\\|tm?pl\\|vue\\|wxml\\)$"
   :bind (:map web-mode-map

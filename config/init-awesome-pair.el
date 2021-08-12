@@ -1,7 +1,7 @@
 ;; -*- lexical-binding: t; -*-
 
 (use-package awesome-pair
-  :ensure nil
+  :after (ivy)
   :quelpa (awesome-pair :fetcher github :repo "manateelazycat/awesome-pair")
   :hook ((
            c-mode

@@ -1,6 +1,6 @@
 ;; -*- lexical-binding: t; -*-
 (use-package python
-  :ensure nil
+  :defer t
   :hook (python-mode . awesome-pair-mode)
   :bind (:map python-mode-map
 	      ("C-<return>" . jupyter-eval-line-or-region)
@@ -40,7 +40,7 @@
   ;; (advice-add #'keyboard-quit :before #'my-hide-jupyter-windows)
 
   (use-package pipenv
-    :ensure nil
+    :after (python)
     :quelpa (pipenv :fetcher github :repo "pwalsh/pipenv.el")
     :diminish pipenv-mode-hook
     :init
@@ -49,7 +49,7 @@
      #'pipenv-projectile-after-switch-extended))
 
   (use-package emacs-jupyter
-    :ensure nil
+    :after (python)
     :quelpa (emacs-jupyter :fetcher github :repo "nnicandro/emacs-jupyter")
     :hook ((jupyter-repl-mode . awesome-pair-mode)
 	   (jupyter-repl-mode . company-mode))))

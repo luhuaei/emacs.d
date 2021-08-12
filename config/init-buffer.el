@@ -1,10 +1,11 @@
 ;; -*- lexical-binding: t; -*-
 
 (use-package swiper
-  :ensure nil
+  :after (ivy)
   :quelpa (swiper :fetcher github :repo "abo-abo/swiper"))
 
 (use-package find-file-in-project
+  :after (ivy)
   :quelpa (find-file-in-project :fetcher github :repo "redguardtoo/find-file-in-project"))
 
 (use-package ivy

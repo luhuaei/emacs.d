@@ -1,7 +1,7 @@
 ;; -*- lexical-binding: t; -*-
 
 (use-package magit
-  :ensure nil
+  :after (company)
   :quelpa (magit :fetcher github :repo "magit/magit" :files ("lisp/*"))
   :config
   (global-set-key (kbd "C-x g") 'magit-status)
@@ -11,7 +11,7 @@
 
 
 (use-package git-gutter
-  :ensure nil
+  :after (magit)
   :quelpa (git-gutter :fetcher github :repo "emacsorphanage/git-gutter")
   :diminish git-gutter-mode
   :config
