@@ -1,12 +1,12 @@
 [submodule "extensions/use-package"]
 	path = extensions/use-package
 	url = https://github.com/jwiegley/use-package.git
-[submodule "extensions/emacs-application-framework"]
-	path = extensions/emacs-application-framework
-	url = https://github.com/manateelazycat/emacs-application-framework.git
 [submodule "extensions/quelpa-use-package"]
 	path = extensions/quelpa-use-package
 	url = https://github.com/quelpa/quelpa-use-package
 [submodule "extensions/quelpa"]
 	path = extensions/quelpa
 	url = https://github.com/quelpa/quelpa.git
+[submodule "extensions/emacs-application-framework"]
+	path = extensions/emacs-application-framework
+	url = https://github.com/emacs-eaf/emacs-application-framework.git

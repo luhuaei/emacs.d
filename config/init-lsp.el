@@ -81,9 +81,6 @@
   (dolist (hook (list
                  'rust-mode-hook
                  'rustic-mode-hook
-                 'c-mode-common-hook
-                 'c-mode-hook
-                 'c++-mode-hook
                  'go-mode-hook
                  ))
     (add-hook hook 'lsp)))
