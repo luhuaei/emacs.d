@@ -1,18 +1,18 @@
 ;; -*- lexical-binding: t; -*-
 (use-package deferred
-  :after (eaf)
+  :defer t
   :quelpa (deferred :fetcher github :repo "kiwanami/emacs-deferred"))
 
 (use-package ctable
-  :after (eaf)
+  :defer t
   :quelpa (ctable :fetcher github :repo "kiwanami/emacs-ctable"))
 
 (use-package epc
-  :after (eaf)
+  :defer t
   :quelpa (epc :fetcher github :repo "kiwanami/emacs-epc"))
 
 (use-package eaf
-  :after (ivy)
+  :after (init)
   :load-path emacs-extension-dir
   :diminish eaf-mode
   :config

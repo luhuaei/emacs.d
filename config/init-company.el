@@ -1,7 +1,7 @@
 ;; -*- lexical-binding: t; -*-
 
 (use-package company
-  :after (ivy)
+  :after (init)
   :quelpa (company-mode :fetcher github :repo "company-mode/company-mode" :files ("icons" "*.el"))
   :diminish company-mode
   :bind (("M-/" . company-complete)

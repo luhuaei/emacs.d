@@ -4,7 +4,7 @@
   :quelpa (posframe :fetcher github :repo "tumashu/posframe"))
 
 (use-package sdcv
-  :after t
+  :after (init)
   :quelpa (sdcv :fetcher github :repo "manateelazycat/sdcv")
   :config
   (setq sdcv-say-word-p nil)               ;say word after translation

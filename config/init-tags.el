@@ -1,7 +1,7 @@
 ;; -*- lexical-binding: t; -*-
 
 (use-package counsel-etags
-  :ensure nil
+  :after (ivy)
   :quelpa (counsel-etags :fetcher github :repo "redguardtoo/counsel-etags")
   :bind (("C-]" . counsel-etags-find-tag-at-point))
   :init

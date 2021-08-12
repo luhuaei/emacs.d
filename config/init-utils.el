@@ -13,11 +13,11 @@
   (add-hook 'prog-mode-hook #'highlight-parentheses-mode))
 
 (use-package which-key
-  :defer t
+  :after (init)
   :quelpa (which-key :fetcher github :repo "justbur/emacs-which-key")
   :diminish which-key-mode
   :bind (:map help-map ("C-h" . which-key-C-h-dispatch))
-  :hook (after-init . which-key-mode))
+  :hook (init . which-key-mode))
 
 (use-package flyspell
   :defer t
@@ -71,25 +71,25 @@
   (auto-package-update-maybe))
 
 (use-package olivetti
-  :after (ivy)
+  :after (init)
   :quelpa (olivetti :fetcher github :repo "rnkn/olivetti")
   :diminish
   :bind ("<f7>" . olivetti-mode)
   :init (setq olivetti-body-width 0.618))
 
 (use-package expand-region
-  :after (ivy)
+  :after (init)
   :quelpa (expand-region :fetcher github :repo "magnars/expand-region.el")
   :bind ("C-=" . er/expand-region))
 
 (use-package rainbow-delimiters
-  :after (ivy)
+  :defer t
   :quelpa (rainbow-delimiters :fetcher github :repo "Fanael/rainbow-delimiters")
   :config
   (add-hook 'prog-mode-hook 'rainbow-delimiters-mode))
 
 (use-package rainbow-mode
-  :after (ivy)
+  :defer t
   :quelpa (rainbow-mode :fetcher github :repo "emacs-straight/rainbow-mode")
   :diminish rainbow-mode
   :config
@@ -97,7 +97,7 @@
   (add-hook 'prog-mode-hook 'rainbow-mode))
 
 (use-package dumb-jump
-  :after (ivy)
+  :defer t
   :quelpa (dumb-jump :fetcher github :repo "jacktasia/dumb-jump")
   :config
   (setq dumb-jump-quiet t)
@@ -110,7 +110,7 @@
     (add-hook 'xref-backend-functions #'dumb-jump-xref-activate)))
 
 (use-package rime
-  :after (ivy)
+  :after (init)
   :quelpa (emacs-rime :fetcher github :repo "DogLooksGood/emacs-rime" :files ("*.el" "Makefile" "lib.c"))
   :custom
   (default-input-method "rime")
@@ -139,17 +139,17 @@
   (sublimity-attractive-hide-fringes))
 
 (use-package indent-guide
-  :after (ivy)
+  :after (init)
   :quelpa (indent-guide :fetcher github :repo "zk-phi/indent-guide")
   :config
   (indent-guide-global-mode))
 
 (use-package json-reformat
-  :after (ivy)
+  :after (init)
   :quelpa (json-reformat :fetcher github :repo "gongo/json-reformat"))
 
 (use-package apheleia
-  :after (ivy)
+  :after (init)
   :quelpa (apheleia :fetcher github :repo "raxod502/apheleia")
   :config
   (setf (alist-get 'gofmt apheleia-formatters) '("goimports")))

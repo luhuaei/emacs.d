@@ -4,7 +4,7 @@
   :disabled t)
 
 (use-package flycheck
-  :after (company)
+  :defer t
   :quelpa (flycheck :fetcher github :repo "flycheck/flycheck")
   :diminish flycheck-mode
   :hook (prog-mode . global-flycheck-mode)

@@ -1,11 +1,13 @@
 ;; -*- lexical-binding: t; -*-
 
+
 (tool-bar-mode -1)                                     ;禁用工具栏
 (menu-bar-mode -1)                                     ;禁用菜单栏
 (scroll-bar-mode -1)                                   ;禁用滚动条
-(setq inhibit-startup-screen t)                        ;初始界面
+(global-display-fill-column-indicator-mode -1)
 (toggle-frame-fullscreen)                              ;全屏
-(show-paren-mode t)                                    ;展示匹配括号
+
+(setq inhibit-startup-screen t)                        ;初始界面
 (setq make-backup-files nil)                           ;不要生成备份文件
 (setq create-lockfiles nil)                            ;不要生产.#filename
 (defalias 'yes-or-no-p 'y-or-n-p)                      ;y-or-n-p
@@ -16,42 +18,46 @@
 (global-set-key (kbd "C-x C-j") 'eval-print-last-sexp) ;求值
 (global-set-key (kbd "C-x k") 'kill-current-buffer)    ;关闭buffer
 (global-unset-key (kbd "C-x m"))
-(global-hl-line-mode t)                                ;高亮行
-(column-number-mode t)                                 ;在modeline显示行数
-(electric-indent-mode t)
 (global-set-key (kbd "M-s r") 'replace-regexp)         ;替换
-(setq-default indent-tabs-mode nil)                    ;使用空格代替tab键
-(global-display-fill-column-indicator-mode -1)
-(add-hook 'emacs-lisp-mode-hook 'elisp-enable-lexical-binding)
 (setq native-comp-async-report-warnings-errors nil)
+
+(add-hook 'after-init-hook
+	  (lambda ()
+	    (global-hl-line-mode t)                                ;高亮行
+	    (column-number-mode t)                                 ;在modeline显示行数
+	    (electric-indent-mode t)
+	    (setq-default indent-tabs-mode nil)                    ;使用空格代替tab键
+	    (add-hook 'emacs-lisp-mode-hook 'elisp-enable-lexical-binding)
+	    (show-paren-mode t)                                    ;展示匹配括号)
+	    ))
 
 ;; C-a to the first char not whitespacee
 (use-package crux
-  :after (ivy)
+  :after (init)
   :quelpa (crux :fetcher github :repo "bbatsov/crux")
   :bind (("C-a" . crux-move-beginning-of-line)))
 
 ;; go to the last change
 (use-package goto-last-change
-  :after (ivy)
+  :after (init)
   :quelpa (goto-last-change :fetcher github :repo "camdez/goto-last-change.el")
   :bind (("C-:" . goto-last-change)))
 
 ;; mode line
 (setq-default mode-line-format
-      '("%e"
-	mode-line-front-space
-	mode-line-mule-info
-	mode-line-client
-	mode-line-modified
-	mode-line-remote
-	mode-line-frame-identification
-	mode-line-buffer-identification
-	"   "
-	mode-line-position
-	(vc-mode vc-mode)
-	"   "
-	(:eval (format "%s" last-command))))
+	      '("%e"
+		mode-line-front-space
+		mode-line-mule-info
+		mode-line-client
+		mode-line-modified
+		mode-line-remote
+		mode-line-frame-identification
+		mode-line-buffer-identification
+		"   "
+		mode-line-position
+		(vc-mode vc-mode)
+		"   "
+		(:eval (format "%s" last-command))))
 
 ;; 跳转到scratch buffer
 (defun my/scratch ()

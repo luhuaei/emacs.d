@@ -1,6 +1,6 @@
 ;; -*- lexical-binding: t; -*-
 (use-package protobuf-mode
-  :ensure nil
+  :defer t
   :load-path emacs-extension-dir
   :mode "\\.proto$"
   :config
