@@ -13,11 +13,10 @@
   (add-hook 'prog-mode-hook #'highlight-parentheses-mode))
 
 (use-package which-key
-  :after (init)
   :quelpa (which-key :fetcher github :repo "justbur/emacs-which-key")
   :diminish which-key-mode
   :bind (:map help-map ("C-h" . which-key-C-h-dispatch))
-  :hook (init . which-key-mode))
+  :hook (ivy-mode . which-key-mode))
 
 (use-package flyspell
   :defer t
@@ -51,7 +50,6 @@
   (diminish eldoc-mode))
 
 (use-package exec-path-from-shell
-  :defer t
   :quelpa (exec-path-from-shell :fetcher github :repo "purcell/exec-path-from-shell")
   :config
   (when (memq window-system '(mac ns x))
@@ -97,7 +95,7 @@
   (add-hook 'prog-mode-hook 'rainbow-mode))
 
 (use-package dumb-jump
-  :defer t
+  :after (init)
   :quelpa (dumb-jump :fetcher github :repo "jacktasia/dumb-jump")
   :config
   (setq dumb-jump-quiet t)

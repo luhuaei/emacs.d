@@ -18,7 +18,8 @@
               ("C-x b" . 'counsel-ibuffer)
               ("C-c f" . 'find-file-in-project)
               ("C-c M-s" . 'counsel-rg)
-              ("C-c i r" . 'counsel-buffer-or-recentf))
+              ("C-," . 'counsel-yank-pop)
+              ("C-." . 'counsel-mark-ring))
   :config
   (setq ivy-use-virtual-buffers 'recentf)
   (setq enable-recursive-minibuffers t)
@@ -31,6 +32,7 @@
         ivy-on-del-error-function nil
         ivy-initial-inputs-alist nil)
 
+  (add-to-list 'ivy-sort-functions-alist '(counsel-mark-ring . (ignore ivy-string<)))
   (setq swiper-action-recenter t))
 
 (provide 'init-buffer)

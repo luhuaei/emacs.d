@@ -1,6 +1,7 @@
 ;; -*- lexical-binding: t; -*-
 
 (use-package nix-mode
+  :defer t
   :quelpa (nix-mode :fetcher github :repo "NixOS/nix-mode")
   :bind (:map nix-mode-map
               ("C-c M-f" . 'nixpkgs-fmt-buffer))
@@ -24,6 +25,7 @@
   (envrc-global-mode))
 
 (use-package nixpkgs-fmt
+  :after (nix-mode)
   :quelpa (nixpkgs-fmt :fetcher github :repo "purcell/emacs-nixpkgs-fmt"))
 
 (provide 'init-nix)
