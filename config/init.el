@@ -4,7 +4,7 @@
 (when (display-graphic-p)
   (set-face-attribute
    'default nil
-   :font (font-spec :name "-APPL-WenQuanYi Micro Hei Mono-*-*-*-*-*-*-0-iso10646-1"
+   :font (font-spec :name "WenQuanYi Micro Hei Mono"
                     :weight 'normal
                     :slant 'normal
                     :size 18.0)))
