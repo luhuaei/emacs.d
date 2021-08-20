@@ -1,5 +1,12 @@
 ;; -*- lexical-binding: t; -*-
 
+;; benchmark init
+(require 'benchmark-init-loaddefs)
+(benchmark-init/activate)
+
+(require 'benchmark-init)
+(add-hook 'after-init-hook 'benchmark-init/deactivate)
+
 ;; fonts
 (when (display-graphic-p)
   (set-face-attribute

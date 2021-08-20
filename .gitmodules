@@ -10,3 +10,6 @@
 [submodule "extensions/emacs-application-framework"]
 	path = extensions/emacs-application-framework
 	url = https://github.com/emacs-eaf/emacs-application-framework.git
+[submodule "extensions/benchmark-init-el"]
+	path = extensions/benchmark-init-el
+	url = https://github.com/luhuaei/benchmark-init-el.git
