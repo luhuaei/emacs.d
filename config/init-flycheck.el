@@ -10,7 +10,7 @@
   :hook (prog-mode . global-flycheck-mode)
   :init (add-hook 'prog-mode-hook #'(lambda () (flymake-mode -1)))
   :config
-  (setq flycheck-indication-mode 'right-fringe)
+  (setq flycheck-indication-mode 'left-fringe)
   (setq flycheck-emacs-lisp-load-path 'inherit)
   (setq-default flycheck-disabled-checkers
                 '(emacs-lisp
