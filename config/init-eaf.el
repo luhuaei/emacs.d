@@ -23,6 +23,7 @@
   (setq eaf-proxy-port "10808")
   (setq eaf-proxy-type "socks5")
 
-  (require 'eaf-pdf-viewer))
+  (require 'eaf-pdf-viewer)
+  (require 'eaf-browser))
 
 (provide 'init-eaf)

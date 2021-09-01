@@ -16,7 +16,7 @@
   :config
   (require 'emms-setup)
   (emms-minimalistic)
-  (emms-toggle-repeat-playlist)
+  (emms-toggle-random-playlist)
 
   (setq emms-player-list '(emms-player-mpv)
         emms-playlist-buffer-name "*Music*"

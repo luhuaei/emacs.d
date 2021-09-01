@@ -35,6 +35,8 @@ mkShell {
     qt5.qtwebengine
     qtcreator
 
+    python3
+
     freetype
     mupdf
 
@@ -47,6 +49,8 @@ mkShell {
     nodejs
 
     xorg.libxcb
+
+    pkg-config
 
     # keep this line if you use bash
     bashInteractive

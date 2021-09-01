@@ -27,7 +27,6 @@
 	    (column-number-mode t)                                 ;在modeline显示行数
 	    (electric-indent-mode t)
 	    (setq-default indent-tabs-mode nil)                    ;使用空格代替tab键
-	    (add-hook 'emacs-lisp-mode-hook 'elisp-enable-lexical-binding)
 	    (show-paren-mode t)                                    ;展示匹配括号)
 	    ))
 
