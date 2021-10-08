@@ -1,4 +1,4 @@
-{ pkgs ? import ~/repo/nixpkgs { } }:
+{ pkgs ? import <nixpkgs> { } }:
 
 with pkgs;
 

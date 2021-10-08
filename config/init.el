@@ -84,5 +84,6 @@
     (require 'init-lua)
     (require 'init-emms)
     (require 'init-julia)
-    (require 'init-nix)))
+    (require 'init-nix)
+    (require 'init-tex)))
 (provide 'init)

@@ -1,21 +1,13 @@
 ;; -*- lexical-binding: t; -*-
 
 (use-package tex
-  :defer t
-  :custom
-  (TeX-auto-save t)
-  (TeX-parse-self t)
-  (TeX-master nil)
-  ;; to use pdfview with auctex
-  (TeX-view-program-selection '((output-pdf "pdf-tools"))
-                              TeX-source-correlate-start-server t)
-  (TeX-view-program-list '(("pdf-tools" "TeX-pdf-tools-sync-view")))
-  (TeX-after-compilation-finished-functions #'TeX-revert-document-buffer)
-  :hook
-  (LaTeX-mode . (lambda ()
-                  (turn-on-reftex)
-                  (setq reftex-plug-into-AUCTeX t)
-                  (reftex-isearch-minor-mode)
-                  (setq TeX-PDF-mode t)
-                  (setq TeX-source-correlate-method 'synctex)
-                  (setq TeX-source-correlate-start-server t))))
+  :ensure auctex
+  :mode ("\\.tex\\'" . LaTeX-mode)
+  :hook (LaTeX-mode . (lambda()
+                        (setq TeX-command-default "pdflatex")))
+  :config
+  (add-to-list 'TeX-command-list '("pdflatex" "%`pdflatex --synctex=1%(mode)%' %t" TeX-run-TeX nil t))
+  (add-to-list 'TeX-view-program-list '("eaf" eaf-pdf-synctex-forward-view))
+  (add-to-list 'TeX-view-program-selection '(output-pdf "eaf")))
+
+(provide 'init-tex)
