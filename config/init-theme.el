@@ -6,9 +6,10 @@
   :config
   (load-theme 'monokai t))
 
-(use-package ample-theme
-  :quelpa (ample-theme :fetcher github :repo "jordonbiondo/ample-theme")
+(use-package dracula-theme
+  :quelpa (dracula-theme :fetcher github :repo "dracula/emacs")
   :config
-  (load-theme 'ample t))
+  (load-theme 'dracula t)
+  (setq dracula-alternate-mode-line-and-minibuffer t))
 
 (provide 'init-theme)
