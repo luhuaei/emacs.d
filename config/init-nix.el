@@ -4,8 +4,10 @@
   :defer t
   :quelpa (nix-mode :fetcher github :repo "NixOS/nix-mode")
   :bind (:map nix-mode-map
-              ("C-c M-f" . 'nixpkgs-fmt-buffer))
-  :mode "\\.nix\\'")
+              ("C-c M-f" . 'nix-format-buffer))
+  :mode "\\.nix\\'"
+  :config
+  (setq nix-nixfmt-bin "nixpkgs-fmt"))
 
 (use-package direnv
   :disabled t
@@ -23,9 +25,5 @@
   (before-hack-local-variables . envrc-reload)
   :config
   (envrc-global-mode))
-
-(use-package nixpkgs-fmt
-  :after (nix-mode)
-  :quelpa (nixpkgs-fmt :fetcher github :repo "purcell/emacs-nixpkgs-fmt"))
 
 (provide 'init-nix)

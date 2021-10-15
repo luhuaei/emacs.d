@@ -41,7 +41,6 @@
   (setq lsp-enable-completion-at-point t
         lsp-enable-xref t
         lsp-keep-workspace-alive t
-        read-process-output-max (* 1024 1024)
 
         lsp-enable-text-document-color t
         )
@@ -70,9 +69,6 @@
         lsp-enable-folding nil
         lsp-enable-symbol-highlighting nil
         )
-
-  (setq lsp-enable-folding t)
-  (setq lsp-folding-range-limit 100)
 
   ;; rust
   (setq lsp-rust-server 'rust-analyzer
