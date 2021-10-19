@@ -118,7 +118,6 @@
   (setq rime-user-data-dir "~/.config/fcitx5/rime/"))
 
 (use-package disable-mouse
-  :disabled t
   :quelpa (disable-mouse :fetcher github :repo "purcell/disable-mouse")
   :diminish 'disable-mouse-mode
   :config
