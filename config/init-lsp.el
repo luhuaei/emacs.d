@@ -8,7 +8,9 @@
   :defer t
   :quelpa (lsp-mode :fetcher github :repo "emacs-lsp/lsp-mode" :files ("clients/*" "*.el"))
   :bind (:map lsp-mode-map
-              ("C->" . 'lsp-find-implementation))
+              ("C->" . 'lsp-find-implementation)
+              ("<mouse-3>" . #'ignore)
+              ("C-<down-mouse-1>" . #'ignore))
   :init
   (setq lsp-file-watch-ignored '(
                                  "[/\\\\]\\.direnv$"
