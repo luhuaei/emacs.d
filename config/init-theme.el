@@ -1,7 +1,6 @@
 ;; -*- lexical-binding: t; -*-
 
 (use-package monokai-theme
-  :disabled t
   :quelpa (monokai-theme :fetcher github :repo "oneKelvinSmith/monokai-emacs")
   :config
   (load-theme 'monokai t))
@@ -14,6 +13,7 @@
   (setq dracula-alternate-mode-line-and-minibuffer t))
 
 (use-package solarized
+  :disabled t
   :quelpa (solarized :fetcher github :repo "bbatsov/solarized-emacs")
   :config
   (load-theme 'solarized-dark-high-contrast t)

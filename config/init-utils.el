@@ -151,4 +151,21 @@
   :config
   (setf (alist-get 'gofmt apheleia-formatters) '("goimports")))
 
+(use-package sort-tab
+  :disabled t
+  :after (init)
+  :quelpa (sort-tab :fetcher github :repo "manateelazycat/sort-tab")
+  :bind (:map sort-tab-mode-map
+              ("C-M-p" . 'sort-tab-select-prev-tab)
+              ("C-M-n" . 'sort-tab-select-next-tab)
+              ("C-M-<" . 'sort-tab-select-first-tab)
+              ("C-M->" . 'sort-tab-select-last-tab))
+  :config
+  (sort-tab-mode 1))
+
+(use-package bison
+  :diminish bison-mode
+  :quelpa (bison :fetcher github :repo "manateelazycat/bison")
+  :mode ("\\.\\(y\\)$" . bison-mode))
+
 (provide 'init-utils)

@@ -18,6 +18,7 @@
   :config
   ;; chore setting
   (setq eaf-find-alternate-file-in-dired nil)
+  (setq eaf-pdf-notify-file-changed nil)
   (setq eaf-pdf-dark-mode "follow")
   (setq eaf-proxy-host "127.0.0.1")
   (setq eaf-proxy-port "10808")
