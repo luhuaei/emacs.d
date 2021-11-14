@@ -85,5 +85,6 @@
     (require 'init-emms)
     (require 'init-julia)
     (require 'init-nix)
-    (require 'init-tex)))
+    (require 'init-tex)
+    (require 'init-kotlin)))
 (provide 'init)

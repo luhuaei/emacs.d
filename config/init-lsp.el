@@ -81,6 +81,7 @@
                  'rust-mode-hook
                  'rustic-mode-hook
                  'go-mode-hook
+                 'kotlin-mode-hook
                  ))
     (add-hook hook 'lsp)))
 
