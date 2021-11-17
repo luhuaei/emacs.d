@@ -37,6 +37,7 @@
            typescript-mode
            conf-toml-mode
            json-mode
+           kotlin-mode
            web-mode) . awesome-pair-mode)
   :bind (:map awesome-pair-mode-map
               ("(" . 'awesome-pair-open-round)
