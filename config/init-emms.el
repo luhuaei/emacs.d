@@ -15,7 +15,7 @@
          ("C-x m t r" . 'emms-toggle-random-playlist))
   :config
   (require 'emms-setup)
-  (add-to-list 'emms-player-base-format-list "dsf")
+  (append emms-player-base-format-list '("dsf" "dff"))
   (emms-minimalistic)
   (emms-toggle-repeat-playlist)
 
