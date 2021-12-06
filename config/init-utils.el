@@ -168,4 +168,8 @@
   :quelpa (bison :fetcher github :repo "manateelazycat/bison")
   :mode ("\\.\\(y\\)$" . bison-mode))
 
+(use-package yaml
+  :diminish yaml-mode
+  :quelpa (yaml-mode :fetcher github :repo "yoshiki/yaml-mode"))
+
 (provide 'init-utils)
