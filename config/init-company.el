@@ -24,7 +24,7 @@
 	company-require-match nil
 	company-dabbrev-ignore-case nil
 	company-dabbrev-downcase nil
-	company-show-number nil)
+	company-show-number t)
 
   ;; Nicer looking faces
   (custom-set-faces
@@ -56,6 +56,5 @@
   (with-eval-after-load 'company
     (company-ctags-auto-setup))
   (setq company-ctags-extra-tags-files '("$HOME/TAGS" "/usr/include/TAGS")))
-
 
 (provide 'init-company)

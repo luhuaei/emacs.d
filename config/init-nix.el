@@ -21,9 +21,6 @@
 ;; some time when lsp jump to other repo, will don't find the right path
 (use-package envrc
   :quelpa (envrc :fetcher github :repo "purcell/envrc")
-  :hook
-  (before-hack-local-variables . envrc-reload)
-  :config
-  (envrc-global-mode))
+  :hook (after-init . envrc-global-mode))
 
 (provide 'init-nix)
