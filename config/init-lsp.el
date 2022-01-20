@@ -77,11 +77,16 @@
         lsp-rust-analyzer-proc-macro-enable t
         lsp-rust-all-features t)
 
+  ;; ts/js
+  (setf lsp-disabled-clients '(jsts-ls flow-ts deno-ls))
   (dolist (hook (list
+                 'c-mode-hook
+                 'c++-mode-hook
                  'rust-mode-hook
                  'rustic-mode-hook
                  'go-mode-hook
                  'kotlin-mode-hook
+                 'typescript-mode-hook
                  ))
     (add-hook hook 'lsp)))
 
