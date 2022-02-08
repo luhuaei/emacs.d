@@ -114,7 +114,6 @@
   (default-input-method "rime")
   (rime-show-candidate 'minibuffer)
   :config
-  (add-hook 'rime-active-mode-hook #'(rime-active-mode-hook "朙月拼音·简化字"))
   (setq rime-user-data-dir "~/.config/fcitx5/rime/"))
 
 (use-package disable-mouse

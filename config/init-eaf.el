@@ -26,6 +26,8 @@
 
   (require 'eaf-pdf-viewer)
 
-  (require 'eaf-browser))
+  (require 'eaf-browser)
+
+  (require 'eaf-demo))
 
 (provide 'init-eaf)
