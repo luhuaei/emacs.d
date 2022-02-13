@@ -114,7 +114,15 @@
   (default-input-method "rime")
   (rime-show-candidate 'minibuffer)
   :config
-  (setq rime-user-data-dir "~/.config/fcitx5/rime/"))
+  (define-key rime-mode-map (kbd "M-j") 'rime-force-enable)
+  (setq rime-user-data-dir "~/.config/fcitx5/rime/")
+  (setq rime-disable-predicates
+        '(rime-predicate-after-alphabet-char-p
+          rime-predicate-auto-english-p
+          rime-predicate-punctuation-after-space-cc-p
+          rime-predicate-punctuation-after-ascii-p
+          rime-predicate-space-after-cc-p
+          rime-predicate-prog-in-code-p)))
 
 (use-package disable-mouse
   :quelpa (disable-mouse :fetcher github :repo "purcell/disable-mouse")
