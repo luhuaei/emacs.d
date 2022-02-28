@@ -13,3 +13,6 @@
 [submodule "extensions/benchmark-init-el"]
 	path = extensions/benchmark-init-el
 	url = https://github.com/luhuaei/benchmark-init-el.git
+[submodule "libs/py-mupdf"]
+	path = libs/py-mupdf
+	url = https://github.com/JorjMcKie/py-mupdf.git

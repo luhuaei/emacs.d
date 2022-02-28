@@ -3,16 +3,18 @@
 with pkgs;
 
 let
+  latest-pymupdf = import ./pymupdf.nix { };
+
   eaf-python-package = python3.withPackages (ps: with ps; [
     epc
     pyqt5
     sip
     pyqtwebengine
-    pymupdf
     qrcode
     retrying
     pytaglib
     sip
+    pip
   ]);
 in
 
@@ -25,18 +27,8 @@ mkShell {
     qt5.qtwebengine
 
     python3
-
-    freetype
-    mupdf
-
+    latest-pymupdf
     eaf-python-package
-
-    xorg.libxcb
-
-    pkg-config
-
-    # keep this line if you use bash
-    bashInteractive
 
     nodejs-16_x
   ];
