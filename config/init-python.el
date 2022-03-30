@@ -7,10 +7,6 @@
               ("M-\." . #'dumb-jump-go)
               ("M-\," . #'dumb-jump-back))
   :config
-  (setq python-shell-completion-native-disabled-interpreters '("pypy" "ipython" "python" "ipython3"))
-  (setq python-shell-interpreter "~/.local/bin/ipython3"
-	python-shell-interpreter-args "-i --pylab --simple-prompt --no-color-info")
-
   (defun my-jupyter-next-line (insert)
     (let ((status (use-region-p)))
       (if status

@@ -25,9 +25,9 @@
   (setq eaf-proxy-type "socks5")
 
   (require 'eaf-pdf-viewer)
-
   (require 'eaf-browser)
-
-  (require 'eaf-demo))
+  (require 'eaf-demo)
+  (require 'eaf-git)
+  (require 'eaf-file-manager))
 
 (provide 'init-eaf)

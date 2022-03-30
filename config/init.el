@@ -86,5 +86,6 @@
     (require 'init-julia)
     (require 'init-nix)
     (require 'init-tex)
-    (require 'init-kotlin)))
+    (require 'init-kotlin)
+    (require 'init-dart)))
 (provide 'init)

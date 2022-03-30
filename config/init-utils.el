@@ -156,7 +156,10 @@
   :after (init)
   :quelpa (apheleia :fetcher github :repo "raxod502/apheleia")
   :config
-  (setf (alist-get 'gofmt apheleia-formatters) '("goimports")))
+  (setf (alist-get 'gofmt apheleia-formatters) '("goimports"))
+  (add-to-list 'apheleia-formatters '(dart . ("dart" "format")))
+  (add-to-list 'apheleia-mode-alist '(dart-mode . dart)))
+
 
 (use-package sort-tab
   :disabled t
