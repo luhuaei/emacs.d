@@ -87,6 +87,7 @@
                  'go-mode-hook
                  'kotlin-mode-hook
                  'typescript-mode-hook
+                 'zig-mode-hook
                  ))
     (add-hook hook 'lsp)))
 

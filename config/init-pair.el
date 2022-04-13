@@ -1,44 +1,14 @@
 ;; -*- lexical-binding: t; -*-
 
 (use-package awesome-pair
-  :after (init)
+:after (init)
   :quelpa (awesome-pair :fetcher github :repo "manateelazycat/awesome-pair")
   :hook ((
-           c-mode
-	   c++-mode
-	   java-mode
-	   haskell-mode
-	   emacs-lisp-mode
-	   lisp-interaction-mode
-	   lisp-mode
-	   maxima-mode
-	   ielm-mode
-	   sh-mode
-	   makefile-gmake-mode
-	   php-mode
-	   python-mode
-	   js-mode
-	   go-mode
-	   qml-mode
-	   jade-mode
-	   css-mode
-	   ruby-mode
-	   coffee-mode
-	   rust-mode
-           rustic-mode
-	   qmake-mode
-	   lua-mode
-	   swift-mode
-	   minibuffer-inactive-mode
-	   ess-r-mode
-	   r-mode
-	   pipenv-mode
-           protobuf-mode
-           typescript-mode
-           conf-toml-mode
-           json-mode
-           kotlin-mode
-           web-mode) . awesome-pair-mode)
+          prog-mode
+	  minibuffer-inactive-mode
+	  pipenv-mode
+          protobuf-mode
+          conf-toml-mode) . awesome-pair-mode)
   :bind (:map awesome-pair-mode-map
               ("(" . 'awesome-pair-open-round)
               (")" . 'awesome-pair-close-round)
@@ -62,4 +32,4 @@
               ("M-n" . 'awesome-pair-jump-left)
               ("M-:" . 'awesome-pair-jump-out-pair-and-newline))
   )
-(provide 'init-awesome-pair)
+(provide 'init-pair)
