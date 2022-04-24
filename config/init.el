@@ -50,6 +50,7 @@
   (defvar emacs-root-dir (file-truename "~/emacs.d"))
   (defvar emacs-config-dir (concat emacs-root-dir "/config"))
   (defvar emacs-extension-dir (concat emacs-root-dir "/extensions"))
+  (defvar emacs-org-dir "~/luhuaei.github.io/drafts/")
 
   (if (file-exists-p (expand-file-name ".envrc" emacs-root-dir))
       (setq-default process-environment (my--merged-environment process-environment (my--direnv-export emacs-config-dir))))

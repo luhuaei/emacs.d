@@ -35,18 +35,19 @@
   (setq org-export-babel-evaluate nil)	;don't evaluate during exports
   (setq org-src-window-setup 'current-window)
   (setq org-log-done 'time)
+
   ;; org todo template
   (setq org-todo-keywords
 	'((sequence "TODO" "DOING" "DONE")
 	  (sequence "REPORT" "BUG" "KNOWNCAUSE" "|" "FIXED")
 	  (sequence "|" "CANCELED")))
-  (setq org-default-notes-file "~/org/GTD.org")
+  (setq org-default-notes-file (concat emacs-org-dir "GTD.org"))
   (setq org-capture-templates
-	'(("t" "Todo" entry (file "~/org/GTD.org")
-	   "* TODO %?\n%U\n%^G" :empty-lines 1)
-	  ("T" "Todo with File link" entry (file "~/org/GTD.org")
-	   "* TODO %?\n%U\n %a" :empty-lines 1)))
-  (setq org-agenda-files '("~/org/")))
+	`(("t" "Todo" entry (file ,(concat emacs-org-dir "GTD.org"))
+	  "* TODO %?\n%U\n%^G" :empty-lines 1)
+	 ("T" "Todo with File link" entry (file ,(concat emacs-org-dir "GTD.org"))
+	  "* TODO %?\n%U\n %a" :empty-lines 1)))
+  (setq org-agenda-files (list emacs-org-dir)))
 
 (use-package org-pomodoro
   :after (org)
