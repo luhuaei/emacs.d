@@ -13,3 +13,6 @@
 [submodule "extensions/benchmark-init-el"]
 	path = extensions/benchmark-init-el
 	url = https://github.com/luhuaei/benchmark-init-el.git
+[submodule "extensions/lsp-bridge"]
+	path = extensions/lsp-bridge
+	url = https://github.com/manateelazycat/lsp-bridge.git

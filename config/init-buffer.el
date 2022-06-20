@@ -4,10 +4,6 @@
   :after (init)
   :quelpa (swiper :fetcher github :repo "abo-abo/swiper"))
 
-(use-package find-file-in-project
-  :after (init)
-  :quelpa (find-file-in-project :fetcher github :repo "redguardtoo/find-file-in-project"))
-
 (use-package ivy
   :diminish ivy-mode
   :hook (after-init . ivy-mode)

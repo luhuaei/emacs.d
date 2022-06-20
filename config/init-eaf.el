@@ -21,8 +21,8 @@
   (setq eaf-pdf-notify-file-changed nil)
   (setq eaf-pdf-dark-mode "follow")
   (setq eaf-proxy-host "127.0.0.1")
-  (setq eaf-proxy-port "10808")
-  (setq eaf-proxy-type "socks5")
+  (setq eaf-proxy-port "1080")
+  (setq eaf-proxy-type "http")
 
   (require 'eaf-pdf-viewer)
   (require 'eaf-browser)

@@ -30,18 +30,6 @@
 	    (show-paren-mode t)                                    ;展示匹配括号)
 	    ))
 
-;; C-a to the first char not whitespacee
-(use-package crux
-  :after (init)
-  :quelpa (crux :fetcher github :repo "bbatsov/crux")
-  :bind (("C-a" . crux-move-beginning-of-line)))
-
-;; go to the last change
-(use-package goto-last-change
-  :after (init)
-  :quelpa (goto-last-change :fetcher github :repo "camdez/goto-last-change.el")
-  :bind (("C-:" . goto-last-change)))
-
 ;; mode line
 (setq-default mode-line-format
 	      '("%e"

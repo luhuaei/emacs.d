@@ -18,8 +18,8 @@
   :config
   (setq company-tooltip-align-annotations nil ; aligns annotation to the right
 	company-tooltip-limit 24              ; bigger popup window
-	company-idle-delay 0                  ; decrease delay before autocompletion popup shows
-	company-echo-delay 0.01                 ; remove annoying blinking
+	company-idle-delay 0.1                  ; decrease delay before autocompletion popup shows
+	company-echo-delay 0.1                 ; remove annoying blinking
 	company-minimum-prefix-length 1
 	company-require-match nil
 	company-dabbrev-ignore-case nil
@@ -48,13 +48,5 @@
 	      ("C-c h" . company-quickhelp-manual-begin))
   :hook (global-company-mode . company-quickhelp-mode)
   :init (setq company-quickhelp-delay 0.5))
-
-(use-package company-ctags
-  :after (company)
-  :quelpa (company-ctags :fetcher github :repo "redguardtoo/company-ctags")
-  :config
-  (with-eval-after-load 'company
-    (company-ctags-auto-setup))
-  (setq company-ctags-extra-tags-files '("$HOME/TAGS" "/usr/include/TAGS")))
 
 (provide 'init-company)

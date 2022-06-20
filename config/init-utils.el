@@ -1,6 +1,6 @@
 ;; -*- lexical-binding: t; -*-
 
-;; long string
+;; base library
 (use-package s
   :defer t
   :quelpa (s :fetcher github :repo "magnars/s.el"))
@@ -59,22 +59,6 @@
   :defer t
   :quelpa (all-the-icons :fetcher github :repo "domtronn/all-the-icons.el" :files ("data" "*.el")))
 
-(use-package auto-package-update
-  :defer t
-  :quelpa (auto-package-update :fetcher github
-                               :repo "rranelli/auto-package-update.el")
-  :config
-  (setq auto-package-update-delete-old-versions t
-        auto-package-update-interval 30)
-  (auto-package-update-maybe))
-
-(use-package olivetti
-  :after (init)
-  :quelpa (olivetti :fetcher github :repo "rnkn/olivetti")
-  :diminish
-  :bind ("<f7>" . olivetti-mode)
-  :init (setq olivetti-body-width 0.618))
-
 (use-package expand-region
   :after (init)
   :quelpa (expand-region :fetcher github :repo "magnars/expand-region.el")
@@ -94,19 +78,6 @@
   (setq rainbow-x-colors nil)
   (add-hook 'prog-mode-hook 'rainbow-mode))
 
-(use-package dumb-jump
-  :after (init)
-  :quelpa (dumb-jump :fetcher github :repo "jacktasia/dumb-jump")
-  :config
-  (setq dumb-jump-quiet t)
-  (setq dumb-jump-force-searcher 'rg)
-  (setq dumb-jump-prefer-searcher 'rg)
-  (dolist (hook (list
-                 'js-mode-hook
-                 'web-mode-hook
-                 ))
-    (add-hook 'xref-backend-functions #'dumb-jump-xref-activate)))
-
 (use-package rime
   :after (init)
   :quelpa (emacs-rime :fetcher github :repo "DogLooksGood/emacs-rime" :files ("*.el" "Makefile" "lib.c"))
@@ -116,6 +87,7 @@
   :config
   (define-key rime-mode-map (kbd "M-j") 'rime-force-enable)
   (setq rime-user-data-dir "~/.config/fcitx5/rime/")
+  (setq rime-share-data-dir "/usr/share/rime-data/")
   (setq rime-disable-predicates
         '(rime-predicate-after-alphabet-char-p
           rime-predicate-auto-english-p
@@ -130,57 +102,110 @@
   :config
   (global-disable-mouse-mode))
 
-(use-package sublimity
-  :disabled t
-  :quelpa (sublimity :fetcher github :repo "zk-phi/sublimity")
-  :config
-  (require 'sublimity-attractive)
-
-  (sublimity-mode 1)
-  (setq sublimity-attractive-centering-width 90)
-  (sublimity-attractive-hide-bars)
-  (sublimity-attractive-hide-vertical-border)
-  (sublimity-attractive-hide-fringes))
-
 (use-package indent-guide
   :after (init)
   :quelpa (indent-guide :fetcher github :repo "zk-phi/indent-guide")
   :config
   (indent-guide-global-mode))
 
-(use-package json-reformat
+;; C-a to the first char not whitespacee
+(use-package crux
   :after (init)
-  :quelpa (json-reformat :fetcher github :repo "gongo/json-reformat"))
+  :quelpa (crux :fetcher github :repo "bbatsov/crux")
+  :bind (("C-a" . crux-move-beginning-of-line)))
 
-(use-package apheleia
+;; go to the last change
+(use-package goto-last-change
   :after (init)
-  :quelpa (apheleia :fetcher github :repo "raxod502/apheleia")
+  :quelpa (goto-last-change :fetcher github :repo "camdez/goto-last-change.el")
+  :bind (("C-:" . goto-last-change)))
+
+(use-package auto-save
+  :after (init)
+  :quelpa (auto-save :fetcher github :repo "manateelazycat/auto-save")
   :config
-  (setf (alist-get 'gofmt apheleia-formatters) '("goimports"))
-  (add-to-list 'apheleia-formatters '(dart . ("dart" "format")))
-  (add-to-list 'apheleia-mode-alist '(dart-mode . dart)))
+  (auto-save-enable)
+  (setq auto-save-idle 1)
+  (setq auto-save-silent t)
+  (setq auto-save-delete-trailing-whitespace t))
 
+(use-package awesome-pair
+:after (init)
+  :quelpa (awesome-pair :fetcher github :repo "manateelazycat/awesome-pair")
+  :hook ((
+          prog-mode
+	  minibuffer-inactive-mode
+	  pipenv-mode
+          protobuf-mode
+          conf-toml-mode) . awesome-pair-mode)
+  :bind (:map awesome-pair-mode-map
+              ("(" . 'awesome-pair-open-round)
+              (")" . 'awesome-pair-close-round)
+              ("[" . 'awesome-pair-open-bracket)
+              ("]" . 'awesome-pair-close-bracket)
+              ("{" . 'awesome-pair-open-curly)
+              ("}" . 'awesome-pair-close-curly)
+              ("=" . 'awesome-pair-equal)
+              ("%" . 'awesome-pair-match-paren)
+              ("\"" . 'awesome-pair-double-quote)
+              ("SPC" . 'awesome-pair-space)
+              ("M-o" . 'awesome-pair-backward-delete)
+              ("C-d" . 'awesome-pair-forward-delete)
+              ("C-k" . 'awesome-pair-kill)
+              ("M-\"" . 'awesome-pair-wrap-bracket)
+              ("M-[" . 'awesome-pair-wrap-curly)
+              ("M-{" . 'awesome-pair-wrap-curly)
+              ("M-(" . 'awesome-pair-wrap-round)
+              ("M-)" . 'awesome-pair-unwrap)
+              ("M-p" . 'awesome-pair-jump-right)
+              ("M-n" . 'awesome-pair-jump-left)
+              ("M-:" . 'awesome-pair-jump-out-pair-and-newline))
+  )
 
-(use-package sort-tab
-  :disabled t
+(use-package posframe
+  :defer t
+  :quelpa (posframe :fetcher github :repo "tumashu/posframe"))
+
+;; search
+(use-package color-rg
   :after (init)
-  :quelpa (sort-tab :fetcher github :repo "manateelazycat/sort-tab")
-  :bind (:map sort-tab-mode-map
-              ("C-M-p" . 'sort-tab-select-prev-tab)
-              ("C-M-n" . 'sort-tab-select-next-tab)
-              ("C-M-<" . 'sort-tab-select-first-tab)
-              ("C-M->" . 'sort-tab-select-last-tab))
+  :quelpa (color-rg :fetcher github :repo "manateelazycat/color-rg")
+  :bind (("M-s M-s" . 'isearch-toggle-color-rg)
+         ("M-s i" . 'color-rg-search-input)
+         ("M-s M-i" . 'color-rg-search-input-in-current-file)
+         ("M-s p" . 'color-rg-search-project)))
+
+(use-package find-file-in-project
+  :after (init)
+  :quelpa (find-file-in-project :fetcher github :repo "redguardtoo/find-file-in-project"))
+
+(use-package dumb-jump
+  :after (init)
+  :quelpa (dumb-jump :fetcher github :repo "jacktasia/dumb-jump")
   :config
-  (sort-tab-mode 1))
+  (setq dumb-jump-quiet t)
+  (setq dumb-jump-force-searcher 'rg)
+  (setq dumb-jump-prefer-searcher 'rg)
+  (dolist (hook (list
+                 'js-mode-hook
+                 'web-mode-hook
+                 ))
+    (add-hook 'xref-backend-functions #'dumb-jump-xref-activate)))
 
-(use-package bison
-  :diminish bison-mode
-  :quelpa (bison :fetcher github :repo "manateelazycat/bison")
-  :mode ("\\.\\(y\\)$" . bison-mode))
+;; dict
+(use-package sdcv
+  :after (init)
+  :quelpa (sdcv :fetcher github :repo "manateelazycat/sdcv")
+  :config
+  (setq sdcv-say-word-p nil)               ;say word after translation
 
-(use-package yaml-mode
-  :diminish yaml-mode
-  :quelpa (yaml-mode :fetcher github :repo "yoshiki/yaml-mode")
-  :mode ("\\.yml\\'" . yaml-mode))
+  (if (display-graphic-p)
+      (progn
+        (bind-key "C-c p" 'sdcv-search-pointer+)
+        (bind-key "C-c s" 'sdcv-search-input+))
+    (bind-key "C-c p" 'sdcv-search-pointer)
+    (bind-key "C-c s" 'sdcv-search-input))
+
+  (setq sdcv-dictionary-data-dir (expand-file-name "~/emacs.d/sdcv-dict/")))
 
 (provide 'init-utils)

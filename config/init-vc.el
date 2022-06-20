@@ -18,4 +18,4 @@
   (global-git-gutter-mode 't))
 
 
-(provide 'init-magit)
+(provide 'init-vc)

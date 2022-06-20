@@ -1,4 +1,29 @@
 ;; -*- lexical-binding: t; -*-
+
+;; sql
+(use-package sql-indent
+  :defer t
+  :quelpa (sql-indent :fetcher github :repo "alex-hhh/emacs-sql-indent")
+  :hook (sql-mode . sqlind-minor-mode))
+
+;; yyac
+(use-package bison
+  :diminish bison-mode
+  :quelpa (bison :fetcher github :repo "manateelazycat/bison")
+  :mode ("\\.\\(y\\)$" . bison-mode))
+
+;; latex
+(use-package tex
+  :ensure auctex
+  :mode ("\\.tex\\'" . LaTeX-mode)
+  :hook (LaTeX-mode . (lambda()
+                        (setq TeX-command-default "pdflatex")))
+  :config
+  (add-to-list 'TeX-command-list '("XeLaTeX" "%`xelatex --synctex=1%(mode)%' %t" TeX-run-TeX nil t))
+  (add-to-list 'TeX-view-program-list '("eaf" eaf-pdf-synctex-forward-view))
+  (add-to-list 'TeX-view-program-selection '(output-pdf "eaf")))
+
+;; org-mode
 (use-package org
   :defer t
   :hook ((org-mode . org-indent-mode)
@@ -12,6 +37,10 @@
   (use-package ob-go
     :after (org)
     :quelpa (ob-go :fetcher github :repo "pope/ob-go"))
+
+  (use-package org-pomodoro
+  :after (org)
+  :quelpa (org-pomodoro :fetcher github :repo "marcinkoziej/org-pomodoro"))
 
   (org-babel-do-load-languages
    'org-babel-load-languages
@@ -49,8 +78,25 @@
 	  "* TODO %?\n%U\n %a" :empty-lines 1)))
   (setq org-agenda-files (list emacs-org-dir)))
 
-(use-package org-pomodoro
-  :after (org)
-  :quelpa (org-pomodoro :fetcher github :repo "marcinkoziej/org-pomodoro"))
+;; protobuf
+(use-package protobuf-mode
+  :defer t
+  :load-path emacs-extension-dir
+  :mode "\\.proto$"
+  :config
+  (defconst my-protobuf-style
+    '((c-basic-offset . 2)
+      (indent-tabs-mode . nil)))
 
-(provide 'init-org)
+  (add-hook 'protobuf-mode-hook
+            (lambda () (c-add-style "my-style" my-protobuf-style t))))
+
+(use-package markdown-mode
+  :defer t
+  :quelpa (markdown-mode :fetcher github :repo "projects/markdown-mode")
+  :mode (("README\\.md\\'" . gfm-mode)
+         ("\\.md\\'" . markdown-mode)
+         ("\\.markdown\\'" . markdown-mode))
+  :init (setq markdown-command "multimarkdown"))
+
+(provide 'init-text)
