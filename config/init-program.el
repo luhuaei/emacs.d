@@ -25,6 +25,7 @@
     (when-let ((root (locate-dominating-file dir "go.mod")))
       (cons 'go-module root)))
   (add-hook 'project-find-functions #'local-go-module-root)
+
   (cl-defmethod project-roots ((project (head go-module)))
     (list (cdr project)))
 
@@ -69,9 +70,7 @@
 (use-package rust-mode
   :defer t
   :quelpa (rust-mode :fetcher github :repo "rust-lang/rust-mode")
-  :mode "\\.\\(rs\\)$"
-  :bind (:map rust-mode-map
-              ("C-c M-f" . 'eglot-format-buffer)))
+  :mode "\\.\\(rs\\)$")
 
 ;; golang
 (use-package go-mode
@@ -79,25 +78,19 @@
   :quelpa (go-mode :fetcher github :repo "dominikh/go-mode.el")
   :config
   (setq gofmt-command "goimports")
-  (setq gofmt-args nil)
-  :bind (:map go-mode-map
-              ("C-c M-f" . 'gofmt)))
+  (setq gofmt-args nil))
 
 ;; ziglang
 (use-package zig-mode
   :quelpa (zig-mode :fetcher github :repo "ziglang/zig-mode")
   :mode "\\.zig$"
-  :bind (:map zig-mode-map
-         ("C-c M-f" . 'zig-format-buffer))
   :config
   (setq zig-format-on-save nil))
 
 ;; dart
 (use-package dart-mode
   :quelpa (dart-mode :fetcher github :repo "bradyt/dart-mode")
-  :mode "\\.dart$"
-  :bind (:map dart-mode-map
-              ("C-c M-f" . 'apheleia-format-buffer)))
+  :mode "\\.dart$")
 
 ;; kotlin
 (use-package kotlin-mode
@@ -232,8 +225,6 @@
 (use-package nix-mode
   :defer t
   :quelpa (nix-mode :fetcher github :repo "NixOS/nix-mode")
-  :bind (:map nix-mode-map
-              ("C-c M-f" . 'nix-format-buffer))
   :mode "\\.nix\\'"
   :config
   (setq nix-nixfmt-bin "nixpkgs-fmt"))
@@ -242,8 +233,6 @@
 (use-package css-mode
   :defer t
   :init (setq css-indent-offset 2)
-  :bind (:map css-mode-map
-              ("C-c M-f" . 'apheleia-format-buffer))
   :mode "\\.\\(wxss\\)$")
 
 ;; SCSS mode
@@ -252,15 +241,11 @@
   :quelpa (scss-mode :fetcher github :repo "antonj/scss-mode")
   :init
   ;; Disable complilation on save
-  (setq scss-compile-at-save nil)
-  :bind (:map scss-mode-map
-              ("C-c M-f" . 'apheleia-format-buffer)))
+  (setq scss-compile-at-save nil))
 
 ;; less
 (use-package less-css-mode
-  :defer t
-  :bind (:map less-css-mode-map
-              ("C-c M-f" . 'apheleia-format-buffer)))
+  :defer t)
 
 ;; JSON mode
 (use-package json-mode :defer t :quelpa (json-mode :fetcher github :repo "joshwnj/json-mode"))
@@ -269,16 +254,12 @@
 (use-package typescript-mode
   :defer t
   :quelpa (typescript-mode :fetcher github :repo "ananthakumaran/typescript.el")
-  :bind (:map typescript-mode-map
-              ("C-c M-f" . 'apheleia-format-buffer))
   :config
   (setq typescript-indent-level 2))
 
 ;; javascript mode
 (use-package js
   :defer t
-  :bind (:map js-mode-map
-              ("C-c M-f" . 'apheleia-format-buffer))
   :config
   (setq js-indent-level 2)
   (add-hook 'js-mode-hook
@@ -291,8 +272,7 @@
   :quelpa (web-mode :fetcher github :repo "fxbois/web-mode")
   :mode "\\.\\(phtml\\|php|[gj]sp\\|as[cp]x\\|erb\\|djhtml\\|html?\\|hbs\\|ejs\\|jade\\|swig\\|tm?pl\\|vue\\|wxml\\)$"
   :bind (:map web-mode-map
-              ("M-\." . #'xref-find-definitions)
-              ("C-c M-f" . 'apheleia-format-buffer))
+              ("M-\." . #'xref-find-definitions))
   :config
   (setq web-mode-enable-auto-indentation nil)
   (setq web-mode-markup-indent-offset 2)
@@ -317,5 +297,20 @@
               '(("java"       . "//")
                 ("javascript" . "//")
                 ("php"        . "//"))))
+
+;; custom formmater
+(defun my-formatter ()
+  (interactive)
+  (let ((fn (lambda ())))
+    (cond ((eq major-mode 'go-mode) (setq fn 'gofmt))
+          ((eq major-mode 'nix-mode) (setq fn 'nix-format-buffer))
+          ((eq major-mode 'zig-mode) (setq fn 'zig-format-buffer))
+          ((eq major-mode 'rust-mode) (setq fn 'eglot-format-buffer))
+          ((member major-mode '(dart-mode css-mode scss-mode web-mode js-mode typescript-mode less-css-mode))
+           (setq fn 'apheleia-format-buffer)))
+    (funcall fn)
+    (flymake-start)))
+
+(define-key prog-mode-map (kbd "C-c M-f") 'my-formatter)
 
 (provide 'init-program)
