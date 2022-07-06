@@ -1,6 +1,7 @@
 ;; -*- lexical-binding: t; -*-
 
 
+(setq gc-cons-threshold (* 1024 1024 4))
 (tool-bar-mode -1)                                     ;禁用工具栏
 (menu-bar-mode -1)                                     ;禁用菜单栏
 (scroll-bar-mode -1)                                   ;禁用滚动条

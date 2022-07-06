@@ -21,7 +21,6 @@
     (require 'init-vc)
     (require 'init-company)
     (require 'init-utils)
-    (require 'init-flycheck)
     (require 'init-eaf)
     (require 'init-program)
     (require 'init-buffer)

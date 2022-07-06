@@ -21,8 +21,6 @@
   (setq eglot-ignored-server-capabilities
         '(:hoverProvider :signatureHelpProvider))
 
-  (add-hook 'eglot--managed-mode-hook (lambda () (flymake-mode -1)))
-
   (defun local-go-module-root (dir)
     (when-let ((root (locate-dominating-file dir "go.mod")))
       (cons 'go-module root)))
@@ -59,6 +57,13 @@
                  'rust-mode-hook
                  ))
     (add-hook hook 'lsp-bridge-mode)))
+
+(use-package flymake
+  :config
+  (setq flymake-no-changes-timeout nil
+        flymake-gui-warnings-enabled nil
+        flymake-start-on-save-buffer nil
+        flymake-start-on-flymake-mode t))
 
 ;; rust
 (use-package rust-mode
