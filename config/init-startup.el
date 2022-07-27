@@ -1,7 +1,9 @@
 ;; -*- lexical-binding: t; -*-
 
 
-(setq gc-cons-threshold (* 1024 1024 4))
+(setq gc-cons-threshold most-positive-fixnum)
+(setq read-process-output-max (* 1024 1024)) ;; 1mb
+
 (tool-bar-mode -1)                                     ;禁用工具栏
 (menu-bar-mode -1)                                     ;禁用菜单栏
 (scroll-bar-mode -1)                                   ;禁用滚动条

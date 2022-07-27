@@ -50,21 +50,17 @@
               ("C->" . 'lsp-bridge-find-impl)
               ("C-<" . 'lsp-bridge-find-references))
   :config
-  (setq lsp-bridge-enable-search-words nil
-        lsp-bridge-enable-diagnostics nil
-        lsp-bridge-enable-signature-help nil
-        lsp-bridge-enable-candidate-doc-preview nil)
   (dolist (hook (list
+                 'c-mode-hook
+                 'c++-mode-hook
+                 'go-mode-hook
                  'rust-mode-hook
+                 'typescript-mode-hook
+                 'zig-mode-hook
                  ))
-    (add-hook hook 'lsp-bridge-mode)))
-
-(use-package flymake
-  :config
-  (setq flymake-no-changes-timeout nil
-        flymake-gui-warnings-enabled nil
-        flymake-start-on-save-buffer nil
-        flymake-start-on-flymake-mode t))
+    (add-hook hook '(lambda ()
+                      (company-mode -1)
+                      (lsp-bridge-mode 1)))))
 
 ;; rust
 (use-package rust-mode
@@ -308,8 +304,7 @@
           ((eq major-mode 'rust-mode) (setq fn 'eglot-format-buffer))
           ((member major-mode '(dart-mode css-mode scss-mode web-mode js-mode typescript-mode less-css-mode))
            (setq fn 'apheleia-format-buffer)))
-    (funcall fn)
-    (flymake-start)))
+    (funcall fn)))
 
 (define-key prog-mode-map (kbd "C-c M-f") 'my-formatter)
 
