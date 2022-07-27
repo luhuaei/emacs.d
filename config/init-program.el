@@ -303,7 +303,7 @@
           ((eq major-mode 'zig-mode) (setq fn 'zig-format-buffer))
           ((eq major-mode 'rust-mode) (setq fn 'eglot-format-buffer))
           ((member major-mode '(dart-mode css-mode scss-mode web-mode js-mode typescript-mode less-css-mode))
-           (setq fn 'apheleia-format-buffer)))
+           (setq fn '(lambda () (apheleia-format-buffer (apheleia--get-formatters))))))
     (funcall fn)))
 
 (define-key prog-mode-map (kbd "C-c M-f") 'my-formatter)
