@@ -3,7 +3,6 @@
 ;; format
 (use-package apheleia
   :after (init)
-  :quelpa (apheleia :fetcher github :repo "raxod502/apheleia")
   :config
   (setf (alist-get 'gofmt apheleia-formatters) '("goimports"))
   (add-to-list 'apheleia-formatters '(dart . ("dart" "format")))
@@ -12,7 +11,6 @@
 ;; lsp
 (use-package eglot
   :after (init)
-  :quelpa (eglot :fetcher github :repo "joaotavora/eglot" :files ("Makefile" "*.el"))
   :diminish eglot-mode
   :bind (:map eglot-mode-map
               ("C->" . 'eglot-find-implementation)
@@ -30,17 +28,11 @@
     (list (cdr project)))
 
   (dolist (hook (list
-                 'c-mode-hook
-                 'c++-mode-hook
                  'go-mode-hook
-                 'rust-mode-hook
-                 'typescript-mode-hook
-                 'zig-mode-hook
                  ))
     (add-hook hook 'eglot-ensure)))
 
 (use-package lsp-bridge
-  :disabled t
   :after (init)
   :load-path emacs-extension-dir
   :diminish lsp-bridge-mode
@@ -53,7 +45,6 @@
   (dolist (hook (list
                  'c-mode-hook
                  'c++-mode-hook
-                 'go-mode-hook
                  'rust-mode-hook
                  'typescript-mode-hook
                  'zig-mode-hook
@@ -65,38 +56,32 @@
 ;; rust
 (use-package rust-mode
   :defer t
-  :quelpa (rust-mode :fetcher github :repo "rust-lang/rust-mode")
   :mode "\\.\\(rs\\)$")
 
 ;; golang
 (use-package go-mode
   :defer t
-  :quelpa (go-mode :fetcher github :repo "dominikh/go-mode.el")
+  :mode "\\.go$"
   :config
   (setq gofmt-command "goimports")
   (setq gofmt-args nil))
 
 ;; ziglang
 (use-package zig-mode
-  :quelpa (zig-mode :fetcher github :repo "ziglang/zig-mode")
   :mode "\\.zig$"
   :config
   (setq zig-format-on-save nil))
 
 ;; dart
-(use-package dart-mode
-  :quelpa (dart-mode :fetcher github :repo "bradyt/dart-mode")
-  :mode "\\.dart$")
+(use-package dart-mode :mode "\\.dart$")
 
 ;; kotlin
 (use-package kotlin-mode
-  :quelpa (kotlin-mode :fetcher github :repo "Emacs-Kotlin-Mode-Maintainers/kotlin-mode")
   :mode ("\\.\\(kt\\)$" . kotlin-mode))
 
 ;; lua
 (use-package lua-mode
   :defer t
-  :quelpa (lua-mode :fetcher github :repo "immerrr/lua-mode")
   :mode "\\.\\(lua\\)$")
 
 ;; c/c++
@@ -108,7 +93,6 @@
 (use-package c-eldoc
   :defer t
   :ensure nil
-  :quelpa (c-eldoc :fetcher github :repo "nflath/c-eldoc")
   :config
   (c-turn-on-eldoc-mode))
 
@@ -120,9 +104,8 @@
 
 ;; lisp
 (use-package slime
+  :disabled t
   :defer t
-  :quelpa (slime :fetcher github :repo "slime/slime")
-  :load-path "~/.emacs.d/quelpa/build/slime"
   :config
   (setq inferior-lisp-program "/bin/sbcl")
   (setq slime-contribs '(slime-fancy)))
@@ -185,18 +168,8 @@
        nil)))
   ;; (advice-add #'keyboard-quit :before #'my-hide-jupyter-windows)
 
-  (use-package pipenv
-    :after (python)
-    :quelpa (pipenv :fetcher github :repo "pwalsh/pipenv.el")
-    :diminish pipenv-mode-hook
-    :init
-    (setq
-     pipenv-projectile-after-switch-function
-     #'pipenv-projectile-after-switch-extended))
-
   (use-package emacs-jupyter
     :after (python)
-    :quelpa (emacs-jupyter :fetcher github :repo "nnicandro/emacs-jupyter")
     :hook ((jupyter-repl-mode . awesome-pair-mode)
 	   (jupyter-repl-mode . company-mode))))
 
@@ -220,7 +193,6 @@
 ;; nixlang
 (use-package nix-mode
   :defer t
-  :quelpa (nix-mode :fetcher github :repo "NixOS/nix-mode")
   :mode "\\.nix\\'"
   :config
   (setq nix-nixfmt-bin "nixpkgs-fmt"))

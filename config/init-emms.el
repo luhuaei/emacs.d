@@ -2,7 +2,6 @@
 
 (use-package emms
   :after (init)
-  :quelpa (emms :fetcher git :url "https://git.savannah.gnu.org/git/emms.git")
   :bind (("C-x m r" . 'emms-random)
          ("C-x m s" . 'emms-start)
          ("C-x m c" . 'emms-stop)

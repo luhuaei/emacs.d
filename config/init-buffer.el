@@ -1,12 +1,8 @@
 ;; -*- lexical-binding: t; -*-
-
-(use-package swiper
-  :after (init)
-  :quelpa (swiper :fetcher github :repo "abo-abo/swiper"))
-
-(use-package avy
-  :after (init)
-  :quelpa (avy :fetcher github :repo "abo-abo/avy"))
+(require 'colir)
+(require 'ivy)
+(require 'swiper)
+(require 'avy)
 
 (use-package ivy
   :diminish ivy-mode

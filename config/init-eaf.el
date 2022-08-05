@@ -1,15 +1,9 @@
 ;; -*- lexical-binding: t; -*-
-(use-package deferred
-  :defer t
-  :quelpa (deferred :fetcher github :repo "kiwanami/emacs-deferred"))
+(use-package deferred :defer t)
 
-(use-package ctable
-  :defer t
-  :quelpa (ctable :fetcher github :repo "kiwanami/emacs-ctable"))
+(use-package ctable :defer t)
 
-(use-package epc
-  :defer t
-  :quelpa (epc :fetcher github :repo "kiwanami/emacs-epc"))
+(use-package epc :defer t)
 
 (use-package eaf
   :after (init)

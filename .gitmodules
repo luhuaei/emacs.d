@@ -16,3 +16,144 @@
 [submodule "extensions/lsp-bridge"]
 	path = extensions/lsp-bridge
 	url = https://github.com/manateelazycat/lsp-bridge.git
+[submodule "extensions/slime"]
+	path = extensions/slime
+	url = git@github.com:slime/slime
+[submodule "extensions/magit"]
+	path = extensions/magit
+	url = git@github.com:magit/magit.git
+[submodule "extensions/git-gutter"]
+	path = extensions/git-gutter
+	url = git@github.com:emacsorphanage/git-gutter
+[submodule "extensions/all-the-icons.el"]
+	path = extensions/all-the-icons.el
+	url = git@github.com:domtronn/all-the-icons.el.git
+[submodule "extensions/color-rg"]
+	path = extensions/color-rg
+	url = git@github.com:manateelazycat/color-rg
+[submodule "extensions/find-file-in-project"]
+	path = extensions/find-file-in-project
+	url = git@github.com:redguardtoo/find-file-in-project
+[submodule "extensions/dumb-jump"]
+	path = extensions/dumb-jump
+	url = git@github.com:jacktasia/dumb-jump
+[submodule "extensions/sdcv"]
+	path = extensions/sdcv
+	url = git@github.com:manateelazycat/sdcv
+[submodule "extensions/highlight-parentheses.el"]
+	path = extensions/highlight-parentheses.el
+	url = https://git.sr.ht/~tsdh/highlight-parentheses.el
+[submodule "extensions/emacs-which-key"]
+	path = extensions/emacs-which-key
+	url = git@github.com:justbur/emacs-which-key
+[submodule "extensions/s.el"]
+	path = extensions/s.el
+	url = git@github.com:magnars/s.el
+[submodule "extensions/devremote"]
+	path = extensions/devremote
+	url = git@github.com:snyh/devremote
+[submodule "extensions/diminish.el"]
+	path = extensions/diminish.el
+	url = git@github.com:myrjola/diminish.el
+[submodule "extensions/exec-path-from-shell"]
+	path = extensions/exec-path-from-shell
+	url = git@github.com:purcell/exec-path-from-shell
+[submodule "extensions/expand-region.el"]
+	path = extensions/expand-region.el
+	url = git@github.com:magnars/expand-region.el
+[submodule "extensions/rainbow-delimiters"]
+	path = extensions/rainbow-delimiters
+	url = git@github.com:Fanael/rainbow-delimiters
+[submodule "extensions/rainbow-mode"]
+	path = extensions/rainbow-mode
+	url = git@github.com:emacs-straight/rainbow-mode
+[submodule "extensions/emacs-rime"]
+	path = extensions/emacs-rime
+	url = git@github.com:DogLooksGood/emacs-rime
+[submodule "extensions/nix-mode"]
+	path = extensions/nix-mode
+	url = git@github.com:NixOS/nix-mode
+[submodule "extensions/popup-el"]
+	path = extensions/popup-el
+	url = git@github.com:auto-complete/popup-el
+[submodule "extensions/pipenv.el"]
+	path = extensions/pipenv.el
+	url = git@github.com:pwalsh/pipenv.el.git
+[submodule "extensions/emacs-jupyter"]
+	path = extensions/emacs-jupyter
+	url = git@github.com:nnicandro/emacs-jupyter.git
+[submodule "extensions/with-editor"]
+	path = extensions/with-editor
+	url = git@github.com:magit/with-editor.git
+[submodule "extensions/transient"]
+	path = extensions/transient
+	url = git@github.com:magit/transient.git
+[submodule "extensions/compat"]
+	path = extensions/compat
+	url = https://git.sr.ht/~pkal/compat
+[submodule "extensions/monokai-emacs"]
+	path = extensions/monokai-emacs
+	url = git@github.com:oneKelvinSmith/monokai-emacs.git
+[submodule "extensions/dash.el"]
+	path = extensions/dash.el
+	url = git@github.com:magnars/dash.el.git
+[submodule "extensions/eglot"]
+	path = extensions/eglot
+	url = git@github.com:joaotavora/eglot
+[submodule "extensions/zig-mode"]
+	path = extensions/zig-mode
+	url = git@github.com:ziglang/zig-mode.git
+[submodule "extensions/yasnippet"]
+	path = extensions/yasnippet
+	url = git@github.com:joaotavora/yasnippet.git
+[submodule "extensions/swiper"]
+	path = extensions/swiper
+	url = git@github.com:abo-abo/swiper.git
+[submodule "extensions/rust-mode"]
+	path = extensions/rust-mode
+	url = git@github.com:rustlang/rust-mode.git
+[submodule "extensions/posframe"]
+	path = extensions/posframe
+	url = git@github.com:tumashu/posframe.git
+[submodule "extensions/markdown-mode"]
+	path = extensions/markdown-mode
+	url = git@github.com:jrblevin/markdown-mode.git
+[submodule "extensions/lua-mode"]
+	path = extensions/lua-mode
+	url = git@github.com:immerrr/lua-mode.git
+[submodule "extensions/kotlin-mode"]
+	path = extensions/kotlin-mode
+	url = git@github.com:Emacs-Kotlin-Mode-Maintainers/kotlin-mode.git
+[submodule "extensions/go-mode.el"]
+	path = extensions/go-mode.el
+	url = git@github.com:dominikh/go-mode.el.git
+[submodule "extensions/emms"]
+	path = extensions/emms
+	url = https://git.savannah.gnu.org/git/emms.git
+[submodule "extensions/emacs-epc"]
+	path = extensions/emacs-epc
+	url = git@github.com:kiwanami/emacs-epc.git
+[submodule "extensions/emacs-deferred"]
+	path = extensions/emacs-deferred
+	url = git@github.com:kiwanami/emacs-deferred.git
+[submodule "extensions/emacs-ctable"]
+	path = extensions/emacs-ctable
+	url = git@github.com:kiwanami/emacs-ctable.git
+[submodule "extensions/dart-mode"]
+	path = extensions/dart-mode
+	url = git@github.com:bradyt/dart-mode.git
+[submodule "extensions/company-quickhelp"]
+	path = extensions/company-quickhelp
+	url = git@github.com:company-mode/company-quickhelp.git
+[submodule "extensions/company-mode"]
+	path = extensions/company-mode
+	url = git@github.com:company-mode/company-mode.git
+[submodule "extensions/c-eldoc"]
+	path = extensions/c-eldoc
+	url = git@github.com:nflath/c-eldoc.git
+[submodule "extensions/avy"]
+	path = extensions/avy
+	url = git@github.com:abo-abo/avy.git
+[submodule "extensions/apheleia"]
+	path = extensions/apheleia
+	url = git@github.com:radian-software/apheleia.git
