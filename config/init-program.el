@@ -245,8 +245,7 @@
 ;; vue/php/js/wxml
 (use-package web-mode
   :defer t
-  :quelpa (web-mode :fetcher github :repo "fxbois/web-mode")
-  :mode "\\.\\(phtml\\|php|[gj]sp\\|as[cp]x\\|erb\\|djhtml\\|html?\\|hbs\\|ejs\\|jade\\|swig\\|tm?pl\\|vue\\|wxml\\)$"
+  :mode "\\.\\(phtml\\|php\\|[gj]sp\\|as[cp]x\\|erb\\|djhtml\\|html?\\|hbs\\|ejs\\|jade\\|swig\\|tm?pl\\|vue\\|wxml\\|tsx\\|jsx\\)$"
   :bind (:map web-mode-map
               ("M-\." . #'xref-find-definitions))
   :config

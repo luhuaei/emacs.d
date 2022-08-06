@@ -157,3 +157,6 @@
 [submodule "extensions/apheleia"]
 	path = extensions/apheleia
 	url = git@github.com:radian-software/apheleia.git
+[submodule "extensions/web-mode"]
+	path = extensions/web-mode
+	url = git@github.com:fxbois/web-mode.git
