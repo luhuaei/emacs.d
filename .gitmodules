@@ -178,3 +178,6 @@
 [submodule "extensions/yaml-mode"]
 	path = extensions/yaml-mode
 	url = git@github.com:yoshiki/yaml-mode.git
+[submodule "extensions/elisp-tree-sitter"]
+	path = extensions/elisp-tree-sitter
+	url = https://github.com/emacs-tree-sitter/elisp-tree-sitter.git

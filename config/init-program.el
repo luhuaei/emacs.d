@@ -23,7 +23,7 @@
   (defun local-go-module-root (dir)
     (when-let ((root (locate-dominating-file dir "go.mod")))
       (cons 'go-module root)))
-  (add-hook 'project-find-functions #'local-go-module-root)
+  (add-hook 'project-find-functions 'local-go-module-root)
 
   (cl-defmethod project-roots ((project (head go-module)))
     (list (cdr project)))
@@ -143,8 +143,8 @@
   :hook (python-mode . awesome-pair-mode)
   :bind (:map python-mode-map
 	      ("C-<return>" . jupyter-eval-line-or-region)
-              ("M-\." . #'dumb-jump-go)
-              ("M-\," . #'dumb-jump-back))
+              ("M-\." . 'dumb-jump-go)
+              ("M-\," . 'dumb-jump-back))
   :config
   (defun my-jupyter-next-line (insert)
     (let ((status (use-region-p)))
@@ -156,7 +156,7 @@
       (end-of-line)
       (if status (keyboard-quit) nil)))
 
-  (advice-add #'jupyter-eval-line-or-region :after #'my-jupyter-next-line)
+  (advice-add 'jupyter-eval-line-or-region :after 'my-jupyter-next-line)
 
   (defun my-hide-jupyter-windows ()
     (interactive)
@@ -172,7 +172,7 @@
        (tb (delete-window tb))
        (e (delete-window e))
        nil)))
-  ;; (advice-add #'keyboard-quit :before #'my-hide-jupyter-windows)
+  ;; (advice-add 'keyboard-quit :before 'my-hide-jupyter-windows)
 
   (use-package emacs-jupyter
     :after (python)
@@ -221,9 +221,27 @@
   :config
   (setq typescript-indent-level 2))
 
+(define-derived-mode typescript-tsx-mode typescript-mode "tsx")
+(add-to-list 'auto-mode-alist '("\\.tsx\\'" . typescript-tsx-mode))
+
+(use-package tree-sitter
+  :defer t
+  :after tree-sitter-langs
+  :init
+  (require 'tree-sitter-hl)
+  :hook ((typescript-mode . tree-sitter-hl-mode)
+	 (typescript-tsx-mode . tree-sitter-hl-mode)))
+
+(use-package tree-sitter-langs
+  :defer t
+  :config
+  (tree-sitter-require 'tsx)
+  (add-to-list 'tree-sitter-major-mode-language-alist '(typescript-tsx-mode . tsx)))
+
 ;; javascript mode
 (use-package js
   :defer t
+  :mode "\\.\\(jsx?\\)$"
   :config
   (setq js-indent-level 2)
   (add-hook 'js-mode-hook
@@ -233,9 +251,9 @@
 ;; vue/php/js/wxml
 (use-package web-mode
   :defer t
-  :mode "\\.\\(phtml\\|php\\|[gj]sp\\|as[cp]x\\|erb\\|djhtml\\|html?\\|hbs\\|ejs\\|jade\\|swig\\|tm?pl\\|vue\\|wxml\\|tsx\\|jsx\\)$"
+  :mode "\\.\\(phtml\\|php\\|[gj]sp\\|as[cp]x\\|erb\\|djhtml\\|html?\\|hbs\\|ejs\\|jade\\|swig\\|tm?pl\\|vue\\|wxml\\)$"
   :bind (:map web-mode-map
-              ("M-\." . #'xref-find-definitions))
+              ("M-\." . 'xref-find-definitions))
   :config
   (setq web-mode-enable-auto-indentation nil)
   (setq web-mode-markup-indent-offset 2)
