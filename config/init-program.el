@@ -10,6 +10,7 @@
 
 ;; lsp
 (use-package eglot
+  :disabled t
   :after (init)
   :diminish eglot-mode
   :bind (:map eglot-mode-map
@@ -42,12 +43,19 @@
               ("C->" . 'lsp-bridge-find-impl)
               ("C-<" . 'lsp-bridge-find-references))
   :config
+  (defun local-go-module-root (filepath)
+    (when-let ((dir (file-name-directory filepath))
+               (root (locate-dominating-file dir "go.mod")))
+      (expand-file-name root)))
+  (setq lsp-bridge-get-project-path-by-filepath 'local-go-module-root)
+
   (dolist (hook (list
                  'c-mode-hook
                  'c++-mode-hook
                  'rust-mode-hook
                  'typescript-mode-hook
                  'zig-mode-hook
+                 'go-mode-hook
                  ))
     (add-hook hook '(lambda ()
                       (company-mode -1)

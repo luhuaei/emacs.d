@@ -21,7 +21,7 @@
 (global-set-key (kbd "C-x C-j") 'eval-print-last-sexp) ;求值
 (global-set-key (kbd "C-x k") 'kill-current-buffer)    ;关闭buffer
 (global-unset-key (kbd "C-x m"))
-(global-unset-key (kbd "C-x C-c"))
+(global-set-key (kbd "C-x C-c") 'restart-emacs)
 (global-set-key (kbd "M-s r") 'replace-regexp)         ;替换
 (setq native-comp-async-report-warnings-errors nil)
 
