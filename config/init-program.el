@@ -107,8 +107,7 @@
 ;; yaml
 (use-package yaml-mode
   :diminish yaml-mode
-  :quelpa (yaml-mode :fetcher github :repo "yoshiki/yaml-mode")
-  :mode ("\\.yml\\'" . yaml-mode))
+  :mode ("\\.\\(yml|\\yaml\\)$" . yaml-mode))
 
 ;; lisp
 (use-package slime
@@ -122,8 +121,7 @@
 (use-package ess
   :disabled t
   :defer t
-  :quelpa (ESS :fetcher github :repo "emacs-ess/ESS")
-  :load-path "~/.emacs.d/quelpa/build/ESS/lisp"
+  :mode "\\.\\(r\\|R\\)$"
   :config
   (setq ess-ask-for-ess-directory nil)
   (setq display-buffer-alist
@@ -183,19 +181,11 @@
 
 ;; julia
 (use-package julia-mode
-  :disabled t
   :defer t
-  :quelpa (julia-emacs :fetcher github :repo "JuliaEditorSupport/julia-emacs")
+  :mode "\\.\\(jl\\)$"
   :config
   (setq lsp-julia-package-dir nil)
   (setq lsp-julia-flags `("-J/home/redeveder/.julia/languageserver.so"))
-
-
-  (use-package lsp-julia
-    :after (julia)
-    :quelpa (lsp-julia :fetcher github :repo "non-Jedi/lsp-julia")
-    :ensure nil)
-
   (setq lsp-julia-default-environment "~/.julia/environments/v1.6"))
 
 ;; nixlang
@@ -214,7 +204,6 @@
 ;; SCSS mode
 (use-package scss-mode
   :defer t
-  :quelpa (scss-mode :fetcher github :repo "antonj/scss-mode")
   :init
   ;; Disable complilation on save
   (setq scss-compile-at-save nil))
@@ -224,12 +213,11 @@
   :defer t)
 
 ;; JSON mode
-(use-package json-mode :defer t :quelpa (json-mode :fetcher github :repo "joshwnj/json-mode"))
+(use-package json-mode :defer t)
 
 ;; Typescript
 (use-package typescript-mode
   :defer t
-  :quelpa (typescript-mode :fetcher github :repo "ananthakumaran/typescript.el")
   :config
   (setq typescript-indent-level 2))
 

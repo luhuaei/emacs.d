@@ -160,3 +160,21 @@
 [submodule "extensions/web-mode"]
 	path = extensions/web-mode
 	url = git@github.com:fxbois/web-mode.git
+[submodule "extensions/typescript.el"]
+	path = extensions/typescript.el
+	url = git@github.com:ananthakumaran/typescript.el.git
+[submodule "extensions/json-mode"]
+	path = extensions/json-mode
+	url = git@github.com:joshwnj/json-mode.git
+[submodule "extensions/scss-mode"]
+	path = extensions/scss-mode
+	url = git@github.com:antonj/scss-mode.git
+[submodule "extensions/julia-emacs"]
+	path = extensions/julia-emacs
+	url = git@github.com:JuliaEditorSupport/julia-emacs.git
+[submodule "extensions/ESS"]
+	path = extensions/ESS
+	url = git@github.com:emacs-ess/ESS.git
+[submodule "extensions/yaml-mode"]
+	path = extensions/yaml-mode
+	url = git@github.com:yoshiki/yaml-mode.git
