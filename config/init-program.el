@@ -4,13 +4,10 @@
 (use-package apheleia
   :after (init)
   :config
-  (setf (alist-get 'gofmt apheleia-formatters) '("goimports"))
-  (add-to-list 'apheleia-formatters '(dart . ("dart" "format")))
-  (add-to-list 'apheleia-mode-alist '(dart-mode . dart)))
+  (setf (alist-get 'gofmt apheleia-formatters) '("goimports")))
 
 ;; lsp
 (use-package eglot
-  :disabled t
   :after (init)
   :diminish eglot-mode
   :bind (:map eglot-mode-map
@@ -55,7 +52,6 @@
                  'rust-mode-hook
                  'typescript-mode-hook
                  'zig-mode-hook
-                 'go-mode-hook
                  ))
     (add-hook hook '(lambda ()
                       (company-mode -1)
@@ -239,21 +235,16 @@
   (add-to-list 'tree-sitter-major-mode-language-alist '(typescript-tsx-mode . tsx)))
 
 ;; javascript mode
-(use-package js
-  :defer t
-  :mode "\\.\\(jsx?\\)$"
-  :config
-  (setq js-indent-level 2)
-  (add-hook 'js-mode-hook
-            (lambda ()
-              (local-set-key (kbd "M-\.") 'xref-find-definitions))))
+(setq js-indent-level 2)
+(add-hook 'js-mode-hook (lambda () (local-set-key (kbd "M-\.") 'xref-find-definitions)))
 
 ;; vue/php/js/wxml
 (use-package web-mode
   :defer t
   :mode "\\.\\(phtml\\|php\\|[gj]sp\\|as[cp]x\\|erb\\|djhtml\\|html?\\|hbs\\|ejs\\|jade\\|swig\\|tm?pl\\|vue\\|wxml\\)$"
   :bind (:map web-mode-map
-              ("M-\." . 'xref-find-definitions))
+              ("M-\." . 'xref-find-definitions)
+              ("M-," . 'xref-go-back))
   :config
   (setq web-mode-enable-auto-indentation nil)
   (setq web-mode-markup-indent-offset 2)
