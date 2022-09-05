@@ -6,6 +6,13 @@
   :config
   (setf (alist-get 'gofmt apheleia-formatters) '("goimports")))
 
+(use-package flymake
+  :config
+  (setq flymake-no-changes-timeout 5
+        flymake-gui-warnings-enabled nil
+        flymake-start-on-save-buffer nil
+        flymake-start-on-flymake-mode t))
+
 ;; lsp
 (use-package eglot
   :after (init)
@@ -17,16 +24,20 @@
   (setq eglot-ignored-server-capabilities
         '(:hoverProvider :signatureHelpProvider))
 
-  (defun local-go-module-root (dir)
+  (defun eglot-local-go-module-root (dir)
     (when-let ((root (locate-dominating-file dir "go.mod")))
       (cons 'go-module root)))
-  (add-hook 'project-find-functions 'local-go-module-root)
+  (add-hook 'project-find-functions 'eglot-local-go-module-root)
 
   (cl-defmethod project-roots ((project (head go-module)))
     (list (cdr project)))
 
   (dolist (hook (list
                  'go-mode-hook
+                 'c-mode-hook
+                 'c++-mode-hook
+                 'rust-mode-hook
+                 'zig-mode-hook
                  ))
     (add-hook hook 'eglot-ensure)))
 
@@ -40,18 +51,14 @@
               ("C->" . 'lsp-bridge-find-impl)
               ("C-<" . 'lsp-bridge-find-references))
   :config
-  (defun local-go-module-root (filepath)
+  (defun lsp-bridge-local-go-module-root (filepath)
     (when-let ((dir (file-name-directory filepath))
                (root (locate-dominating-file dir "go.mod")))
       (expand-file-name root)))
-  (setq lsp-bridge-get-project-path-by-filepath 'local-go-module-root)
+  (setq lsp-bridge-get-project-path-by-filepath 'lsp-bridge-local-go-module-root)
 
   (dolist (hook (list
-                 'c-mode-hook
-                 'c++-mode-hook
-                 'rust-mode-hook
                  'typescript-mode-hook
-                 'zig-mode-hook
                  ))
     (add-hook hook '(lambda ()
                       (company-mode -1)
@@ -277,9 +284,9 @@
     (cond ((eq major-mode 'go-mode) (setq fn 'gofmt))
           ((eq major-mode 'nix-mode) (setq fn 'nix-format-buffer))
           ((eq major-mode 'zig-mode) (setq fn 'zig-format-buffer))
-          ((eq major-mode 'rust-mode) (setq fn 'eglot-format-buffer))
           ((member major-mode '(dart-mode css-mode scss-mode web-mode js-mode typescript-mode less-css-mode))
-           (setq fn '(lambda () (apheleia-format-buffer (apheleia--get-formatters))))))
+           (setq fn '(lambda () (apheleia-format-buffer (apheleia--get-formatters)))))
+          ((eglot-managed-p) (setq fn 'eglot-format-buffer)))
     (funcall fn)))
 
 (define-key prog-mode-map (kbd "C-c M-f") 'my-formatter)
