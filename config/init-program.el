@@ -284,7 +284,7 @@
     (cond ((eq major-mode 'go-mode) (setq fn 'gofmt))
           ((eq major-mode 'nix-mode) (setq fn 'nix-format-buffer))
           ((eq major-mode 'zig-mode) (setq fn 'zig-format-buffer))
-          ((member major-mode '(dart-mode css-mode scss-mode web-mode js-mode typescript-mode less-css-mode))
+          ((member major-mode '(dart-mode css-mode scss-mode web-mode js-mode typescript-mode less-css-mode json-mode))
            (setq fn '(lambda () (apheleia-format-buffer (apheleia--get-formatters)))))
           ((eglot-managed-p) (setq fn 'eglot-format-buffer)))
     (funcall fn)))
