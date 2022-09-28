@@ -34,10 +34,6 @@
 
   (dolist (hook (list
                  'go-mode-hook
-                 'c-mode-hook
-                 'c++-mode-hook
-                 'rust-mode-hook
-                 'zig-mode-hook
                  ))
     (add-hook hook 'eglot-ensure)))
 
@@ -57,12 +53,59 @@
       (expand-file-name root)))
   (setq lsp-bridge-get-project-path-by-filepath 'lsp-bridge-local-go-module-root)
 
-  (dolist (hook (list
-                 'typescript-mode-hook
-                 ))
-    (add-hook hook '(lambda ()
-                      (company-mode -1)
-                      (lsp-bridge-mode 1)))))
+  (dolist (hook '(c-mode-hook
+                  c++-mode-hook
+                  cmake-mode-hook
+                  java-mode-hook
+                  python-mode-hook
+                  ruby-mode-hook
+                  lua-mode-hook
+                  rust-mode-hook
+                  rustic-mode-hook
+                  erlang-mode-hook
+                  elixir-mode-hook
+                  haskell-mode-hook
+                  haskell-literate-mode-hook
+                  dart-mode-hook
+                  scala-mode-hook
+                  typescript-mode-hook
+                  typescript-tsx-mode-hook
+                  js2-mode-hook
+                  js-mode-hook
+                  rjsx-mode-hook
+                  tuareg-mode-hook
+                  latex-mode-hook
+                  Tex-latex-mode-hook
+                  texmode-hook
+                  context-mode-hook
+                  texinfo-mode-hook
+                  bibtex-mode-hook
+                  clojure-mode-hook
+                  clojurec-mode-hook
+                  clojurescript-mode-hook
+                  clojurex-mode-hook
+                  sh-mode-hook
+                  web-mode-hook
+                  css-mode-hook
+                  elm-mode-hook
+                  ielm-mode-hook
+                  lisp-interaction-mode-hook
+                  org-mode-hook
+                  php-mode-hook
+                  yaml-mode-hook
+                  zig-mode-hook
+                  groovy-mode-hook
+                  dockerfile-mode-hook
+                  d-mode-hook
+                  f90-mode-hook
+                  fortran-mode-hook
+                  nix-mode-hook
+                  ess-r-mode-hook
+                  verilog-mode-hook))
+    (add-hook hook (lambda ()
+                     (company-mode -1)
+                     (lsp-bridge-mode 1)
+                     ))))
 
 ;; rust
 (use-package rust-mode
@@ -286,7 +329,8 @@
           ((eq major-mode 'zig-mode) (setq fn 'zig-format-buffer))
           ((member major-mode '(dart-mode css-mode scss-mode web-mode js-mode typescript-mode less-css-mode json-mode))
            (setq fn '(lambda () (apheleia-format-buffer (apheleia--get-formatters)))))
-          ((eglot-managed-p) (setq fn 'eglot-format-buffer)))
+          ((functionp 'eglot-managed-p) (setq fn 'eglot-format-buffer))
+          ((functionp 'lsp-bridge-code-format) (setq fn 'lsp-bridge-code-format)))
     (funcall fn)))
 
 (define-key prog-mode-map (kbd "C-c M-f") 'my-formatter)

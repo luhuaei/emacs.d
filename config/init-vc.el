@@ -4,6 +4,7 @@
   :after (init)
   :config
   (global-set-key (kbd "C-x g") 'magit-status)
+  (setq magit-process-connection-type nil)
   (setq magit-display-buffer-function 'magit-display-buffer-same-window-except-diff-v1)
   (add-hook 'magit-mode-hook #'magit-auto-revert-mode))
 
