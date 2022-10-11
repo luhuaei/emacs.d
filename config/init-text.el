@@ -3,13 +3,11 @@
 ;; sql
 (use-package sql-indent
   :defer t
-  :quelpa (sql-indent :fetcher github :repo "alex-hhh/emacs-sql-indent")
   :hook (sql-mode . sqlind-minor-mode))
 
 ;; yyac
 (use-package bison
   :diminish bison-mode
-  :quelpa (bison :fetcher github :repo "manateelazycat/bison")
   :mode ("\\.\\(y\\)$" . bison-mode))
 
 ;; latex
@@ -35,12 +33,10 @@
          ("C-S-RET" . 'org-insert-subheading))
   :config
   (use-package ob-go
-    :after (org)
-    :quelpa (ob-go :fetcher github :repo "pope/ob-go"))
+    :after (org))
 
   (use-package org-pomodoro
-  :after (org)
-  :quelpa (org-pomodoro :fetcher github :repo "marcinkoziej/org-pomodoro"))
+  :after (org))
 
   (org-babel-do-load-languages
    'org-babel-load-languages

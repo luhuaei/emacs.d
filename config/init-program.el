@@ -45,7 +45,8 @@
               ("M-." . 'lsp-bridge-find-def)
               ("M-," . 'lsp-bridge-return-from-def)
               ("C->" . 'lsp-bridge-find-impl)
-              ("C-<" . 'lsp-bridge-find-references))
+              ("C-<" . 'lsp-bridge-find-references)
+              ("M-/" . 'lsp-bridge-list-diagnostics))
   :config
   (defun lsp-bridge-local-go-module-root (filepath)
     (when-let ((dir (file-name-directory filepath))

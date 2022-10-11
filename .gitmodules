@@ -181,3 +181,15 @@
 [submodule "extensions/elisp-tree-sitter"]
 	path = extensions/elisp-tree-sitter
 	url = https://github.com/emacs-tree-sitter/elisp-tree-sitter.git
+[submodule "extensions/org-pomodoro"]
+	path = extensions/org-pomodoro
+	url = https://github.com/marcinkoziej/org-pomodoro.git
+[submodule "extensions/ob-go"]
+	path = extensions/ob-go
+	url = https://github.com/pope/ob-go.git
+[submodule "extensions/bison"]
+	path = extensions/bison
+	url = https://github.com/manateelazycat/bison.git
+[submodule "extensions/emacs-sql-indent"]
+	path = extensions/emacs-sql-indent
+	url = https://github.com/alex-hhh/emacs-sql-indent.git
