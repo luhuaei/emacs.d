@@ -193,3 +193,24 @@
 [submodule "extensions/emacs-sql-indent"]
 	path = extensions/emacs-sql-indent
 	url = https://github.com/alex-hhh/emacs-sql-indent.git
+[submodule "extensions/blink-search"]
+	path = extensions/blink-search
+	url = https://github.com/manateelazycat/blink-search.git
+[submodule "extensions/auto-save"]
+	path = extensions/auto-save
+	url = https://github.com/manateelazycat/auto-save.git
+[submodule "extensions/awesome-pair"]
+	path = extensions/awesome-pair
+	url = https://github.com/manateelazycat/awesome-pair.git
+[submodule "extensions/goto-last-change.el"]
+	path = extensions/goto-last-change.el
+	url = https://github.com/camdez/goto-last-change.el.git
+[submodule "extensions/crux"]
+	path = extensions/crux
+	url = https://github.com/bbatsov/crux.git
+[submodule "extensions/indent-guide"]
+	path = extensions/indent-guide
+	url = https://github.com/zk-phi/indent-guide.git
+[submodule "extensions/disable-mouse"]
+	path = extensions/disable-mouse
+	url = https://github.com/purcell/disable-mouse.git

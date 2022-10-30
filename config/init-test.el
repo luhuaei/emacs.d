@@ -3,4 +3,13 @@
 (add-hook 'yaml-mode-hook 'lzc-manifest-setup-hook)
 (add-hook 'yaml-mode-hook 'company-mode)
 
+(use-package blink-search
+  :load-path emacs-extension-dir
+  :diminish blink-search-mode
+  :config
+  (setq blink-search-enable-log t)
+  (setq blick-search-enable-debug t))
+
+(global-set-key (kbd "s-x") 'blink-search)
+
 (provide 'init-test)
