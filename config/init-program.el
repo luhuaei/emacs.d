@@ -15,6 +15,7 @@
 
 ;; lsp
 (use-package eglot
+  :disabled t
   :after (init)
   :diminish eglot-mode
   :bind (:map eglot-mode-map
@@ -32,8 +33,9 @@
   (cl-defmethod project-roots ((project (head go-module)))
     (list (cdr project)))
 
-  (dolist (hook (list
-                 'go-mode-hook
+  (dolist (hook '(c-mode-hook
+                 c++-mode-hook
+                 go-mode-hook
                  ))
     (add-hook hook 'eglot-ensure)))
 
@@ -50,59 +52,24 @@
   :config
   (defun lsp-bridge-local-go-module-root (filepath)
     (when-let ((dir (file-name-directory filepath))
-               (root (locate-dominating-file dir "go.mod")))
+               (root (cl-some #'(lambda (target) (locate-dominating-file dir target)) '("go.mod" "BUILD.gn" "package.json"))))
       (expand-file-name root)))
   (setq lsp-bridge-get-project-path-by-filepath 'lsp-bridge-local-go-module-root)
 
   (dolist (hook '(c-mode-hook
                   c++-mode-hook
-                  cmake-mode-hook
-                  java-mode-hook
+                  go-mode-hook
                   python-mode-hook
                   ruby-mode-hook
                   lua-mode-hook
-                  rust-mode-hook
-                  rustic-mode-hook
-                  erlang-mode-hook
-                  elixir-mode-hook
-                  haskell-mode-hook
-                  haskell-literate-mode-hook
-                  dart-mode-hook
-                  scala-mode-hook
                   typescript-mode-hook
                   typescript-tsx-mode-hook
                   js2-mode-hook
                   js-mode-hook
                   rjsx-mode-hook
-                  tuareg-mode-hook
-                  latex-mode-hook
-                  Tex-latex-mode-hook
-                  texmode-hook
-                  context-mode-hook
-                  texinfo-mode-hook
-                  bibtex-mode-hook
-                  clojure-mode-hook
-                  clojurec-mode-hook
-                  clojurescript-mode-hook
-                  clojurex-mode-hook
-                  sh-mode-hook
                   web-mode-hook
                   css-mode-hook
-                  elm-mode-hook
-                  ielm-mode-hook
-                  lisp-interaction-mode-hook
-                  org-mode-hook
-                  php-mode-hook
-                  yaml-mode-hook
-                  zig-mode-hook
-                  groovy-mode-hook
-                  dockerfile-mode-hook
-                  d-mode-hook
-                  f90-mode-hook
-                  fortran-mode-hook
-                  nix-mode-hook
-                  ess-r-mode-hook
-                  verilog-mode-hook))
+                  ))
     (add-hook hook (lambda ()
                      (company-mode -1)
                      (lsp-bridge-mode 1)

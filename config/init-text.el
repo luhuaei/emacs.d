@@ -36,7 +36,16 @@
     :after (org))
 
   (use-package org-pomodoro
-  :after (org))
+    :after (org))
+
+  (defun my/org-ispell ()
+    "Configure `ispell-skip-region-alist' for `org-mode'."
+    (make-local-variable 'ispell-skip-region-alist)
+    (add-to-list 'ispell-skip-region-alist '(org-property-drawer-re))
+    (add-to-list 'ispell-skip-region-alist '("~" "~"))
+    (add-to-list 'ispell-skip-region-alist '("=" "="))
+    (add-to-list 'ispell-skip-region-alist '("^#\\+BEGIN_SRC" . "^#\\+END_SRC")))
+  (add-hook 'org-mode-hook #'my/org-ispell)
 
   (org-babel-do-load-languages
    'org-babel-load-languages
