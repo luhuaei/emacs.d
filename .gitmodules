@@ -97,9 +97,6 @@
 [submodule "extensions/dash.el"]
 	path = extensions/dash.el
 	url = git@github.com:magnars/dash.el.git
-[submodule "extensions/eglot"]
-	path = extensions/eglot
-	url = git@github.com:joaotavora/eglot
 [submodule "extensions/zig-mode"]
 	path = extensions/zig-mode
 	url = git@github.com:ziglang/zig-mode.git
@@ -214,3 +211,6 @@
 [submodule "extensions/disable-mouse"]
 	path = extensions/disable-mouse
 	url = https://github.com/purcell/disable-mouse.git
+[submodule "extensions/open-newline"]
+	path = extensions/open-newline
+	url = https://github.com/manateelazycat/open-newline.git

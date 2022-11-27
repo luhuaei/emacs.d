@@ -44,11 +44,6 @@
   (diminish abbrev-mode)
   (diminish eldoc-mode))
 
-(use-package exec-path-from-shell
-  :config
-  (when (memq window-system '(mac ns x))
-    (exec-path-from-shell-initialize)))
-
 (use-package all-the-icons
   :defer t)
 
@@ -111,7 +106,7 @@
   (auto-save-enable)
   (setq auto-save-idle 1)
   (setq auto-save-silent t)
-  (setq auto-save-delete-trailing-whitespace t))
+  (setq auto-save-delete-trailing-whitespace nil))
 
 (use-package awesome-pair
   :after (init)
@@ -139,6 +134,12 @@
               ("M-:" . 'awesome-pair-jump-out-pair-and-newline))
   :config
   (add-hook 'prog-mode-hook 'awesome-pair-mode))
+
+(use-package open-newline
+  :after (init)
+  :config
+  (define-key global-map (kbd "C-o") 'open-newline-below)
+  (define-key global-map (kbd "C-S-o") 'open-newline-above))
 
 (use-package posframe :defer t)
 

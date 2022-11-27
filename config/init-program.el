@@ -13,49 +13,39 @@
         flymake-start-on-save-buffer nil
         flymake-start-on-flymake-mode t))
 
-;; lsp
-(use-package eglot
-  :disabled t
-  :after (init)
-  :diminish eglot-mode
-  :bind (:map eglot-mode-map
-              ("C->" . 'eglot-find-implementation)
-              ("C-<" . 'xref-find-references))
-  :config
-  (setq eglot-ignored-server-capabilities
-        '(:hoverProvider :signatureHelpProvider))
-
-  (defun eglot-local-go-module-root (dir)
-    (when-let ((root (locate-dominating-file dir "go.mod")))
-      (cons 'go-module root)))
-  (add-hook 'project-find-functions 'eglot-local-go-module-root)
-
-  (cl-defmethod project-roots ((project (head go-module)))
-    (list (cdr project)))
-
-  (dolist (hook '(c-mode-hook
-                 c++-mode-hook
-                 go-mode-hook
-                 ))
-    (add-hook hook 'eglot-ensure)))
-
 (use-package lsp-bridge
   :after (init)
   :load-path emacs-extension-dir
   :diminish lsp-bridge-mode
   :bind (:map lsp-bridge-mode-map
               ("M-." . 'lsp-bridge-find-def)
-              ("M-," . 'lsp-bridge-return-from-def)
+              ("M-," . 'lsp-bridge-find-def-return)
               ("C->" . 'lsp-bridge-find-impl)
               ("C-<" . 'lsp-bridge-find-references)
-              ("M-/" . 'lsp-bridge-list-diagnostics))
+              ("M-/" . 'lsp-bridge-popup-complete-menu))
   :config
   (defun lsp-bridge-local-go-module-root (filepath)
     (when-let ((dir (file-name-directory filepath))
-               (root (cl-some #'(lambda (target) (locate-dominating-file dir target)) '("go.mod" "BUILD.gn" "package.json"))))
+               (root (cl-some #'(lambda (target) (locate-dominating-file dir target)) '("go.mod" "package.json" "Cargo.toml"))))
       (expand-file-name root)))
-  (setq lsp-bridge-get-project-path-by-filepath 'lsp-bridge-local-go-module-root)
 
+  (setq lsp-bridge-get-project-path-by-filepath 'lsp-bridge-local-go-module-root)
+  (setq lsp-bridge-enable-diagnostics nil)
+  (setq lsp-bridge-complete-manually nil)
+
+  (setq lsp-bridge-jdtls-jvm-args
+        '("-Declipse.application=org.eclipse.jdt.ls.core.id1"
+          "-Dosgi.bundles.defaultStartLevel=4"
+          "-Declipse.product=org.eclipse.jdt.ls.core.product"
+          "-Dlog.protocol=true"
+          "-Dlog.level=ALL"
+          "-Xms1g"
+          "--add-modules=ALL-SYSTEM"
+          "--add-opens" "java.base/java.util=ALL-UNNAMED"
+          "--add-opens" "java.base/java.lang=ALL-UNNAMED"
+          "-jar" "/usr/share/java/jdtls/plugins/org.eclipse.jdt.launching_3.19.800.v20220922-0905.jar"
+          "-jar" "/home/redeveder/Android/Sdk/platforms/android-31/android.jar"
+          "-configuration" "/usr/share/java/jdtls/config_linux"))
   (dolist (hook '(c-mode-hook
                   c++-mode-hook
                   go-mode-hook
@@ -69,6 +59,9 @@
                   rjsx-mode-hook
                   web-mode-hook
                   css-mode-hook
+                  rust-mode-hook
+                  java-mode-hook
+                  kotlin-mode-hook
                   ))
     (add-hook hook (lambda ()
                      (company-mode -1)
@@ -297,8 +290,8 @@
           ((eq major-mode 'zig-mode) (setq fn 'zig-format-buffer))
           ((member major-mode '(dart-mode css-mode scss-mode web-mode js-mode typescript-mode less-css-mode json-mode))
            (setq fn '(lambda () (apheleia-format-buffer (apheleia--get-formatters)))))
-          ((functionp 'eglot-managed-p) (setq fn 'eglot-format-buffer))
-          ((functionp 'lsp-bridge-code-format) (setq fn 'lsp-bridge-code-format)))
+          ((functionp 'lsp-bridge-code-format) (setq fn 'lsp-bridge-code-format))
+          ((functionp 'eglot-managed-p) (setq fn 'eglot-format-buffer)))
     (funcall fn)))
 
 (define-key prog-mode-map (kbd "C-c M-f") 'my-formatter)

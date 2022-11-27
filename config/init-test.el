@@ -7,8 +7,8 @@
   :load-path emacs-extension-dir
   :diminish blink-search-mode
   :config
-  (setq blink-search-enable-log t)
-  (setq blick-search-enable-debug t))
+  (setq blink-search-enable-log nil)
+  (setq blink-search-enable-debug nil))
 
 (global-set-key (kbd "s-x") 'blink-search)
 
