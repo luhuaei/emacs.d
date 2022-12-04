@@ -175,9 +175,6 @@
 [submodule "extensions/yaml-mode"]
 	path = extensions/yaml-mode
 	url = git@github.com:yoshiki/yaml-mode.git
-[submodule "extensions/elisp-tree-sitter"]
-	path = extensions/elisp-tree-sitter
-	url = https://github.com/emacs-tree-sitter/elisp-tree-sitter.git
 [submodule "extensions/org-pomodoro"]
 	path = extensions/org-pomodoro
 	url = https://github.com/marcinkoziej/org-pomodoro.git
@@ -214,3 +211,12 @@
 [submodule "extensions/open-newline"]
 	path = extensions/open-newline
 	url = https://github.com/manateelazycat/open-newline.git
+[submodule "extensions/emmet-mode"]
+	path = extensions/emmet-mode
+	url = https://github.com/smihica/emmet-mode.git
+[submodule "extensions/yasnippet-snippets"]
+	path = extensions/yasnippet-snippets
+	url = https://github.com/AndreaCrotti/yasnippet-snippets.git
+[submodule "extensions/elisp-tree-sitter"]
+	path = extensions/elisp-tree-sitter
+	url = https://github.com/emacs-tree-sitter/elisp-tree-sitter.git

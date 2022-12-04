@@ -22,7 +22,7 @@
               ("M-," . 'lsp-bridge-find-def-return)
               ("C->" . 'lsp-bridge-find-impl)
               ("C-<" . 'lsp-bridge-find-references)
-              ("M-/" . 'lsp-bridge-popup-complete-menu))
+              ("M-/" . 'yas-expand))
   :config
   (defun lsp-bridge-local-go-module-root (filepath)
     (when-let ((dir (file-name-directory filepath))
@@ -30,8 +30,7 @@
       (expand-file-name root)))
 
   (setq lsp-bridge-get-project-path-by-filepath 'lsp-bridge-local-go-module-root)
-  (setq lsp-bridge-enable-diagnostics nil)
-  (setq lsp-bridge-complete-manually nil)
+  (setq lsp-bridge-enable-diagnostics t)
 
   (setq lsp-bridge-jdtls-jvm-args
         '("-Declipse.application=org.eclipse.jdt.ls.core.id1"

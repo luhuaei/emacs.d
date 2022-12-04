@@ -7,6 +7,10 @@
 (use-package yasnippet
   :defer t
   :config
+  (use-package yasnippet-snippets)
+  (setq yas-snippet-dirs (list
+                          (expand-file-name "snippets" emacs-root-dir)
+                          yasnippet-snippets-dir))
   (yas-reload-all)
   (add-hook 'prog-mode-hook #'yas-minor-mode))
 
@@ -90,7 +94,7 @@
   (auto-save-enable)
   (setq auto-save-idle 1)
   (setq auto-save-silent t)
-  (setq auto-save-delete-trailing-whitespace nil))
+  (setq auto-save-delete-trailing-whitespace t))
 
 (use-package awesome-pair
   :after (init)

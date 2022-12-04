@@ -1,0 +1,15 @@
+# -*- mode: snippet -*-
+# contributor : luhuaei
+# name: vue3 ts scss template
+# --
+<script lang="ts" setup>
+$0
+</script>
+
+<template>
+  $1
+</template>
+
+<style lang="scss" scoped>
+$2
+</style>
