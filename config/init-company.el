@@ -23,7 +23,7 @@
 	company-require-match nil
 	company-dabbrev-ignore-case nil
 	company-dabbrev-downcase nil
-	company-show-number t)
+	company-show-number nil)
 
   ;; Nicer looking faces
   (custom-set-faces
@@ -32,13 +32,5 @@
    '(company-tooltip-common-selection
      ((t (:inherit company-tooltip-selection :weight bold :underline nil)))))
   )
-
-(use-package company-quickhelp
-  :after (company)
-  :defines company-quickhelp-delay
-  :bind (:map company-active-map
-	      ("C-c h" . company-quickhelp-manual-begin))
-  :hook (global-company-mode . company-quickhelp-mode)
-  :init (setq company-quickhelp-delay 0.5))
 
 (provide 'init-company)

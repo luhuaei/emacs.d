@@ -4,6 +4,12 @@
 (use-package s
   :defer t)
 
+(use-package yasnippet
+  :defer t
+  :config
+  (yas-reload-all)
+  (add-hook 'prog-mode-hook #'yas-minor-mode))
+
 (use-package highlight-parentheses
   :defer t
   :diminish highlight-parentheses-mode
@@ -51,18 +57,6 @@
   :after (init)
   :bind ("C-=" . er/expand-region))
 
-(use-package rainbow-delimiters
-  :defer t
-  :config
-  (add-hook 'prog-mode-hook 'rainbow-delimiters-mode))
-
-(use-package rainbow-mode
-  :defer t
-  :diminish rainbow-mode
-  :config
-  (setq rainbow-x-colors nil)
-  (add-hook 'prog-mode-hook 'rainbow-mode))
-
 (use-package rime
   :after (init)
   :custom
@@ -79,16 +73,6 @@
           rime-predicate-punctuation-after-ascii-p
           rime-predicate-space-after-cc-p
           rime-predicate-prog-in-code-p)))
-
-(use-package disable-mouse
-  :diminish 'disable-mouse-mode
-  :config
-  (global-disable-mouse-mode))
-
-(use-package indent-guide
-  :after (init)
-  :config
-  (indent-guide-global-mode))
 
 ;; C-a to the first char not whitespacee
 (use-package crux
