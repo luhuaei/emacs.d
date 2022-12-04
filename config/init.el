@@ -24,7 +24,6 @@
     (require 'init-eaf)
     (require 'init-program)
     (require 'init-buffer)
-    (require 'init-emms)
     (require 'init-text)
     (require 'init-test)
     ))
