@@ -201,6 +201,10 @@
   :config
   (setq nix-nixfmt-bin "nixpkgs-fmt"))
 
+(use-package emmet-mode
+  :defer t
+  :hook ((web-mode css-mode) . emmet-mode))
+
 ;; css
 (use-package css-mode
   :defer t
