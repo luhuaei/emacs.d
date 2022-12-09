@@ -67,6 +67,11 @@
                      (lsp-bridge-mode 1)
                      ))))
 
+;; cmake
+
+(use-package cmake-mode
+  :defer t)
+
 ;; rust
 (use-package rust-mode
   :defer t
