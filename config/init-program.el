@@ -22,7 +22,8 @@
               ("M-," . 'lsp-bridge-find-def-return)
               ("C->" . 'lsp-bridge-find-impl)
               ("C-<" . 'lsp-bridge-find-references)
-              ("M-/" . 'yas-expand))
+              ("M-/" . 'yas-expand)
+              ("<f5>" . 'lsp-bridge-diagnostic-list))
   :config
   (defun lsp-bridge-local-go-module-root (filepath)
     (when-let ((dir (file-name-directory filepath))
@@ -61,6 +62,7 @@
                   rust-mode-hook
                   java-mode-hook
                   kotlin-mode-hook
+                  zig-mode-hook
                   ))
     (add-hook hook (lambda ()
                      (company-mode -1)
