@@ -16,7 +16,6 @@
               ("C-r" . 'counsel-git-grep)
               ("M-s s" . 'swiper-thing-at-point)
               ("C-c b" . 'counsel-bookmark)
-              ("C-c c" . 'counsel-compile)
               ("C-c d" . 'counsel-descbinds)
               ("C-c l" . 'counsel-git-log)
               ("C-c f" . 'find-file-in-project)

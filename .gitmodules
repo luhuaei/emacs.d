@@ -220,3 +220,6 @@
 [submodule "extensions/elisp-tree-sitter"]
 	path = extensions/elisp-tree-sitter
 	url = https://github.com/emacs-tree-sitter/elisp-tree-sitter.git
+[submodule "extensions/alert"]
+	path = extensions/alert
+	url = https://github.com/jwiegley/alert.git

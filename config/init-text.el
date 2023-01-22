@@ -79,8 +79,8 @@
   (setq org-capture-templates
 	`(("t" "Todo" entry (file ,(concat emacs-org-dir "GTD.org"))
 	  "* TODO %?\n%U\n%^G" :empty-lines 1)
-	 ("T" "Todo with File link" entry (file ,(concat emacs-org-dir "GTD.org"))
-	  "* TODO %?\n%U\n %a" :empty-lines 1)))
+	 ("z" "Zongjie" entry (file ,(concat emacs-org-dir "Zongjie.org"))
+	  "* %U\n\n%?" :empty-lines 1)))
   (setq org-agenda-files (list emacs-org-dir)))
 
 ;; protobuf
