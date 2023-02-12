@@ -235,6 +235,7 @@
 ;; Typescript
 (use-package typescript-mode
   :defer t
+  :mode "\\.ts$"
   :config
   (setq typescript-indent-level 2))
 
