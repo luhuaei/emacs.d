@@ -13,6 +13,27 @@
         flymake-start-on-save-buffer nil
         flymake-start-on-flymake-mode t))
 
+(use-package eglot
+  :disabled t
+  :after (init)
+  :diminish eglot-mode
+  :bind (:map eglot-mode-map
+              ("C->" . 'eglot-find-implementation)
+              ("C-<" . 'xref-find-references))
+  :config
+  (setq eglot-ignored-server-capabilities
+        '(:hoverProvider :signatureHelpProvider))
+
+  (defun eglot-local-go-module-root (dir)
+    (when-let ((root (locate-dominating-file dir "go.mod")))
+      (cons 'go-module root)))
+  (add-hook 'project-find-functions 'eglot-local-go-module-root)
+
+  (cl-defmethod project-roots ((project (head go-module)))
+    (list (cdr project)))
+
+  (add-hook 'prog-mode-hook #'eglot-ensure))
+
 (use-package lsp-bridge
   :after (init)
   :load-path emacs-extension-dir
@@ -32,42 +53,7 @@
 
   (setq lsp-bridge-get-project-path-by-filepath 'lsp-bridge-local-go-module-root)
   (setq lsp-bridge-enable-diagnostics t)
-
-  (setq lsp-bridge-jdtls-jvm-args
-        '("-Declipse.application=org.eclipse.jdt.ls.core.id1"
-          "-Dosgi.bundles.defaultStartLevel=4"
-          "-Declipse.product=org.eclipse.jdt.ls.core.product"
-          "-Dlog.protocol=true"
-          "-Dlog.level=ALL"
-          "-Xms1g"
-          "--add-modules=ALL-SYSTEM"
-          "--add-opens" "java.base/java.util=ALL-UNNAMED"
-          "--add-opens" "java.base/java.lang=ALL-UNNAMED"
-          "-jar" "/usr/share/java/jdtls/plugins/org.eclipse.jdt.launching_3.19.800.v20220922-0905.jar"
-          "-jar" "/home/redeveder/Android/Sdk/platforms/android-31/android.jar"
-          "-configuration" "/usr/share/java/jdtls/config_linux"))
-  (dolist (hook '(c-mode-hook
-                  c++-mode-hook
-                  go-mode-hook
-                  python-mode-hook
-                  ruby-mode-hook
-                  lua-mode-hook
-                  typescript-mode-hook
-                  typescript-tsx-mode-hook
-                  js2-mode-hook
-                  js-mode-hook
-                  rjsx-mode-hook
-                  web-mode-hook
-                  css-mode-hook
-                  rust-mode-hook
-                  java-mode-hook
-                  kotlin-mode-hook
-                  zig-mode-hook
-                  ))
-    (add-hook hook (lambda ()
-                     (company-mode -1)
-                     (lsp-bridge-mode 1)
-                     ))))
+  (add-hook 'prog-mode-hook #'lsp-bridge-mode))
 
 ;; cmake
 
@@ -119,8 +105,8 @@
 
 ;; yaml
 (use-package yaml-mode
-  :diminish yaml-mode
-  :mode ("\\.\\(yml|\\yaml\\)$" . yaml-mode))
+  :defer t
+  :mode "\\.yaml$")
 
 ;; lisp
 (use-package slime
@@ -305,6 +291,6 @@
           ((functionp 'eglot-managed-p) (setq fn 'eglot-format-buffer)))
     (funcall fn)))
 
-(define-key prog-mode-map (kbd "C-c M-f") 'my-formatter)
+(add-hook 'prog-mode-hook (lambda () (local-set-key (kbd "C-c M-f") #'my-formatter)))
 
 (provide 'init-program)

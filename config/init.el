@@ -19,7 +19,6 @@
     (require 'init-startup)
     (require 'init-theme)
     (require 'init-vc)
-    (require 'init-company)
     (require 'init-utils)
     (require 'init-eaf)
     (require 'init-program)

@@ -139,12 +139,6 @@
 [submodule "extensions/dart-mode"]
 	path = extensions/dart-mode
 	url = git@github.com:bradyt/dart-mode.git
-[submodule "extensions/company-quickhelp"]
-	path = extensions/company-quickhelp
-	url = git@github.com:company-mode/company-quickhelp.git
-[submodule "extensions/company-mode"]
-	path = extensions/company-mode
-	url = git@github.com:company-mode/company-mode.git
 [submodule "extensions/c-eldoc"]
 	path = extensions/c-eldoc
 	url = git@github.com:nflath/c-eldoc.git
@@ -223,3 +217,9 @@
 [submodule "extensions/alert"]
 	path = extensions/alert
 	url = https://github.com/jwiegley/alert.git
+[submodule "extensions/emacs-reformatter"]
+	path = extensions/emacs-reformatter
+	url = https://github.com/purcell/emacs-reformatter.git
+[submodule "extensions/mind-wave"]
+	path = extensions/mind-wave
+	url = https://github.com/manateelazycat/mind-wave.git
