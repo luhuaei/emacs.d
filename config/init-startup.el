@@ -17,7 +17,6 @@
 (setq split-height-threshold 0)                        ;设置分屏高度阀值为nil
 (setq split-width-threshold nil)                       ;设置分屏宽度为0
 (setq-default fill-column 80)                          ;缩进列数
-(global-display-line-numbers-mode t)
 (global-set-key (kbd "C-x C-j") 'eval-print-last-sexp) ;求值
 (global-set-key (kbd "C-x k") 'kill-current-buffer)    ;关闭buffer
 (global-unset-key (kbd "C-x m"))

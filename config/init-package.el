@@ -3,6 +3,10 @@
 (setq use-package-always-ensure nil)
 (setq use-package-always-defer nil)
 
+(require 'package)
+(add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
+(package-initialize)
+
 (use-package quelpa
   :load-path emacs-extension-dir)
 

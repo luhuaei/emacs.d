@@ -10,6 +10,8 @@
   (setq blink-search-enable-log nil)
   (setq blink-search-enable-debug nil))
 
-(global-set-key (kbd "s-x") 'blink-search)
+(use-package mind-wave
+  :config
+  (setq mind-wave-proxy-url "http://127.0.0.1:1080"))
 
 (provide 'init-test)

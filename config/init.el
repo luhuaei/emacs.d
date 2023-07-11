@@ -24,6 +24,7 @@
     (require 'init-program)
     (require 'init-buffer)
     (require 'init-text)
+    (require 'init-tree-sitter)
     (require 'init-test)
     ))
 (provide 'init)

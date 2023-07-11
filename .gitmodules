@@ -91,9 +91,6 @@
 [submodule "extensions/compat"]
 	path = extensions/compat
 	url = https://git.sr.ht/~pkal/compat
-[submodule "extensions/monokai-emacs"]
-	path = extensions/monokai-emacs
-	url = git@github.com:oneKelvinSmith/monokai-emacs.git
 [submodule "extensions/dash.el"]
 	path = extensions/dash.el
 	url = git@github.com:magnars/dash.el.git
@@ -211,9 +208,6 @@
 [submodule "extensions/yasnippet-snippets"]
 	path = extensions/yasnippet-snippets
 	url = https://github.com/AndreaCrotti/yasnippet-snippets.git
-[submodule "extensions/elisp-tree-sitter"]
-	path = extensions/elisp-tree-sitter
-	url = https://github.com/emacs-tree-sitter/elisp-tree-sitter.git
 [submodule "extensions/alert"]
 	path = extensions/alert
 	url = https://github.com/jwiegley/alert.git
@@ -223,3 +217,6 @@
 [submodule "extensions/mind-wave"]
 	path = extensions/mind-wave
 	url = https://github.com/manateelazycat/mind-wave.git
+[submodule "extensions/zenburn-emacs"]
+	path = extensions/zenburn-emacs
+	url = https://github.com/bbatsov/zenburn-emacs.git

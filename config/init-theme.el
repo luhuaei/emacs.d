@@ -7,9 +7,8 @@
                     :slant 'normal
                     :size 18.0)))
 
-(use-package monokai-theme
-  :quelpa (monokai-theme :fetcher github :repo "oneKelvinSmith/monokai-emacs")
+(use-package zenburn-theme
   :config
-  (load-theme 'monokai t))
+  (load-theme 'zenburn t))
 
 (provide 'init-theme)
