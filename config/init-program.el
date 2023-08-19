@@ -35,6 +35,7 @@
   (add-hook 'prog-mode-hook #'eglot-ensure))
 
 (use-package lsp-bridge
+  :disabled t
   :after (init)
   :load-path emacs-extension-dir
   :diminish lsp-bridge-mode
@@ -288,7 +289,8 @@
           ((member major-mode '(dart-mode css-mode scss-mode web-mode js-mode typescript-mode less-css-mode json-mode))
            (setq fn '(lambda () (apheleia-format-buffer (apheleia--get-formatters)))))
           ((functionp 'lsp-bridge-code-format) (setq fn 'lsp-bridge-code-format))
-          ((functionp 'eglot-managed-p) (setq fn 'eglot-format-buffer)))
+          ((functionp 'eglot-managed-p) (setq fn 'eglot-format-buffer))
+          ((functionp 'lsp-format-buffer) (setq fn 'lsp-format-buffer)))
     (funcall fn)))
 
 (add-hook 'prog-mode-hook (lambda () (local-set-key (kbd "C-c M-f") #'my-formatter)))
