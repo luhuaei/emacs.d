@@ -3,8 +3,12 @@
 ;; format
 (use-package apheleia
   :after (init)
+  :init
+  (require 'apheleia-core)
   :config
-  (setf (alist-get 'gofmt apheleia-formatters) '("goimports")))
+  (setf (alist-get 'gofmt apheleia-formatters) '("goimports"))
+  (setf (alist-get 'prettier-javascript apheleia-formatters)
+        '(npx "prettier" "--stdin-filepath" filepath "--parser=babel-flow")))
 
 (use-package flymake
   :config
