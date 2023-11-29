@@ -220,3 +220,6 @@
 [submodule "extensions/zenburn-emacs"]
 	path = extensions/zenburn-emacs
 	url = https://github.com/bbatsov/zenburn-emacs.git
+[submodule "extensions/pyvenv"]
+	path = extensions/pyvenv
+	url = https://github.com/jorgenschaefer/pyvenv.git

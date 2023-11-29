@@ -17,6 +17,7 @@
                'rust-mode-hook
                'js-mode-hook
                'js2-mode-hook
+               'python-mode-hook
                'dart-mode-hook))
   (add-hook hook 'lsp-deferred))
 

@@ -177,11 +177,13 @@
        (e (delete-window e))
        nil)))
   ;; (advice-add 'keyboard-quit :before 'my-hide-jupyter-windows)
+  )
 
-  (use-package emacs-jupyter
-    :after (python)
-    :hook ((jupyter-repl-mode . awesome-pair-mode)
-	   (jupyter-repl-mode . company-mode))))
+(use-package pyvenv :after (python))
+
+(use-package emacs-jupyter
+  :after (python)
+  :hook ((jupyter-repl-mode . awesome-pair-mode)))
 
 ;; julia
 (use-package julia-mode
