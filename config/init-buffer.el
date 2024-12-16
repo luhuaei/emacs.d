@@ -2,6 +2,7 @@
 (require 'colir)
 (require 'ivy)
 (require 'swiper)
+(require 'counsel)
 (require 'avy)
 
 (use-package ivy
@@ -12,7 +13,7 @@
               ("C-." . 'counsel-mark-ring)
               ("C-'" . 'avy-goto-char)
               ("C-\"" . 'avy-goto-char-2)
-              ("C-s" . 'counsel-grep-or-swiper)
+              ("C-s" . 'swiper-isearch)
               ("C-r" . 'counsel-git-grep)
               ("M-s s" . 'swiper-thing-at-point)
               ("C-c b" . 'counsel-bookmark)

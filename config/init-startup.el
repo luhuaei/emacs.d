@@ -33,6 +33,21 @@
 	    (show-paren-mode t)                                    ;展示匹配括号)
 	    ))
 
+(defun count-chinese-characters (&optional begin end)
+  "Count Chinese characters in the region or whole buffer."
+  (interactive "r")
+  (let ((begin (or begin (point-min)))
+        (end (or end (point-max))))
+    (save-excursion
+      (let ((cnt 0))
+        (goto-char begin)
+        (while (< (point) end)
+          (if (and (> (following-char) #x4e00)
+                   (< (following-char) #x9fff))
+              (setq cnt (1+ cnt)))
+          (forward-char 1))
+        (message "汉字数量: %d" cnt)))))
+
 ;; mode line
 (setq-default mode-line-format
 	      '("%e"
@@ -61,6 +76,8 @@
 ;; 插入当前的时间
 (defun my/insert-current-data ()
   (interactive)
-  (insert (format-time-string "[%Y-%m-%d %H:%M:%S]")))
+  (insert (format-time-string "%Y-%m-%d %H:%M:%S +08:00")))
+
+
 
 (provide 'init-startup)

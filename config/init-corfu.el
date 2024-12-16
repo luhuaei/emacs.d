@@ -48,13 +48,13 @@
 (with-eval-after-load 'cape (progn
 			      (require 'cape-keyword)
 			      (add-hook 'text-mode-hook (lambda ()
-							  (setq-local completion-at-point-functions (list (cape-super-capf
+							  (setq-local completion-at-point-functions (list (cape-capf-super
 													   #'cape-dabbrev
 													   #'cape-dict)))))
 			      (dolist (hook '(go-ts-mode-hook web-mode-hook typescript-ts-mode-hook emacs-lisp-mode-hook))
 				(add-hook hook (lambda ()
 						 (setq-local completion-at-point-functions
-							     (list (cape-super-capf
+							     (list (cape-capf-super
 								    #'cape-file
 								    ;; #'cape-yasnippet
 								    #'cape-keyword

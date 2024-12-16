@@ -20,7 +20,7 @@
     (require 'init-theme)
     (require 'init-vc)
     (require 'init-utils)
-    (require 'init-eaf)
+    ;; (require 'init-eaf)
     (require 'init-program)
     (require 'init-buffer)
     (require 'init-text)

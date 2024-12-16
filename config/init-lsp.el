@@ -18,6 +18,7 @@
                'js-mode-hook
                'js2-mode-hook
                'python-mode-hook
+               'kotlin-mode-hook
                'dart-mode-hook))
   (add-hook hook 'lsp-deferred))
 
@@ -53,9 +54,8 @@
   (setq lsp-response-timeout 1)
   :custom
   (lsp-completion-provider :none)
-  :hook ((lsp-completion-mode . +evan/lsp-mode-setup-completion)
-	 (lsp-managed-mode . yas-minor-mode)
-	 (lsp-managed-mode . flycheck-mode))
+  :hook (
+         (prog-mode . lsp))
   :bind (:map lsp-mode-map
               ("M-." . 'xref-find-definitions)
               ("M-," . 'xref-pop-marker-stack)
@@ -63,9 +63,9 @@
               ("C-<" . 'lsp-find-references)
               ("M-/" . 'yas-expand)
               ("<f5>" . 'flycheck-list-errors))
+  :commands lsp
   :config
-  (add-hook 'orderless-style-dispatchers #'+evan/orderless-dispatch-flex-first nil 'local)
-  )
+  (add-hook 'orderless-style-dispatchers #'+evan/orderless-dispatch-flex-first nil 'local))
 
 
 (provide 'init-lsp)

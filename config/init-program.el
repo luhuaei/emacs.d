@@ -3,8 +3,6 @@
 ;; format
 (use-package apheleia
   :after (init)
-  :init
-  (require 'apheleia-core)
   :config
   (setf (alist-get 'gofmt apheleia-formatters) '("goimports"))
   (setf (alist-get 'prettier-javascript apheleia-formatters)
@@ -181,9 +179,7 @@
 
 (use-package pyvenv :after (python))
 
-(use-package emacs-jupyter
-  :after (python)
-  :hook ((jupyter-repl-mode . awesome-pair-mode)))
+(use-package jupyter :after (python))
 
 ;; julia
 (use-package julia-mode
@@ -235,19 +231,19 @@
 (define-derived-mode typescript-tsx-mode typescript-mode "tsx")
 (add-to-list 'auto-mode-alist '("\\.tsx\\'" . typescript-tsx-mode))
 
-(use-package tree-sitter
-  :defer t
-  :after tree-sitter-langs
-  :init
-  (require 'tree-sitter-hl)
-  :hook ((typescript-mode . tree-sitter-hl-mode)
-	 (typescript-tsx-mode . tree-sitter-hl-mode)))
+;; (use-package tree-sitter
+;;   :defer t
+;;   :after tree-sitter-langs
+;;   :init
+;;   (require 'tree-sitter-hl)
+;;   :hook ((typescript-mode . tree-sitter-hl-mode)
+;; 	 (typescript-tsx-mode . tree-sitter-hl-mode)))
 
-(use-package tree-sitter-langs
-  :defer t
-  :config
-  (tree-sitter-require 'tsx)
-  (add-to-list 'tree-sitter-major-mode-language-alist '(typescript-tsx-mode . tsx)))
+;; (use-package tree-sitter-langs
+;;   :defer t
+;;   :config
+;;   (tree-sitter-require 'tsx)
+;;   (add-to-list 'tree-sitter-major-mode-language-alist '(typescript-tsx-mode . tsx)))
 
 ;; javascript mode
 (setq js-indent-level 2)
@@ -256,7 +252,7 @@
 ;; vue/php/js/wxml
 (use-package web-mode
   :defer t
-  :mode "\\.\\(phtml\\|php\\|[gj]sp\\|as[cp]x\\|erb\\|djhtml\\|html?\\|hbs\\|ejs\\|jade\\|swig\\|tm?pl\\|vue\\|wxml\\)$"
+  :mode "\\.\\(phtml\\|php\\|[gj]sp\\|as[cp]x\\|erb\\|djhtml\\|html?\\|hbs\\|ejs\\|jade\\|swig\\|tm?pl\\|vue\\|wxml|svelte|tsx\\)$"
   :bind (:map web-mode-map
               ("M-\." . 'xref-find-definitions)
               ("M-," . 'xref-go-back))

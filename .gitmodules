@@ -223,3 +223,30 @@
 [submodule "extensions/pyvenv"]
 	path = extensions/pyvenv
 	url = https://github.com/jorgenschaefer/pyvenv.git
+[submodule "extensions/jupyter"]
+	path = extensions/jupyter
+	url = https://github.com/emacs-jupyter/jupyter.git
+[submodule "extensions/lsp-mode"]
+	path = extensions/lsp-mode
+	url = git@github.com:emacs-lsp/lsp-mode.git
+[submodule "extensions/valign"]
+	path = extensions/valign
+	url = git@github.com:casouri/valign.git
+[submodule "extensions/f.el"]
+	path = extensions/f.el
+	url = https://github.com/rejeep/f.el.git
+[submodule "extensions/ht.el"]
+	path = extensions/ht.el
+	url = https://github.com/Wilfred/ht.el.git
+[submodule "extensions/hydra"]
+	path = extensions/hydra
+	url = https://github.com/abo-abo/hydra.git
+[submodule "extensions/spinner.el"]
+	path = extensions/spinner.el
+	url = https://github.com/Malabarba/spinner.el.git
+[submodule "extensions/corfu"]
+	path = extensions/corfu
+	url = https://github.com/minad/corfu.git
+[submodule "extensions/cape"]
+	path = extensions/cape
+	url = https://github.com/minad/cape.git

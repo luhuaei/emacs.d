@@ -11,15 +11,15 @@
   :mode ("\\.\\(y\\)$" . bison-mode))
 
 ;; latex
-(use-package tex
-  :ensure auctex
-  :mode ("\\.tex\\'" . LaTeX-mode)
-  :hook (LaTeX-mode . (lambda()
-                        (setq TeX-command-default "pdflatex")))
-  :config
-  (add-to-list 'TeX-command-list '("XeLaTeX" "%`xelatex --synctex=1%(mode)%' %t" TeX-run-TeX nil t))
-  (add-to-list 'TeX-view-program-list '("eaf" eaf-pdf-synctex-forward-view))
-  (add-to-list 'TeX-view-program-selection '(output-pdf "eaf")))
+;; (use-package tex
+;;   :ensure auctex
+;;   :mode ("\\.tex\\'" . LaTeX-mode)
+;;   :hook (LaTeX-mode . (lambda()
+;;                         (setq TeX-command-default "pdflatex")))
+;;   :config
+;;   (add-to-list 'TeX-command-list '("XeLaTeX" "%`xelatex --synctex=1%(mode)%' %t" TeX-run-TeX nil t))
+;;   (add-to-list 'TeX-view-program-list '("eaf" eaf-pdf-synctex-forward-view))
+;;   (add-to-list 'TeX-view-program-selection '(output-pdf "eaf")))
 
 ;; org-mode
 (use-package org
@@ -101,6 +101,11 @@
   :mode (("README\\.md\\'" . gfm-mode)
          ("\\.md\\'" . markdown-mode)
          ("\\.markdown\\'" . markdown-mode))
-  :init (setq markdown-command "multimarkdown"))
+  :bind (:map markdown-mode-map ("`" . markdown-insert-code))
+  :init (setq markdown-command "multimarkdown")
+  :config
+  (require 'valign)
+  (add-hook 'markdown-mode-hook #'valign-mode)
+  (setq markdown-gfm-use-electric-backquote nil))
 
 (provide 'init-text)
