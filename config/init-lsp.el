@@ -33,6 +33,9 @@
 	lsp-enable-on-type-formatting nil
 	lsp-enable-relative-indentation nil
 	lsp-headerline-breadcrumb-enable nil
+        lsp-modeline-workspace-status-enable nil
+        lsp-modeline-diagnostics-enable nil
+        lsp-modeline-code-actions-enable nil
 	lsp-inlay-hint-enable nil
 	lsp-log-io nil
 	lsp-lens-enable nil)

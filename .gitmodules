@@ -250,3 +250,6 @@
 [submodule "extensions/cape"]
 	path = extensions/cape
 	url = https://github.com/minad/cape.git
+[submodule "extensions/orderless"]
+	path = extensions/orderless
+	url = https://github.com/oantolin/orderless.git

@@ -136,8 +136,7 @@
           ("*R"
            (display-buffer-reuse-window display-buffer-at-bottom)
            (window-width . 0.5)
-           (reusable-frames . nil))))
-  (setq ess-use-company t))
+           (reusable-frames . nil)))))
 
 ;; python
 (use-package python
@@ -288,11 +287,12 @@
     (cond ((eq major-mode 'go-mode) (setq fn 'gofmt))
           ((eq major-mode 'nix-mode) (setq fn 'nix-format-buffer))
           ((eq major-mode 'zig-mode) (setq fn 'zig-format-buffer))
-          ((member major-mode '(dart-mode css-mode scss-mode web-mode js-mode typescript-mode less-css-mode json-mode))
+          ((member major-mode '(dart-mode css-mode scss-mode web-mode js-mode typescript-mode less-css-mode))
            (setq fn '(lambda () (apheleia-format-buffer (apheleia--get-formatters)))))
           ((functionp 'lsp-bridge-code-format) (setq fn 'lsp-bridge-code-format))
           ((functionp 'eglot-managed-p) (setq fn 'eglot-format-buffer))
-          ((functionp 'lsp-format-buffer) (setq fn 'lsp-format-buffer)))
+          ((functionp 'lsp-format-buffer) (setq fn 'lsp-format-buffer))
+          ((eq major-mode 'js-json-mode) (setq fn 'json-pretty-print)))
     (funcall fn)))
 
 (add-hook 'prog-mode-hook (lambda () (local-set-key (kbd "C-c M-f") #'my-formatter)))

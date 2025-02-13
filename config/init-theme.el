@@ -5,7 +5,7 @@
    :font (font-spec :name "WenQuanYi Micro Hei Mono"
                     :weight 'normal
                     :slant 'normal
-                    :size 18.0)))
+                    :size 15.0)))
 
 (use-package zenburn-theme
   :config
