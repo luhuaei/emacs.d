@@ -253,3 +253,15 @@
 [submodule "extensions/orderless"]
 	path = extensions/orderless
 	url = https://github.com/oantolin/orderless.git
+[submodule "extensions/llama"]
+	path = extensions/llama
+	url = https://github.com/tarsius/llama.git
+[submodule "extensions/terraform-lsp"]
+	path = extensions/terraform-lsp
+	url = https://github.com/juliosueiras/terraform-lsp
+[submodule "extensions/company-mode"]
+	path = extensions/company-mode
+	url = https://github.com/company-mode/company-mode.git
+[submodule "extensions/lsp-ivy"]
+	path = extensions/lsp-ivy
+	url = git@github.com:emacs-lsp/lsp-ivy.git

@@ -25,7 +25,7 @@
     (require 'init-buffer)
     (require 'init-text)
     (require 'init-tree-sitter)
-    (require 'init-corfu)
+    ;; (require 'init-corfu)
     (require 'init-lsp)
     (require 'init-test)
     ))

@@ -8,58 +8,6 @@
   (setf (alist-get 'prettier-javascript apheleia-formatters)
         '(npx "prettier" "--stdin-filepath" filepath "--parser=babel-flow")))
 
-(use-package flymake
-  :config
-  (setq flymake-no-changes-timeout 5
-        flymake-gui-warnings-enabled nil
-        flymake-start-on-save-buffer nil
-        flymake-start-on-flymake-mode t))
-
-(use-package eglot
-  :disabled t
-  :after (init)
-  :diminish eglot-mode
-  :bind (:map eglot-mode-map
-              ("C->" . 'eglot-find-implementation)
-              ("C-<" . 'xref-find-references))
-  :config
-  (setq eglot-ignored-server-capabilities
-        '(:hoverProvider :signatureHelpProvider))
-
-  (defun eglot-local-go-module-root (dir)
-    (when-let ((root (locate-dominating-file dir "go.mod")))
-      (cons 'go-module root)))
-  (add-hook 'project-find-functions 'eglot-local-go-module-root)
-
-  (cl-defmethod project-roots ((project (head go-module)))
-    (list (cdr project)))
-
-  (add-hook 'prog-mode-hook #'eglot-ensure))
-
-(use-package lsp-bridge
-  :disabled t
-  :after (init)
-  :load-path emacs-extension-dir
-  :diminish lsp-bridge-mode
-  :bind (:map lsp-bridge-mode-map
-              ("M-." . 'lsp-bridge-find-def)
-              ("M-," . 'lsp-bridge-find-def-return)
-              ("C->" . 'lsp-bridge-find-impl)
-              ("C-<" . 'lsp-bridge-find-references)
-              ("M-/" . 'yas-expand)
-              ("<f5>" . 'lsp-bridge-diagnostic-list))
-  :config
-  (defun lsp-bridge-local-go-module-root (filepath)
-    (when-let ((dir (file-name-directory filepath))
-               (root (cl-some #'(lambda (target) (locate-dominating-file dir target)) '("go.mod" "package.json" "Cargo.toml"))))
-      (expand-file-name root)))
-
-  (setq lsp-bridge-get-project-path-by-filepath 'lsp-bridge-local-go-module-root)
-  (setq lsp-bridge-enable-diagnostics t)
-  (add-hook 'prog-mode-hook #'lsp-bridge-mode))
-
-;; cmake
-
 (use-package cmake-mode
   :defer t)
 
@@ -112,73 +60,40 @@
   :mode "\\.yaml$")
 
 ;; lisp
-(use-package slime
-  :disabled t
-  :defer t
-  :config
-  (setq inferior-lisp-program "/bin/sbcl")
-  (setq slime-contribs '(slime-fancy)))
+;; (use-package slime
+;;   :disabled t
+;;   :defer t
+;;   :config
+;;   (setq inferior-lisp-program "/bin/sbcl")
+;;   (setq slime-contribs '(slime-fancy)))
 
 ;; R
-(use-package ess
-  :disabled t
-  :defer t
-  :mode "\\.\\(r\\|R\\)$"
-  :config
-  (setq ess-ask-for-ess-directory nil)
-  (setq display-buffer-alist
-	`(("*R Dired"
-           (display-buffer-reuse-window display-buffer-in-side-window)
-           (side . right)
-           (slot . -1)
-           (window-width . 0.33)
-           (reusable-frames . nil))
-          ("*R"
-           (display-buffer-reuse-window display-buffer-at-bottom)
-           (window-width . 0.5)
-           (reusable-frames . nil)))))
+;; (use-package ess
+;;   :disabled t
+;;   :defer t
+;;   :mode "\\.\\(r\\|R\\)$"
+;;   :config
+;;   (setq ess-ask-for-ess-directory nil)
+;;   (setq display-buffer-alist
+;; 	`(("*R Dired"
+;;            (display-buffer-reuse-window display-buffer-in-side-window)
+;;            (side . right)
+;;            (slot . -1)
+;;            (window-width . 0.33)
+;;            (reusable-frames . nil))
+;;           ("*R"
+;;            (display-buffer-reuse-window display-buffer-at-bottom)
+;;            (window-width . 0.5)
+;;            (reusable-frames . nil)))))
 
 ;; python
 (use-package python
   :defer t
   :hook (python-mode . awesome-pair-mode)
-  :bind (:map python-mode-map
-	      ("C-<return>" . jupyter-eval-line-or-region)
-              ("M-\." . 'dumb-jump-go)
-              ("M-\," . 'dumb-jump-back))
   :config
-  (defun my-jupyter-next-line (insert)
-    (let ((status (use-region-p)))
-      (if status
-	  (goto-char (cdar (region-bounds)))
-	nil)
-      (beginning-of-line)
-      (next-line)
-      (end-of-line)
-      (if status (keyboard-quit) nil)))
+)
 
-  (advice-add 'jupyter-eval-line-or-region :after 'my-jupyter-next-line)
-
-  (defun my-hide-jupyter-windows ()
-    (interactive)
-    (let ((d (get-buffer-window "*jupyter-display*"))
-	  (r (get-buffer-window "*jupyter-result*"))
-	  (o (get-buffer-window "*jupyter-output*"))
-	  (tb (get-buffer-window "*jupyter-traceback*"))
-	  (e (get-buffer-window "*jupyter-error*")))
-      (cond
-       (d (delete-window d))
-       (r (delete-window r))
-       (o (delete-window o))
-       (tb (delete-window tb))
-       (e (delete-window e))
-       nil)))
-  ;; (advice-add 'keyboard-quit :before 'my-hide-jupyter-windows)
-  )
-
-(use-package pyvenv :after (python))
-
-(use-package jupyter :after (python))
+;; (use-package pyvenv :after (python))
 
 ;; julia
 (use-package julia-mode

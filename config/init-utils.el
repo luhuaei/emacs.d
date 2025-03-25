@@ -20,32 +20,32 @@
   :config
   (add-hook 'prog-mode-hook #'highlight-parentheses-mode))
 
-(use-package which-key
-  :diminish which-key-mode
-  :bind (:map help-map ("C-h" . which-key-C-h-dispatch))
-  :hook (ivy-mode . which-key-mode))
+;; (use-package which-key
+;;   :diminish which-key-mode
+;;   :bind (:map help-map ("C-h" . which-key-C-h-dispatch))
+;;   :hook (ivy-mode . which-key-mode))
 
-(use-package flyspell
-  :defer t
-  :diminish
-  :if (executable-find "aspell")
-  :hook (((text-mode outline-mode) . flyspell-mode)
-         (flyspell-mode . (lambda ()
-                            (dolist (key '("C-;" "C-," "C-."))
-                              (unbind-key key flyspell-mode-map)))))
-  :init
-  (setq flyspell-issue-message-flag nil
-        ispell-program-name "aspell"
-        ispell-extra-args '("--sug-mode=ultra" "--lang=en_US" "--run-together")))
+;; (use-package flyspell
+;;   :defer t
+;;   :diminish
+;;   :if (executable-find "aspell")
+;;   :hook (((text-mode outline-mode) . flyspell-mode)
+;;          (flyspell-mode . (lambda ()
+;;                             (dolist (key '("C-;" "C-," "C-."))
+;;                               (unbind-key key flyspell-mode-map)))))
+;;   :init
+;;   (setq flyspell-issue-message-flag nil
+;;         ispell-program-name "aspell"
+;;         ispell-extra-args '("--sug-mode=ultra" "--lang=en_US" "--run-together")))
 
-(use-package devremote
-  :defer t
-  :disabled
-  :bind (:map devremote-mode-map
-              ("<f12>" . 'devremote-transfer-current)
-  	      ("<f11>" . 'devremote-transfer-project)
-  	      ("M-<f12>" . 'devremote-compilation-project))
-  )
+;; (use-package devremote
+;;   :defer t
+;;   :disabled
+;;   :bind (:map devremote-mode-map
+;;               ("<f12>" . 'devremote-transfer-current)
+;;   	      ("<f11>" . 'devremote-transfer-project)
+;;   	      ("M-<f12>" . 'devremote-compilation-project))
+;;   )
 
 ;; attach package
 (use-package diminish
@@ -61,22 +61,22 @@
   :after (init)
   :bind ("C-=" . er/expand-region))
 
-(use-package rime
-  :after (init)
-  :custom
-  (default-input-method "rime")
-  (rime-show-candidate 'minibuffer)
-  :config
-  (define-key rime-mode-map (kbd "M-j") 'rime-force-enable)
-  (setq rime-user-data-dir "~/.config/fcitx5/rime/")
-  (setq rime-share-data-dir "/usr/share/rime-data/")
-  (setq rime-disable-predicates
-        '(rime-predicate-after-alphabet-char-p
-          rime-predicate-auto-english-p
-          rime-predicate-punctuation-after-space-cc-p
-          rime-predicate-punctuation-after-ascii-p
-          rime-predicate-space-after-cc-p
-          rime-predicate-prog-in-code-p)))
+;; (use-package rime
+;;   :after (init)
+;;   :custom
+;;   (default-input-method "rime")
+;;   (rime-show-candidate 'minibuffer)
+;;   :config
+;;   (define-key rime-mode-map (kbd "M-j") 'rime-force-enable)
+;;   (setq rime-user-data-dir "~/.config/fcitx5/rime/")
+;;   (setq rime-share-data-dir "/usr/share/rime-data/")
+;;   (setq rime-disable-predicates
+;;         '(rime-predicate-after-alphabet-char-p
+;;           rime-predicate-auto-english-p
+;;           rime-predicate-punctuation-after-space-cc-p
+;;           rime-predicate-punctuation-after-ascii-p
+;;           rime-predicate-space-after-cc-p
+;;           rime-predicate-prog-in-code-p)))
 
 ;; C-a to the first char not whitespacee
 (use-package crux
@@ -84,9 +84,9 @@
   :bind (("C-a" . crux-move-beginning-of-line)))
 
 ;; go to the last change
-(use-package goto-last-change
-  :after (init)
-  :bind (("C-:" . goto-last-change)))
+;; (use-package goto-last-change
+;;   :after (init)
+;;   :bind (("C-:" . goto-last-change)))
 
 (use-package auto-save
   :after (init)
@@ -129,7 +129,7 @@
   (define-key global-map (kbd "C-o") 'open-newline-below)
   (define-key global-map (kbd "C-S-o") 'open-newline-above))
 
-(use-package posframe :defer t)
+;; (use-package posframe :defer t)
 
 ;; search
 (use-package color-rg

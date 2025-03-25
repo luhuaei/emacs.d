@@ -1,10 +1,10 @@
-;; -*- lexical-binding: t; -*-
-(require 'colir)
-(require 'ivy)
-(require 'swiper)
-(require 'counsel)
-(require 'avy)
+;;; package --- Summary:-*- lexical-binding: t; -*-
+;;;
+;;; Commentary:
+(require 'company)
+(add-hook 'after-init-hook 'global-company-mode)
 
+(use-package counsel)
 (use-package ivy
   :diminish ivy-mode
   :hook (after-init . ivy-mode)
@@ -48,3 +48,4 @@
   (setq swiper-action-recenter nil))
 
 (provide 'init-buffer)
+;;;
